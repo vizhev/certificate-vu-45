@@ -1,0 +1,40 @@
+<resources>
+
+    <!--General-->
+    <string name="app_name">Certificate VU-45</string>
+
+    <!--Main Activity-->
+    <string name="main_title">SPRAVKA ABOUT TORMOZA</string>
+
+    <!--Result Element-->
+    <string name="result_stamp">Station stamp</string>
+    <string name="result_issue_time">Issue time</string>
+    <string name="result_locomotive_number">Locomotive, Series No.</string>
+    <string name="result_train_number">Train No.</string>
+    <string name="result_weight">weight</string>
+    <string name="result_total_axes">Total axes</string>
+    <string name="result_required">Required:</string>
+    <string name="result_pressing_brake">pressing pads in ft</string>
+    <string name="result_hand_brake">hand brakes in axles</string>
+    <string name="result_brake_pressure">Brake pressure on the axle, ft</string>
+    <string name="result_number_of_axes">Number of axles</string>
+    <string name="result_pressing_pads">Pressing pads, ft</string>
+    <string name="result_other_data">Other data</string>
+    <string name="result_twoplus" translatable="false">2.5</string>
+    <string name="result_threeplus" translatable="false">3.5</string>
+    <string name="result_five" translatable="false">5</string>
+    <string name="result_six" translatable="false">6</string>
+    <string name="result_sixplus" translatable="false">6.5</string>
+    <string name="result_seven" translatable="false">7</string>
+    <string name="result_eight" translatable="false">8</string>
+    <string name="result_nine" translatable="false">9</string>
+    <string name="result_ten" translatable="false">10</string>
+    <string name="result_twelve" translatable="false">12</string>
+    <string name="result_fifteen" translatable="false">15</string>
+    <string name="result_total">Total</string>
+    <string name="result_presence_brake">Presence of manual brake axes</string>
+    <string name="result_density_brake">Density of the brake network of the train</string>
+    <string name="result_tail_number">Tail wagon No.</string>
+
+
+</resources>

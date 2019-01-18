@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Справка ВУ-45</string>
+    <string name="main_title">СПРАВКА О ТОРМОЗАХ</string>
+    <string name="result_stamp">Штемпель станции</string>
+    <string name="result_issue_time">Время выдачи</string>
+    <string name="result_locomotive_number">Локомотив, серия №</string>
+    <string name="result_train_number">Поезд №</string>
+    <string name="result_weight">весом</string>
+    <string name="result_total_axes">Всего осей</string>
+    <string name="result_required">Требуется:</string>
+    <string name="result_pressing_brake">нажатие колодок в тс</string>
+    <string name="result_hand_brake">ручных тормозов в осях</string>
+    <string name="result_brake_pressure">Тормозное нажатие на ось, тс</string>
+    <string name="result_number_of_axes">Колиество осей</string>
+    <string name="result_pressing_pads">Нажатие колодок, тс</string>
+    <string name="result_other_data">Другие данные</string>
+    <string name="result_total">Всего</string>
+    <string name="result_presence_brake">Наличие ручных тормозных осей</string>
+    <string name="result_density_brake">Плотность тормозной сети поезда</string>
+    <string name="result_tail_number">Хвостовой вагон №</string>
+</resources>
