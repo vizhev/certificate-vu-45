@@ -20,4 +20,9 @@ class MainActivity : BaseActivity(), MainMvpView {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = presenter.onCreateAdapter()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.onDetach()
+    }
 }

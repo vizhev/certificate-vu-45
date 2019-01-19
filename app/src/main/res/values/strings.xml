@@ -20,6 +20,10 @@
     <string name="result_number_of_axes">Number of axles</string>
     <string name="result_pressing_pads">Pressing pads, ft</string>
     <string name="result_other_data">Other data</string>
+    <string name="result_total">Total</string>
+    <string name="result_presence_brake">Presence of manual brake axes</string>
+    <string name="result_density_brake">Density of the brake network of the train</string>
+    <string name="result_tail_number">Tail wagon No.</string>
     <string name="result_twoplus" translatable="false">2.5</string>
     <string name="result_threeplus" translatable="false">3.5</string>
     <string name="result_five" translatable="false">5</string>
@@ -31,10 +35,6 @@
     <string name="result_ten" translatable="false">10</string>
     <string name="result_twelve" translatable="false">12</string>
     <string name="result_fifteen" translatable="false">15</string>
-    <string name="result_total">Total</string>
-    <string name="result_presence_brake">Presence of manual brake axes</string>
-    <string name="result_density_brake">Density of the brake network of the train</string>
-    <string name="result_tail_number">Tail wagon No.</string>
 
 
 </resources>
