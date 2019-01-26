@@ -2,15 +2,27 @@
 
     <!--General-->
     <string name="app_name">Certificate VU-45</string>
+    <string name="title">REFERENCE BRAKES</string>
+    <string name="locomotive_series">Locomotive, Series No.</string>
+    <string name="train_number">Train No.</string>
+    <string name="tail_wagon_number">Tail wagon No.</string>
 
-    <!--Main Activity-->
-    <string name="main_title">SPRAVKA ABOUT TORMOZA</string>
+    <!--item_set_data_general-->
+    <string name="general_title">General information</string>
+    <string name="general_date">Date:</string>
+    <string name="general_locomotive_series">Locomotive, series No.:</string>
+    <string name="general_train_number">Train No.:</string>
+    <string name="general_tail_wagon_number">Tail wagon No.:</string>
 
-    <!--Result Element-->
+    <!--item_set_data_params-->
+    <string name="params_title">Parameters</string>
+    <string name="params_weight">Weight:</string>
+    <string name="params_total_axes">Total axes:</string>
+    <string name="params_pressing_pads">Pressing pads, ft:</string>
+
+    <!--item_result-->
     <string name="result_stamp">Station stamp</string>
     <string name="result_issue_time">Issue time</string>
-    <string name="result_locomotive_number">Locomotive, Series No.</string>
-    <string name="result_train_number">Train No.</string>
     <string name="result_weight">weight</string>
     <string name="result_total_axes">Total axes</string>
     <string name="result_required">Required:</string>
@@ -23,7 +35,14 @@
     <string name="result_total">Total</string>
     <string name="result_presence_brake">Presence of manual brake axes</string>
     <string name="result_density_brake">Density of the brake network of the train</string>
-    <string name="result_tail_number">Tail wagon No.</string>
+
+    <!--CalculationFragment-->
+    <string name="calculation_fragment_title">Calculate VU-45</string>
+
+    <!--SavedCertificatesFragment-->
+    <string name="saved_certificates_fragment_title">Saved certificates</string>
+
+    <!--DO NOT TRANSLATE-->
     <string name="result_twoplus" translatable="false">2.5</string>
     <string name="result_threeplus" translatable="false">3.5</string>
     <string name="result_five" translatable="false">5</string>
@@ -35,6 +54,5 @@
     <string name="result_ten" translatable="false">10</string>
     <string name="result_twelve" translatable="false">12</string>
     <string name="result_fifteen" translatable="false">15</string>
-
 
 </resources>

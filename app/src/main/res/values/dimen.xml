@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_view_margin">8dp</dimen>
+    <dimen name="item_content_padding_top">16dp</dimen>
+    <dimen name="item_content_padding_button">24dp</dimen>
 </resources>

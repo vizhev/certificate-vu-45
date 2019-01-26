@@ -5,27 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/card_view_margin"
+    android:animateLayoutChanges="true"
     android:clickable="true"
-    android:focusable="true"
-    android:animateLayoutChanges="true">
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="8dp">
+        android:paddingTop="@dimen/item_content_padding_top"
+        android:paddingBottom="@dimen/item_content_padding_button">
 
         <TextView
-            android:id="@+id/tv_set_data_title"
+            android:id="@+id/tv_general_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:gravity="center"
-            android:text="General information"
+            android:text="@string/general_title"
             android:textColor="?android:textColorPrimary"
             android:textSize="17sp"
             android:textStyle="bold" />
@@ -37,139 +38,138 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_set_data_general_date"
+                android:id="@+id/tv_general_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
                 android:gravity="center"
-                android:text="Date:"
+                android:text="@string/general_date"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_general_date"
+                app:layout_constraintBottom_toBottomOf="@+id/et_general_date"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_general_date" />
+                app:layout_constraintTop_toTopOf="@+id/et_general_date" />
 
             <EditText
-                android:id="@+id/et_set_data_general_date"
+                android:id="@+id/et_general_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/ic_background_rectangle"
                 android:ems="10"
                 android:gravity="center"
+                android:imeOptions="flagNoExtractUi"
                 android:inputType="date"
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_general_date"
-                app:layout_constraintTop_toTopOf="parent"
-                android:imeOptions="flagNoExtractUi" />
+                app:layout_constraintStart_toEndOf="@+id/tv_general_date"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_set_data_general_train"
+                android:id="@+id/tv_general_locomotive_series"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
                 android:gravity="center"
-                android:text="Locomotive Series:"
+                android:text="@string/general_locomotive_series"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_general_locomotive_series"
+                app:layout_constraintBottom_toBottomOf="@+id/et_general_locomotive_series"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_general_locomotive_series" />
+                app:layout_constraintTop_toTopOf="@+id/et_general_locomotive_series" />
 
             <EditText
-                android:id="@+id/et_set_data_general_locomotive_series"
+                android:id="@+id/et_general_locomotive_series"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/ic_background_rectangle"
                 android:ems="10"
                 android:gravity="center"
+                android:imeOptions="flagNoExtractUi"
                 android:inputType="text"
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_set_data_general_date"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_general_train"
-                app:layout_constraintTop_toBottomOf="@+id/et_set_data_general_date" />
+                app:layout_constraintEnd_toEndOf="@+id/et_general_date"
+                app:layout_constraintStart_toEndOf="@+id/tv_general_locomotive_series"
+                app:layout_constraintTop_toBottomOf="@+id/et_general_date" />
 
             <TextView
-                android:id="@+id/tv_set_data_general_locomotive_number"
+                android:id="@+id/tv_train_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:gravity="center"
-                android:text="Locomotive No.:"
+                android:text="@string/general_train_number"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_general_locomotive_number"
+                app:layout_constraintBottom_toBottomOf="@+id/et_train_number"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_general_locomotive_number" />
+                app:layout_constraintTop_toTopOf="@+id/et_train_number" />
 
             <EditText
-                android:id="@+id/et_set_data_general_locomotive_number"
+                android:id="@+id/et_train_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/ic_background_rectangle"
                 android:ems="10"
                 android:gravity="center"
+                android:imeOptions="flagNoExtractUi"
                 android:inputType="number"
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_set_data_general_locomotive_series"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_general_locomotive_number"
-                app:layout_constraintTop_toBottomOf="@+id/et_set_data_general_locomotive_series" />
+                app:layout_constraintEnd_toEndOf="@+id/et_general_locomotive_series"
+                app:layout_constraintStart_toEndOf="@+id/tv_train_number"
+                app:layout_constraintTop_toBottomOf="@+id/et_general_locomotive_series" />
 
             <TextView
-                android:id="@+id/tv_set_data_general_wagon_number"
+                android:id="@+id/tv_general_wagon_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:gravity="center"
-                android:text="Tail wagon No.:"
+                android:text="@string/general_tail_wagon_number"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_general_wagon_number"
+                app:layout_constraintBottom_toBottomOf="@+id/et_general_wagon_number"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_general_wagon_number" />
+                app:layout_constraintTop_toTopOf="@+id/et_general_wagon_number" />
 
             <EditText
-                android:id="@+id/et_set_data_general_wagon_number"
+                android:id="@+id/et_general_wagon_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/ic_background_rectangle"
                 android:ems="10"
                 android:gravity="center"
+                android:imeOptions="flagNoExtractUi"
                 android:inputType="number"
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_set_data_general_locomotive_number"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_general_wagon_number"
-                app:layout_constraintTop_toBottomOf="@+id/et_set_data_general_locomotive_number" />
+                app:layout_constraintEnd_toEndOf="@+id/et_train_number"
+                app:layout_constraintStart_toEndOf="@+id/tv_general_wagon_number"
+                app:layout_constraintTop_toBottomOf="@+id/et_train_number" />
 
         </android.support.constraint.ConstraintLayout>
 

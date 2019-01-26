@@ -1,31 +1,19 @@
 package org.vizhev.certificate.vu.fortyfive.ui.main
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
+import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBar
-import android.support.v7.widget.CardView
-import android.support.v7.widget.Toolbar
 import android.view.MenuItem
-import android.view.View
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_result.*
-import kotlinx.android.synthetic.main.item_set_data_general.*
-import kotlinx.android.synthetic.main.item_set_data_params.*
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.ui.base.BaseActivity
+import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
+import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesFragment
 
 class MainActivity : BaseActivity(), MainMvpView {
 
     private lateinit var mPresenter: MainMvpPresenter<MainMvpView>
-
-    private lateinit var mCvResult: CardView
-    private lateinit var mCvGeneral: CardView
-    private lateinit var mCvParams: CardView
-    private lateinit var mDrawerLayout: DrawerLayout
-    private lateinit var mFabCalculateResult: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,25 +23,22 @@ class MainActivity : BaseActivity(), MainMvpView {
         mPresenter = getActivityComponent().getMainPresenter()
         mPresenter.onAttach(this)
 
-        val toolbar: Toolbar = toolbar
         setSupportActionBar(toolbar)
-        val actionBar: ActionBar? = supportActionBar
-        actionBar?.apply {
+        supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeAsUpIndicator(R.drawable.ic_drawer_menu)
         }
 
-        mDrawerLayout = dl_main
-
-        mCvResult = cv_result
-        mCvGeneral = cv_set_data_general
-        mCvParams = cv_set_data_params
-
-        val onClickListener: View.OnClickListener = createOnClickListener()
-        mFabCalculateResult = fab_main_calculate.apply {
-            setOnClickListener(onClickListener)
+        navigation_view.apply {
+            setNavigationItemSelectedListener(createOnNavigationSelectListener())
         }
-        changeVisibility()
+
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.frame_layout_root, CalculationFragment(), CalculationFragment.TAG)
+                    .commit()
+        }
     }
 
     override fun onDestroy() {
@@ -62,46 +47,48 @@ class MainActivity : BaseActivity(), MainMvpView {
     }
 
     override fun onBackPressed() {
+        val isResultViewOpen = supportFragmentManager.fragments[0] is CalculationFragment &&
+                CalculationFragment.isResultViewOpen
         when {
-            mPresenter.isResultViewVisible() -> mPresenter.onCalculateResult()
-            mDrawerLayout.isDrawerOpen(GravityCompat.START) -> mDrawerLayout.closeDrawer(GravityCompat.START)
+            isResultViewOpen -> (supportFragmentManager.fragments[0] as CalculationFragment).onBackPressed()
+            drawer.isDrawerOpen(GravityCompat.START) -> drawer.closeDrawer(GravityCompat.START)
             else -> super.onBackPressed()
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when(item?.itemId) {
-            android.R.id.home ->  {
-                mDrawerLayout.openDrawer(GravityCompat.START)
+        return when (item?.itemId) {
+            android.R.id.home -> {
+                drawer.openDrawer(GravityCompat.START)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    override fun setResult(string: String) {
-        runOnUiThread {
-            changeVisibility()
+    private fun createOnNavigationSelectListener(): NavigationView.OnNavigationItemSelectedListener {
+        return NavigationView.OnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.drawer_item_calculator -> {
+                    supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.frame_layout_root, CalculationFragment(), CalculationFragment.TAG)
+                            .commit()
+                    true
+                }
+                R.id.drawer_item_saved_certificates -> {
+                    supportFragmentManager
+                            .beginTransaction()
+                            .replace(R.id.frame_layout_root, SavedCertificatesFragment(), SavedCertificatesFragment.TAG)
+                            .commit()
+                    true
+                }
+                else -> false
+            }
         }
     }
 
-    private fun changeVisibility() {
-        if (mPresenter.isResultViewVisible()) {
-            mFabCalculateResult.hide()
-            mCvGeneral.visibility = View.GONE
-            mCvParams.visibility = View.GONE
-            mCvResult.visibility = View.VISIBLE
-        } else {
-            mFabCalculateResult.show()
-            mCvGeneral.visibility = View.VISIBLE
-            mCvParams.visibility = View.VISIBLE
-            mCvResult.visibility = View.GONE
-        }
-    }
+    override fun startFragmentTransaction() {
 
-    private fun createOnClickListener(): View.OnClickListener {
-        return View.OnClickListener {
-            mPresenter.onCalculateResult()
-        }
     }
 }

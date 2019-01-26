@@ -4,10 +4,5 @@ import org.vizhev.certificate.vu.fortyfive.ui.base.MvpPresenter
 
 interface MainMvpPresenter<V : MainMvpView> : MvpPresenter<V> {
 
-    fun isResultViewVisible(): Boolean
-
-    fun onSetContent()
-
-    fun onCalculateResult()
 
 }

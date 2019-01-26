@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Справка ВУ-45</string>
-    <string name="main_title">СПРАВКА О ТОРМОЗАХ</string>
+    <string name="title">СПРАВКА О ТОРМОЗАХ</string>
+    <string name="locomotive_series">Локомотив, серия №</string>
+
+    <!--item_set_data_general-->
+    <string name="general_title">Общая информация</string>
+    <string name="general_date">Дата:</string>
+    <string name="general_locomotive_series">Локомотив, серия №:</string>
+    <string name="general_train_number">Поезд №:</string>
+    <string name="general_tail_wagon_number">Хвостовой вагон №:</string>
+
+    <!--item_set_data_params-->
+    <string name="params_title">Параметры</string>
+    <string name="params_weight">Вес:</string>
+    <string name="params_total_axes">Всего осей:</string>
+    <string name="params_pressing_pads">Нажатие колодок, тс:</string>
+
+    <!--CalculationFragment-->
+    <string name="calculation_fragment_title">Расчитать</string>
+
+    <!--SavedCertificatesFragment-->
+    <string name="saved_certificates_fragment_title">Сохранённые справки</string>
+
+    <!--item_result-->
     <string name="result_stamp">Штемпель станции</string>
     <string name="result_issue_time">Время выдачи</string>
-    <string name="result_locomotive_number">Локомотив, серия №</string>
-    <string name="result_train_number">Поезд №</string>
+    <string name="train_number">Поезд №</string>
     <string name="result_weight">весом</string>
     <string name="result_total_axes">Всего осей</string>
     <string name="result_required">Требуется:</string>
@@ -18,5 +39,5 @@
     <string name="result_total">Всего</string>
     <string name="result_presence_brake">Наличие ручных тормозных осей</string>
     <string name="result_density_brake">Плотность тормозной сети поезда</string>
-    <string name="result_tail_number">Хвостовой вагон №</string>
+    <string name="tail_wagon_number">Хвостовой вагон №</string>
 </resources>

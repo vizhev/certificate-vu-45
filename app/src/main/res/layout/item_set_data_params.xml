@@ -13,10 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="8dp">
+        android:paddingTop="@dimen/item_content_padding_top"
+        android:paddingBottom="@dimen/item_content_padding_button">
 
         <TextView
-            android:id="@+id/tv_set_data_params_title"
+            android:id="@+id/tv_params_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -25,11 +26,10 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Parameters"
+            android:text="@string/params_title"
             android:textColor="?android:textColorPrimary"
             android:textSize="17sp"
             android:textStyle="bold" />
-
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cl_set_data_params"
@@ -37,7 +37,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_set_data_params_weight"
+                android:id="@+id/tv_params_weight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -45,15 +45,15 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Weight:"
+                android:text="@string/params_weight"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_params_weight"
+                app:layout_constraintBottom_toBottomOf="@+id/et_params_weight"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_params_weight" />
+                app:layout_constraintTop_toTopOf="@+id/et_params_weight" />
 
             <EditText
-                android:id="@+id/et_set_data_params_weight"
+                android:id="@+id/et_params_weight"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -68,12 +68,13 @@
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
+                android:imeOptions="flagNoExtractUi"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_params_weight"
+                app:layout_constraintStart_toEndOf="@+id/tv_params_weight"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_set_data_params_total_axes"
+                android:id="@+id/tv_params_total_axes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -81,15 +82,15 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="Total axes:"
+                android:text="@string/params_total_axes"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_general_locomotive_series"
+                app:layout_constraintBottom_toBottomOf="@+id/et_params_total_axes"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_general_locomotive_series" />
+                app:layout_constraintTop_toTopOf="@+id/et_params_total_axes" />
 
             <EditText
-                android:id="@+id/et_set_data_general_locomotive_series"
+                android:id="@+id/et_params_total_axes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -102,26 +103,27 @@
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_set_data_params_weight"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_params_total_axes"
-                app:layout_constraintTop_toBottomOf="@+id/et_set_data_params_weight" />
+                android:imeOptions="flagNoExtractUi"
+                app:layout_constraintEnd_toEndOf="@+id/et_params_weight"
+                app:layout_constraintStart_toEndOf="@+id/tv_params_total_axes"
+                app:layout_constraintTop_toBottomOf="@+id/et_params_weight" />
 
             <TextView
-                android:id="@+id/tv_set_data_params_pressing_pads"
+                android:id="@+id/tv_params_pressing_pads"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:gravity="center"
-                android:text="Pressing pads, ft:"
+                android:text="@string/params_pressing_pads"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_general_locomotive_number"
+                app:layout_constraintBottom_toBottomOf="@+id/et_params_pressing_pads"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_general_locomotive_number" />
+                app:layout_constraintTop_toTopOf="@+id/et_params_pressing_pads" />
 
             <EditText
-                android:id="@+id/et_set_data_general_locomotive_number"
+                android:id="@+id/et_params_pressing_pads"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -134,12 +136,13 @@
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_set_data_general_locomotive_series"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_params_pressing_pads"
-                app:layout_constraintTop_toBottomOf="@+id/et_set_data_general_locomotive_series" />
+                android:imeOptions="flagNoExtractUi"
+                app:layout_constraintEnd_toEndOf="@+id/et_params_total_axes"
+                app:layout_constraintStart_toEndOf="@+id/tv_params_pressing_pads"
+                app:layout_constraintTop_toBottomOf="@+id/et_params_total_axes" />
 
-            <TextView
-                android:id="@+id/tv_set_data_general_wagon_number"
+           <!-- <TextView
+                android:id="@+id/tv_general_wagon_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -148,12 +151,12 @@
                 android:text="Tail wagon No.:"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_set_data_general_wagon_number"
+                app:layout_constraintBottom_toBottomOf="@+id/et_general_wagon_number"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_set_data_general_wagon_number" />
+                app:layout_constraintTop_toTopOf="@+id/et_general_wagon_number" />
 
             <EditText
-                android:id="@+id/et_set_data_general_wagon_number"
+                android:id="@+id/et_general_wagon_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -166,9 +169,10 @@
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_set_data_general_locomotive_number"
-                app:layout_constraintStart_toEndOf="@+id/tv_set_data_general_wagon_number"
-                app:layout_constraintTop_toBottomOf="@+id/et_set_data_general_locomotive_number" />
+                android:imeOptions="flagNoExtractUi"
+                app:layout_constraintEnd_toEndOf="@+id/et_params_pressing_pads"
+                app:layout_constraintStart_toEndOf="@+id/tv_general_wagon_number"
+                app:layout_constraintTop_toBottomOf="@+id/et_params_pressing_pads" />-->
 
         </android.support.constraint.ConstraintLayout>
 
