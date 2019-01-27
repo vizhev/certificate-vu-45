@@ -13,13 +13,20 @@ import org.vizhev.certificate.vu.fortyfive.ui.base.BaseFragment
 
 class CalculationFragment : BaseFragment() {
 
+    private lateinit var mPresenter: CalculationMvpPresenter<CalculationMvpView>
+
     companion object {
-        const val TAG: String = "MainFragment"
+        const val TAG: String = "CalculationFragment"
         var isResultViewOpen: Boolean = false
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_calculation, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        mPresenter = getActivityComponent().getCalculationPresenter()
     }
 
     override fun onStart() {

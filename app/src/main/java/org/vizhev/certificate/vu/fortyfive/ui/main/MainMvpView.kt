@@ -4,6 +4,6 @@ import org.vizhev.certificate.vu.fortyfive.ui.base.MvpView
 
 interface MainMvpView : MvpView {
 
-    fun startFragmentTransaction()
+    fun startFragmentTransaction(fragmentTag: String, action: String)
 
 }
