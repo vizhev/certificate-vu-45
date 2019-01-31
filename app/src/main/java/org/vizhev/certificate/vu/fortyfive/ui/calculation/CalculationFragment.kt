@@ -9,9 +9,10 @@ import kotlinx.android.synthetic.main.item_result.*
 import kotlinx.android.synthetic.main.item_set_data_general.*
 import kotlinx.android.synthetic.main.item_set_data_params.*
 import org.vizhev.certificate.vu.fortyfive.R
+import org.vizhev.certificate.vu.fortyfive.dataclasses.Parameters
 import org.vizhev.certificate.vu.fortyfive.ui.base.BaseFragment
 
-class CalculationFragment : BaseFragment() {
+class CalculationFragment : BaseFragment(), CalculationMvpView {
 
     private lateinit var mPresenter: CalculationMvpPresenter<CalculationMvpView>
 
@@ -27,6 +28,7 @@ class CalculationFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mPresenter = getActivityComponent().getCalculationPresenter()
+        mPresenter.onAttach(this)
     }
 
     override fun onStart() {
@@ -42,8 +44,23 @@ class CalculationFragment : BaseFragment() {
         setViewsVisibility()
     }
 
+    override fun getInputData(): Parameters {
+        val parameters = Parameters()
+        parameters.date = et_general_date.text.toString()
+        parameters.locomotiveSeries = et_general_locomotive_series.text.toString()
+        parameters.trainNumber = et_general_train_number.text.toString()
+        parameters.tailWagonNumber = et_general_tail_wagon_number.text.toString()
+        return parameters
+    }
+
+    override fun setResult(parameters: Parameters) {
+        tv_result_date.text = parameters.date
+        tv_result_locomotive_series.text = parameters.locomotiveSeries
+    }
+
     private fun createOnClickListener(): View.OnClickListener {
         return View.OnClickListener {
+            mPresenter.onCalculateResult()
             isResultViewOpen = true
             setViewsVisibility()
         }

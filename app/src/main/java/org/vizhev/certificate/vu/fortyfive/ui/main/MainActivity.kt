@@ -1,11 +1,11 @@
 package org.vizhev.certificate.vu.fortyfive.ui.main
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.app.FragmentTransaction
-import android.support.v4.view.GravityCompat
 import android.view.MenuItem
 import android.view.WindowManager
+import androidx.core.view.GravityCompat
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.ui.base.BaseActivity

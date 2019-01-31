@@ -1,7 +1,7 @@
 package org.vizhev.certificate.vu.fortyfive.ui.base
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import org.vizhev.certificate.vu.fortyfive.App
 import org.vizhev.certificate.vu.fortyfive.di.components.ActivityComponent
 import org.vizhev.certificate.vu.fortyfive.di.components.DaggerActivityComponent

@@ -2,17 +2,13 @@
 
     <!--General-->
     <string name="app_name">Certificate VU-45</string>
-    <string name="title">REFERENCE BRAKES</string>
-    <string name="locomotive_series">Locomotive, Series No.</string>
-    <string name="train_number">Train No.</string>
-    <string name="tail_wagon_number">Tail wagon No.</string>
 
     <!--item_set_data_general-->
     <string name="general_title">General information</string>
     <string name="general_date">Date:</string>
     <string name="general_locomotive_series">Locomotive, series No.:</string>
     <string name="general_train_number">Train No.:</string>
-    <string name="general_tail_wagon_number">Tail wagon No.:</string>
+    <string name="general_tail_wagon_number">Last wagon No.:</string>
 
     <!--item_set_data_params-->
     <string name="params_title">Parameters</string>
@@ -21,6 +17,10 @@
     <string name="params_pressing_pads">Pressing pads, ft:</string>
 
     <!--item_result-->
+    <string name="title">REFERENCE BRAKES</string>
+    <string name="locomotive_series">Locomotive, Series No.</string>
+    <string name="train_number">Train No.</string>
+    <string name="tail_wagon_number">Last wagon No.</string>
     <string name="result_stamp">Station stamp</string>
     <string name="result_issue_time">Issue time</string>
     <string name="result_weight">weight</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cv_set_data_general"
     android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:textStyle="bold" />
 
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_set_data_general"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -115,12 +115,12 @@
                 android:text="@string/general_train_number"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_train_number"
+                app:layout_constraintBottom_toBottomOf="@+id/et_general_train_number"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_train_number" />
+                app:layout_constraintTop_toTopOf="@+id/et_general_train_number" />
 
             <EditText
-                android:id="@+id/et_train_number"
+                android:id="@+id/et_general_train_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -148,12 +148,12 @@
                 android:text="@string/general_tail_wagon_number"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="@+id/et_general_wagon_number"
+                app:layout_constraintBottom_toBottomOf="@+id/et_general_tail_wagon_number"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/et_general_wagon_number" />
+                app:layout_constraintTop_toTopOf="@+id/et_general_tail_wagon_number" />
 
             <EditText
-                android:id="@+id/et_general_wagon_number"
+                android:id="@+id/et_general_tail_wagon_number"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -167,12 +167,12 @@
                 android:padding="4dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/et_train_number"
+                app:layout_constraintEnd_toEndOf="@+id/et_general_train_number"
                 app:layout_constraintStart_toEndOf="@+id/tv_general_wagon_number"
-                app:layout_constraintTop_toBottomOf="@+id/et_train_number" />
+                app:layout_constraintTop_toBottomOf="@+id/et_general_train_number" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>

@@ -10,13 +10,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cv_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/card_view_margin">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:context=".ui.base.MainActivity">
@@ -148,7 +148,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_date" />
 
                 <TextView
-                    android:id="@+id/tv_result_locomotive"
+                    android:id="@+id/tv_result_locomotive_series"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -176,7 +176,7 @@
                     android:textColor="?android:textColorPrimary"
                     app:layout_constraintEnd_toStartOf="@+id/tv_result_train_title"
                     app:layout_constraintStart_toEndOf="@+id/tv_result_locomotive_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_locomotive" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_locomotive_series" />
 
                 <TextView
                     android:id="@+id/tv_result_train_title"
@@ -188,10 +188,10 @@
                     android:textColor="?android:textColorPrimary"
                     app:layout_constraintBottom_toBottomOf="@+id/divider_result_train"
                     app:layout_constraintEnd_toStartOf="@+id/divider_result_train"
-                    app:layout_constraintTop_toTopOf="@+id/tv_result_locomotive" />
+                    app:layout_constraintTop_toTopOf="@+id/tv_result_locomotive_series" />
 
                 <TextView
-                    android:id="@+id/tv_result_train"
+                    android:id="@+id/tv_result_train_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -1110,9 +1110,9 @@
                     app:layout_constraintStart_toStartOf="@+id/divider_result_tail_number"
                     tools:text="1520" />
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

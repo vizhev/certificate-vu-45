@@ -1,7 +1,7 @@
 package org.vizhev.certificate.vu.fortyfive.ui.base
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import org.vizhev.certificate.vu.fortyfive.di.components.ActivityComponent
 
 abstract class BaseFragment : Fragment() {

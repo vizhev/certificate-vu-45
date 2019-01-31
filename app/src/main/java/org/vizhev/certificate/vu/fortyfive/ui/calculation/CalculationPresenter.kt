@@ -4,5 +4,7 @@ import org.vizhev.certificate.vu.fortyfive.ui.base.BasePresenter
 
 class CalculationPresenter<V : CalculationMvpView> : BasePresenter<V>(), CalculationMvpPresenter<V> {
 
-
+    override fun onCalculateResult() {
+        getView()!!.setResult(getView()!!.getInputData())
+    }
 }
