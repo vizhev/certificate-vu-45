@@ -26,6 +26,8 @@
 
             <include layout="@layout/item_result" />
 
+            <include layout="@layout/item_set_data_axes" />
+
         </LinearLayout>
 
     </ScrollView>

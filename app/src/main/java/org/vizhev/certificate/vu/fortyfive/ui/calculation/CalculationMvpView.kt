@@ -1,11 +1,11 @@
 package org.vizhev.certificate.vu.fortyfive.ui.calculation
 
-import org.vizhev.certificate.vu.fortyfive.dataclasses.Parameters
+import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
 import org.vizhev.certificate.vu.fortyfive.ui.base.MvpView
 
 interface CalculationMvpView : MvpView {
 
-    fun getInputData(): Parameters
+    fun getInputData(): CertificateData
 
-    fun setResult(parameters: Parameters)
+    fun setResult(certificateData: CertificateData)
 }

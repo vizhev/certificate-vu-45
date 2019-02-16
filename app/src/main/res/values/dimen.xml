@@ -3,4 +3,6 @@
     <dimen name="card_view_margin">8dp</dimen>
     <dimen name="item_content_padding_top">16dp</dimen>
     <dimen name="item_content_padding_button">24dp</dimen>
+    <dimen name="item_set_data_axes_margin_start">16dp</dimen>
+    <dimen name="item_set_data_axes_margin_end">16dp</dimen>
 </resources>

@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">Справка ВУ-45</string>
 
+    <!--item_set_data_axes-->
+    <string name="axes_title">Оси</string>
+
     <!--item_set_data_general-->
     <string name="general_title">Общая информация</string>
     <string name="general_date">Дата:</string>
@@ -13,17 +16,12 @@
     <string name="params_title">Параметры</string>
     <string name="params_weight">Вес:</string>
     <string name="params_total_axes">Всего осей:</string>
-    <string name="params_pressing_pads">Нажатие колодок, тс:</string>
-
-    <!--CalculationFragment-->
-    <string name="calculation_fragment_title">Расчитать</string>
-
-    <!--SavedCertificatesFragment-->
-    <string name="saved_certificates_fragment_title">Сохранённые справки</string>
+    <string name="params_pressing_pads">Нажатие:</string>
+    <string name="params_slop_ratio">Коэфициент уклона:</string>
 
     <!--item_result-->
     <string name="title">СПРАВКА О ТОРМОЗАХ</string>
-    <string name="locomotive_series">Локомотив, серия №</string>
+    <string name="locomotive_series">Локомотив, №</string>
     <string name="result_stamp">Штемпель станции</string>
     <string name="result_issue_time">Время выдачи</string>
     <string name="train_number">Поезд №</string>
@@ -40,4 +38,11 @@
     <string name="result_presence_brake">Наличие ручных тормозных осей</string>
     <string name="result_density_brake">Плотность тормозной сети поезда</string>
     <string name="tail_wagon_number">Хвостовой вагон №</string>
+
+    <!--CalculationFragment-->
+    <string name="calculation_fragment_title">Расчитать</string>
+
+    <!--SavedCertificatesFragment-->
+    <string name="saved_certificates_fragment_title">Сохранённые справки</string>
+
 </resources>

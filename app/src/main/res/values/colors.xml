@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#b71c1c</color>
     <color name="colorAccent">#dd2c00</color>
     <color name="colorBackgroundEditText">#DAE1E7</color>
+    <color name="colorInputDataText">#304FFE</color>
 </resources>

@@ -14,11 +14,15 @@
     <string name="params_title">Parameters</string>
     <string name="params_weight">Weight:</string>
     <string name="params_total_axes">Total axes:</string>
-    <string name="params_pressing_pads">Pressing pads, ft:</string>
+    <string name="params_pressing_pads">Pressing:</string>
+    <string name="params_slop_ratio">Slop ratio:</string>
+
+    <!--item_set_data_axes-->
+    <string name="axes_title">Axes</string>
 
     <!--item_result-->
     <string name="title">REFERENCE BRAKES</string>
-    <string name="locomotive_series">Locomotive, Series No.</string>
+    <string name="locomotive_series">Locomotive, No.</string>
     <string name="train_number">Train No.</string>
     <string name="tail_wagon_number">Last wagon No.</string>
     <string name="result_stamp">Station stamp</string>
@@ -42,14 +46,16 @@
     <!--SavedCertificatesFragment-->
     <string name="saved_certificates_fragment_title">Saved certificates</string>
 
+
     <!--DO NOT TRANSLATE-->
-    <string name="result_twoplus" translatable="false">2.5</string>
-    <string name="result_threeplus" translatable="false">3.5</string>
+    <string name="result_two_and_half" translatable="false">2.5</string>
+    <string name="result_three_and_half" translatable="false">3.5</string>
     <string name="result_five" translatable="false">5</string>
     <string name="result_six" translatable="false">6</string>
-    <string name="result_sixplus" translatable="false">6.5</string>
+    <string name="result_six_and_half" translatable="false">6.5</string>
     <string name="result_seven" translatable="false">7</string>
     <string name="result_eight" translatable="false">8</string>
+    <string name="result_eight_and_half" translatable="false">8.5</string>
     <string name="result_nine" translatable="false">9</string>
     <string name="result_ten" translatable="false">10</string>
     <string name="result_twelve" translatable="false">12</string>

@@ -118,7 +118,7 @@
                     android:layout_marginRight="32dp"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -157,7 +157,7 @@
                     android:layout_marginRight="8dp"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/tv_result_train_title"
                     app:layout_constraintStart_toEndOf="@+id/tv_result_locomotive_title"
@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/divider_result_train"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_train"
@@ -233,7 +233,7 @@
                     android:layout_marginRight="8dp"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_result_weight_title"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_weight"
@@ -265,12 +265,12 @@
                     app:layout_constraintEnd_toStartOf="@+id/divider_result_axes" />
 
                 <TextView
-                    android:id="@+id/tv_result_axes"
+                    android:id="@+id/tv_result_total_axes"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_result_axes_title"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_axes"
@@ -313,7 +313,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_result_pressing_brake_title"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_pressing_brake"
@@ -348,7 +348,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/divider_result_hand_brakes"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_hand_brakes"
@@ -421,101 +421,101 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
-                    android:id="@+id/tv_result_twoplus_title"
+                    android:id="@+id/tv_result_two_and_half_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
-                    android:text="@string/result_twoplus"
+                    android:text="@string/result_two_and_half"
                     android:textColor="?android:textColorPrimary"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_brake_pressure"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_brake_pressure"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_brake_pressure" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_twoplus"
+                    android:id="@+id/tv_result_axles_two_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_number_of_axes_title"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_number_of_axes_title"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_number_of_axes_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_pressing_pads_twoplus"
+                    android:id="@+id/tv_result_pressing_pads_two_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_title"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_title"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_other_data_twoplus"
+                    android:id="@+id/tv_result_other_data_two_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_title"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_title"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_threeplus_title"
+                    android:id="@+id/tv_result_three_and_plus_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
-                    android:text="@string/result_threeplus"
+                    android:text="@string/result_three_and_half"
                     android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_twoplus_title"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_twoplus_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_twoplus_title" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_two_and_half_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_two_and_half_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_two_and_half_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_threeplus"
+                    android:id="@+id/tv_result_axles_three_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_twoplus"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_twoplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_twoplus" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_two_and_plus"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_two_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_two_and_plus" />
 
                 <TextView
-                    android:id="@+id/tv_result_pressing_pads_threeplus"
+                    android:id="@+id/tv_result_pressing_pads_three_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_twoplus"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_twoplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_twoplus" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_two_and_plus"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_two_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_two_and_plus" />
 
                 <TextView
-                    android:id="@+id/tv_result_other_data_threeplus"
+                    android:id="@+id/tv_result_other_data_three_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_twoplus"
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_two_and_plus"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_twoplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_twoplus" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_two_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_two_and_plus" />
 
                 <TextView
                     android:id="@+id/tv_result_five_title"
@@ -525,9 +525,9 @@
                     android:gravity="center"
                     android:text="@string/result_five"
                     android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_threeplus_title"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_threeplus_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_threeplus_title" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_three_and_plus_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_three_and_plus_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_three_and_plus_title" />
 
                 <TextView
                     android:id="@+id/tv_result_axles_five"
@@ -536,10 +536,10 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_threeplus"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_threeplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_threeplus" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_three_and_plus"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_three_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_three_and_plus" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_five"
@@ -548,10 +548,10 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_threeplus"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_threeplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_threeplus" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_three_and_plus"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_three_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_three_and_plus" />
 
                 <TextView
                     android:id="@+id/tv_result_other_data_five"
@@ -560,11 +560,11 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_threeplus"
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_three_and_plus"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_threeplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_threeplus" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_three_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_three_and_plus" />
 
                 <TextView
                     android:id="@+id/tv_result_six_title"
@@ -585,7 +585,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_five"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_axles_five"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_five" />
@@ -597,7 +597,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_five"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_five"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_five" />
@@ -609,7 +609,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_five"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_five"
@@ -617,49 +617,49 @@
 
 
                 <TextView
-                    android:id="@+id/tv_result_sixplus_title"
+                    android:id="@+id/tv_result_six_and_plus_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
-                    android:text="@string/result_sixplus"
+                    android:text="@string/result_six_and_half"
                     android:textColor="?android:textColorPrimary"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_six_title"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_six_title"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_six_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_sixplus"
+                    android:id="@+id/tv_result_axles_six_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_six"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_axles_six"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_six" />
 
                 <TextView
-                    android:id="@+id/tv_result_pressing_pads_sixplus"
+                    android:id="@+id/tv_result_pressing_pads_six_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_six"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_six"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_six" />
 
                 <TextView
-                    android:id="@+id/tv_result_other_data_sixplus"
+                    android:id="@+id/tv_result_other_data_six_and_plus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_six"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_six"
@@ -673,9 +673,9 @@
                     android:gravity="center"
                     android:text="@string/result_seven"
                     android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_sixplus_title"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_sixplus_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_sixplus_title" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_six_and_plus_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_six_and_plus_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_six_and_plus_title" />
 
                 <TextView
                     android:id="@+id/tv_result_axles_seven"
@@ -684,10 +684,10 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_sixplus"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_sixplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_sixplus" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_six_and_plus"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_six_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_six_and_plus" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_seven"
@@ -696,10 +696,10 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_sixplus"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_sixplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_sixplus" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_six_and_plus"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_six_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_six_and_plus" />
 
                 <TextView
                     android:id="@+id/tv_result_other_data_seven"
@@ -708,11 +708,11 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_sixplus"
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_six_and_plus"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_sixplus"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_sixplus" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_six_and_plus"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_six_and_plus" />
 
                 <TextView
                     android:id="@+id/tv_result_eight_title"
@@ -733,7 +733,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_seven"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_axles_seven"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_seven" />
@@ -745,7 +745,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_seven"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_seven"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_seven" />
@@ -757,11 +757,60 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_seven"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_seven"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_seven" />
+
+                <TextView
+                    android:id="@+id/tv_result_eight_and_half_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:gravity="center"
+                    android:text="@string/result_eight_and_half"
+                    android:textColor="?android:textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_eight_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_eight_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_eight_title" />
+
+                <TextView
+                    android:id="@+id/tv_result_axles_eight_and_half"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_eight"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_eight"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_eight" />
+
+                <TextView
+                    android:id="@+id/tv_result_pressing_pads_eight_and_half"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_eight"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_eight"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_eight" />
+
+                <TextView
+                    android:id="@+id/tv_result_other_data_eight_and_half"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_eight"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_eight"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_eight" />
 
                 <TextView
                     android:id="@+id/tv_result_nine_title"
@@ -771,9 +820,9 @@
                     android:gravity="center"
                     android:text="@string/result_nine"
                     android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_eight_title"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_eight_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_eight_title" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_eight_and_half_title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_eight_and_half_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_eight_and_half_title" />
 
                 <TextView
                     android:id="@+id/tv_result_axles_nine"
@@ -782,10 +831,10 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_eight"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_eight"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_eight" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_eight_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_eight_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_eight_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_nine"
@@ -794,10 +843,10 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_eight"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_eight"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_eight" />
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_eight_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_eight_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_eight_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_other_data_nine"
@@ -806,11 +855,11 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_eight"
+                    android:textColor="@color/colorInputDataText"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_eight_and_half"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_eight"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_eight" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_eight_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_eight_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_ten_title"
@@ -831,7 +880,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_nine"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_axles_nine"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_nine" />
@@ -843,7 +892,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_nine"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_nine"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_nine" />
@@ -855,7 +904,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_nine"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_nine"
@@ -880,7 +929,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_ten"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_axles_ten"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_ten" />
@@ -892,7 +941,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_ten"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_ten"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_ten" />
@@ -904,7 +953,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_ten"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_ten"
@@ -929,7 +978,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_twelve"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_axles_twelve"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_twelve" />
@@ -941,7 +990,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_twelve"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_twelve"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_twelve" />
@@ -953,7 +1002,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_twelve"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_twelve"
@@ -978,7 +1027,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_fifteen"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_axles_fifteen"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_fifteen" />
@@ -990,7 +1039,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_fifteen"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_fifteen"
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_fifteen" />
@@ -1002,7 +1051,7 @@
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_fifteen"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_fifteen"
@@ -1037,7 +1086,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/divider_result_presence_brake"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_presence_brake"
@@ -1069,7 +1118,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/divider_result_density_brake"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_density_brake"
@@ -1098,12 +1147,12 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_result_tail_number_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_tail_number"
+                    android:id="@+id/tv_result_last_wagon_number"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:textColor="?android:textColorPrimary"
+                    android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/divider_result_tail_number"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_tail_number"

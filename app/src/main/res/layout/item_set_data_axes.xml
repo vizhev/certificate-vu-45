@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cv_set_data_axes"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/card_view_margin"
+    android:animateLayoutChanges="true"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/item_content_padding_top"
+        android:paddingBottom="@dimen/item_content_padding_button">
+
+        <TextView
+            android:id="@+id/tv_axes_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="@string/axes_title"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:id="@+id/cl_set_data_general"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center"
+                    android:text="@string/result_two_and_half"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_two_and_half"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result_three_and_half"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_three_and_half"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="date"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center"
+                    android:text="@string/result_five"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_five"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result_six"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_six"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="date"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center"
+                    android:text="@string/result_six_and_half"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_six_and_half"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result_seven"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_seven"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="date"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center"
+                    android:text="@string/result_eight"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_eight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result_eight_and_half"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_eight_and_half"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="date"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center"
+                    android:text="@string/result_nine"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_nine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result_ten"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="date"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center"
+                    android:text="@string/result_twelve"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_twelve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="numberDecimal"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result_fifteen"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_fifteen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="date"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

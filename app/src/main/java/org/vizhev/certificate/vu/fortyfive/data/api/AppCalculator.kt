@@ -1,5 +1,6 @@
 package org.vizhev.certificate.vu.fortyfive.data.api
 
+//TODO implement calculation
 class AppCalculator : Calculator {
 
     private var coefficient: Double = 0.0
@@ -46,5 +47,9 @@ class AppCalculator : Calculator {
 
     private fun calculateEffortFact(): Int {
         return 0
+    }
+
+    private fun convertToDouble(value: String): Double {
+        return 0.0
     }
 }

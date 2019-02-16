@@ -11,7 +11,6 @@ abstract class BaseFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mActivityComponent = (activity as BaseActivity).getActivityComponent()
-        retainInstance = true
     }
 
     protected fun getActivityComponent(): ActivityComponent = mActivityComponent
