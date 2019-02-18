@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_calculation.*
 import kotlinx.android.synthetic.main.item_result.*
-import kotlinx.android.synthetic.main.item_set_data_axes.*
 import kotlinx.android.synthetic.main.item_set_data_general.*
 import kotlinx.android.synthetic.main.item_set_data_params.*
 import org.vizhev.certificate.vu.fortyfive.R
@@ -35,7 +34,7 @@ class CalculationFragment : BaseFragment(), CalculationMvpView {
     override fun onStart() {
         super.onStart()
         setViewsVisibility()
-        fab_main_calculate.apply {
+        btn_main_calculate.apply {
             setOnClickListener(createOnClickListener())
         }
     }
@@ -47,13 +46,11 @@ class CalculationFragment : BaseFragment(), CalculationMvpView {
 
     override fun getInputData(): CertificateData {
         val certificateData = CertificateData()
-        certificateData.date = et_general_date.text.toString()
         certificateData.locomotiveSeries = et_general_locomotive_series.text.toString()
         certificateData.trainNumber = et_general_train_number.text.toString()
         certificateData.lastWagonNumber = et_general_tail_wagon_number.text.toString()
         certificateData.weight = et_params_weight.text.toString()
-        certificateData.totalAxes = et_params_total_axes.text.toString()
-        certificateData.pressingPads = et_params_pressing_pads.text.toString()
+        certificateData.isLoaded = rg_params.checkedRadioButtonId == R.id.rb_params_loaded
         return certificateData
     }
 
@@ -80,17 +77,17 @@ class CalculationFragment : BaseFragment(), CalculationMvpView {
 
     private fun setViewsVisibility() {
         if (isResultViewOpen) {
+            sv_calculation.smoothScrollTo(0, 0)
             cv_set_data_general.visibility = View.GONE
             cv_set_data_params.visibility = View.GONE
-            cv_set_data_axes.visibility = View.GONE
+            btn_main_calculate.visibility = View.GONE
             cv_result.visibility = View.VISIBLE
-            fab_main_calculate.hide()
         } else {
             cv_set_data_general.visibility = View.VISIBLE
             cv_set_data_params.visibility = View.VISIBLE
-            cv_set_data_axes.visibility = View.VISIBLE
+            btn_main_calculate.visibility = View.VISIBLE
             cv_result.visibility = View.GONE
-            fab_main_calculate.show()
         }
+        sv_calculation.smoothScrollTo(0, 0)
     }
 }

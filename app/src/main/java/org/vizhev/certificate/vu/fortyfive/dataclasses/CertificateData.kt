@@ -27,7 +27,8 @@ data class CertificateData(
         var brakePressureTwelve: String = "",
         var brakePressureFifteen: String = "",
         var padsRequired: String = "",
-        var handBrakesRequired: String = ""
+        var handBrakesRequired: String = "",
+        var isLoaded: Boolean = false
 ) : Persistable {
 
     companion object {

@@ -235,12 +235,12 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:gravity="center"
-                    android:text="@string/result_eight"
+                    android:text="@string/result_seven_and_half"
                     android:textColor="?android:textColorPrimary"
                     android:textSize="17sp" />
 
                 <EditText
-                    android:id="@+id/et_axes_eight"
+                    android:id="@+id/et_axes_seven_and_half"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
@@ -261,6 +261,42 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/result_eight"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="17sp" />
+
+                <EditText
+                    android:id="@+id/et_axes_eight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
+                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
+                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
+                    android:layout_weight="10"
+                    android:background="@drawable/ic_background_rectangle"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="date"
+                    android:maxLength="4"
+                    android:padding="4dp"
+                    android:textColor="@color/colorInputDataText"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
                     android:gravity="center"
                     android:text="@string/result_eight_and_half"
                     android:textColor="?android:textColorPrimary"
@@ -279,24 +315,15 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:padding="4dp"
                     android:textColor="@color/colorInputDataText"
                     android:textSize="18sp" />
 
-            </TableRow>
-
-            <TableRow
-                android:layout_marginTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
                     android:gravity="center"
                     android:text="@string/result_nine"
                     android:textColor="?android:textColorPrimary"
@@ -315,33 +342,6 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="numberDecimal"
-                    android:maxLength="4"
-                    android:padding="4dp"
-                    android:textColor="@color/colorInputDataText"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/result_ten"
-                    android:textColor="?android:textColorPrimary"
-                    android:textSize="17sp" />
-
-                <EditText
-                    android:id="@+id/et_axes_ten"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
-                    android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
-                    android:layout_marginEnd="@dimen/item_set_data_axes_margin_end"
-                    android:layout_marginRight="@dimen/item_set_data_axes_margin_end"
-                    android:layout_weight="10"
-                    android:background="@drawable/ic_background_rectangle"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:imeOptions="flagNoExtractUi"
                     android:inputType="date"
                     android:maxLength="4"
                     android:padding="4dp"
@@ -361,12 +361,12 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:gravity="center"
-                    android:text="@string/result_twelve"
+                    android:text="@string/result_ten"
                     android:textColor="?android:textColorPrimary"
                     android:textSize="17sp" />
 
                 <EditText
-                    android:id="@+id/et_axes_twelve"
+                    android:id="@+id/et_axes_ten"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
@@ -388,12 +388,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/result_fifteen"
+                    android:text="@string/result_twelve"
                     android:textColor="?android:textColorPrimary"
                     android:textSize="17sp" />
 
                 <EditText
-                    android:id="@+id/et_axes_fifteen"
+                    android:id="@+id/et_axes_twelve"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/item_set_data_axes_margin_start"
