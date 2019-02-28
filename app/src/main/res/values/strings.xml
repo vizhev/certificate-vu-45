@@ -1,26 +1,96 @@
 <resources>
 
-    <!--General-->
-    <string name="app_name">Certificate VU-45</string>
+    <string name="app_name">Справка ВУ-45</string>
+
+    <!--MainMenu-->
+    <string name="menu_main_clear">Очистить значения</string>
+    <string name="menu_main_save">Сохранить справку</string>
+    <string name="menu_main_delete">Удалить справку</string>
+    <string name="menu_main_settings">Настройки</string>
+    <string name="menu_main_about">О приложении</string>
+
+    <!--CalculationFragment-->
+    <string name="calculation_fragment_title">Расчитать</string>
 
     <!--item_set_data_general-->
+    <string name="general_title">Общая информация</string>
+    <string name="general_date">Дата:</string>
+    <string name="general_locomotive_series">Локомотив, серия №:</string>
+    <string name="general_train_number">Поезд №:</string>
+    <string name="general_tail_wagon_number">Хвостовой вагон №:</string>
+
+    <!--item_set_data_params-->
+    <string name="params_title">Параметры</string>
+    <string name="params_type">Тип:</string>
+    <string name="params_type_loaded">груженный</string>
+    <string name="params_type_empty">порожний</string>
+    <string name="params_weight">Вес:</string>
+    <string name="params_total_axes">Всего осей:</string>
+    <string name="params_pressing_pads">Нажатие:</string>
+    <string name="params_slop_ratio">Коэфициент уклона:</string>
+
+    <!--item_result-->
+    <string name="title">СПРАВКА О ТОРМОЗАХ</string>
+    <string name="locomotive_series">Локомотив, №</string>
+    <string name="result_stamp">Штемпель станции</string>
+    <string name="result_issue_time">Время выдачи</string>
+    <string name="train_number">Поезд №</string>
+    <string name="result_weight">весом</string>
+    <string name="result_total_axes">Всего осей</string>
+    <string name="result_required">Требуется:</string>
+    <string name="result_pressing_brake">нажатие колодок в тс</string>
+    <string name="result_hand_brake">ручных тормозов в осях</string>
+    <string name="result_brake_pressure">Тормозное нажатие на ось, тс</string>
+    <string name="result_number_of_axes">Колиество осей</string>
+    <string name="result_pressing_pads">Нажатие колодок, тс</string>
+    <string name="result_other_data">Другие данные</string>
+    <string name="result_total">Всего</string>
+    <string name="result_presence_brake">Наличие ручных тормозных осей</string>
+    <string name="result_density_brake">Плотность тормозной сети поезда</string>
+    <string name="tail_wagon_number">Хвостовой вагон №</string>
+
+    <!--SavedCertificatesFragment-->
+    <string name="saved_certificates_fragment_title">Сохранённые справки</string>
+
+
+    <!--DO NOT TRANSLATE-->
+    <string name="result_two_and_half" translatable="false">2.5</string>
+    <string name="result_three_and_half" translatable="false">3.5</string>
+    <string name="result_five" translatable="false">5</string>
+    <string name="result_six" translatable="false">6</string>
+    <string name="result_six_and_half" translatable="false">6.5</string>
+    <string name="result_seven" translatable="false">7</string>
+    <string name="result_seven_and_half" translatable="false">7.5</string>
+    <string name="result_eight" translatable="false">8</string>
+    <string name="result_eight_and_half" translatable="false">8.5</string>
+    <string name="result_nine" translatable="false">9</string>
+    <string name="result_ten" translatable="false">10</string>
+    <string name="result_twelve" translatable="false">12</string>
+    <string name="result_fifteen" translatable="false">15</string>
+
+    <!-- English
+
+    &lt;!&ndash;General&ndash;&gt;
+    <string name="app_name">Certificate VU-45</string>
+
+    &lt;!&ndash;item_set_data_general&ndash;&gt;
     <string name="general_title">General information</string>
     <string name="general_date">Date:</string>
     <string name="general_locomotive_series">Locomotive, series No.:</string>
     <string name="general_train_number">Train No.:</string>
     <string name="general_tail_wagon_number">Last wagon No.:</string>
 
-    <!--item_set_data_params-->
+    &lt;!&ndash;item_set_data_params&ndash;&gt;
     <string name="params_title">Parameters</string>
     <string name="params_weight">Weight:</string>
     <string name="params_total_axes">Total axes:</string>
     <string name="params_pressing_pads">Pressing:</string>
     <string name="params_slop_ratio">Slop ratio:</string>
 
-    <!--item_set_data_axes-->
+    &lt;!&ndash;item_set_data_axes&ndash;&gt;
     <string name="axes_title">Axes</string>
 
-    <!--item_result-->
+    &lt;!&ndash;item_result&ndash;&gt;
     <string name="title">REFERENCE BRAKES</string>
     <string name="locomotive_series">Locomotive, No.</string>
     <string name="train_number">Train No.</string>
@@ -40,26 +110,12 @@
     <string name="result_presence_brake">Presence of manual brake axes</string>
     <string name="result_density_brake">Density of the brake network of the train</string>
 
-    <!--CalculationFragment-->
+    &lt;!&ndash;CalculationFragment&ndash;&gt;
     <string name="calculation_fragment_title">Calculate VU-45</string>
 
-    <!--SavedCertificatesFragment-->
+    &lt;!&ndash;SavedCertificatesFragment&ndash;&gt;
     <string name="saved_certificates_fragment_title">Saved certificates</string>
 
-
-    <!--DO NOT TRANSLATE-->
-    <string name="result_two_and_half" translatable="false">2.5</string>
-    <string name="result_three_and_half" translatable="false">3.5</string>
-    <string name="result_five" translatable="false">5</string>
-    <string name="result_six" translatable="false">6</string>
-    <string name="result_six_and_half" translatable="false">6.5</string>
-    <string name="result_seven" translatable="false">7</string>
-    <string name="result_seven_and_half" translatable="false">7.5</string>
-    <string name="result_eight" translatable="false">8</string>
-    <string name="result_eight_and_half" translatable="false">8.5</string>
-    <string name="result_nine" translatable="false">9</string>
-    <string name="result_ten" translatable="false">10</string>
-    <string name="result_twelve" translatable="false">12</string>
-    <string name="result_fifteen" translatable="false">15</string>
+-->
 
 </resources>

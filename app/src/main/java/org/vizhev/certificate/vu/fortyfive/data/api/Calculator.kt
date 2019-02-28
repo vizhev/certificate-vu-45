@@ -1,9 +1,8 @@
 package org.vizhev.certificate.vu.fortyfive.data.api
 
+import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
+
 interface Calculator {
 
-    fun getHolding(): String
-
-    fun getEffort(): String
-
+    fun calculateResult(certificateData: CertificateData): CertificateData
 }

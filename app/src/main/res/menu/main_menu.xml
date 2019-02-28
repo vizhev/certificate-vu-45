@@ -2,10 +2,40 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/mi_main_save_certificate"
-        android:icon="@drawable/ic_menu_item_saved_cartificates"
-        android:title="@string/saved_certificates_fragment_title"
-        app:showAsAction="always" />
+    <group android:id="@+id/menu_group_actions">
+
+        <item
+            android:id="@+id/mi_main_save_certificate"
+            android:icon="@drawable/ic_item_saved_cartificate"
+            android:title="@string/menu_main_save"
+            app:showAsAction="ifRoom" />
+
+        <item
+            android:id="@+id/mi_main_clear_values"
+            android:icon="@drawable/ic_item_clear"
+            android:title="@string/menu_main_clear"
+            app:showAsAction="ifRoom" />
+
+        <item
+            android:id="@+id/mi_main_delete_saved_item"
+            android:icon="@drawable/ic_item_delete"
+            android:title="@string/menu_main_delete"
+            app:showAsAction="ifRoom" />
+
+    </group>
+
+    <group android:id="@+id/menu_group_intents">
+
+        <!--<item
+            android:id="@+id/mi_main_settings"
+            android:title="@string/menu_main_settings"
+            app:showAsAction="never" />-->
+
+        <item
+            android:id="@+id/mi_main_about"
+            android:title="@string/menu_main_about"
+            app:showAsAction="never" />
+
+    </group>
 
 </menu>
