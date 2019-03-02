@@ -296,7 +296,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_weight_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_pressing_brake_title"
+                    android:id="@+id/tv_result_pressing_pads_required_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -307,63 +307,63 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_result_required_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_pressing_brake"
+                    android:id="@+id/tv_result_pressing_pads_required"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_result_pressing_brake_title"
-                    app:layout_constraintEnd_toEndOf="@+id/divider_result_pressing_brake"
-                    app:layout_constraintStart_toStartOf="@+id/divider_result_pressing_brake"
-                    app:layout_constraintTop_toTopOf="@+id/tv_result_pressing_brake_title"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_result_pressing_pads_required_title"
+                    app:layout_constraintEnd_toEndOf="@+id/divider_result_pressing_pads_required"
+                    app:layout_constraintStart_toStartOf="@+id/divider_result_pressing_pads_required"
+                    app:layout_constraintTop_toTopOf="@+id/tv_result_pressing_pads_required_title"
                     tools:text="1314" />
 
                 <View
-                    android:id="@+id/divider_result_pressing_brake"
+                    android:id="@+id/divider_result_pressing_pads_required"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:background="?android:attr/colorForeground"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_result_pressing_brake_title"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_result_pressing_pads_required_title"
                     app:layout_constraintEnd_toEndOf="@+id/divider_result_axes"
-                    app:layout_constraintStart_toEndOf="@+id/tv_result_pressing_brake_title" />
+                    app:layout_constraintStart_toEndOf="@+id/tv_result_pressing_pads_required_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_hand_brakes_title"
+                    android:id="@+id/tv_result_hand_brakes_required_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="@string/result_hand_brake"
                     android:textColor="?android:textColorPrimary"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_brake_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_brake_title" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_required_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_required_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_hand_brake"
+                    android:id="@+id/tv_result_hand_brakes_required"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/divider_result_hand_brakes"
-                    app:layout_constraintEnd_toEndOf="@+id/divider_result_hand_brakes"
-                    app:layout_constraintStart_toStartOf="@+id/divider_result_hand_brakes"
+                    app:layout_constraintBottom_toTopOf="@+id/divider_result_hand_brakes_required"
+                    app:layout_constraintEnd_toEndOf="@+id/divider_result_hand_brakes_required"
+                    app:layout_constraintStart_toStartOf="@+id/divider_result_hand_brakes_required"
                     tools:text="28" />
 
                 <View
-                    android:id="@+id/divider_result_hand_brakes"
+                    android:id="@+id/divider_result_hand_brakes_required"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:background="?android:attr/colorForeground"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_result_hand_brakes_title"
-                    app:layout_constraintEnd_toEndOf="@+id/divider_result_pressing_brake"
-                    app:layout_constraintStart_toEndOf="@+id/tv_result_hand_brakes_title" />
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_result_hand_brakes_required_title"
+                    app:layout_constraintEnd_toEndOf="@+id/divider_result_pressing_pads_required"
+                    app:layout_constraintStart_toEndOf="@+id/tv_result_hand_brakes_required_title" />
 
                 <TextView
                     android:id="@+id/tv_result_brake_pressure"
@@ -376,7 +376,7 @@
                     android:text="@string/result_brake_pressure"
                     android:textColor="?android:textColorPrimary"
                     app:layout_constraintStart_toStartOf="@+id/tv_result_weight_title"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_hand_brakes_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_hand_brakes_required_title" />
 
                 <TextView
                     android:id="@+id/tv_result_number_of_axes_title"
@@ -414,7 +414,7 @@
                     android:text="@string/result_other_data"
                     android:textColor="?android:textColorPrimary"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_result_brake_pressure"
-                    app:layout_constraintEnd_toEndOf="@+id/divider_result_hand_brakes"
+                    app:layout_constraintEnd_toEndOf="@+id/divider_result_hand_brakes_required"
                     app:layout_constraintStart_toEndOf="@+id/tv_result_pressing_pads_title"
                     app:layout_constraintTop_toTopOf="@+id/tv_result_pressing_pads_title"
                     app:layout_constraintVertical_bias="1.0" />
@@ -432,7 +432,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_brake_pressure" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_two_and_half"
+                    android:id="@+id/tv_result_axes_two_and_half"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
@@ -480,16 +480,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_two_and_half_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_three_and_half"
+                    android:id="@+id/tv_result_axes_three_and_half"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_two_and_half"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_two_and_half"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_two_and_half" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_two_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_two_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_two_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_three_and_half"
@@ -529,16 +529,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_three_and_half_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_five"
+                    android:id="@+id/tv_result_axes_five"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_three_and_half"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_three_and_half"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_three_and_half" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_three_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_three_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_three_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_five"
@@ -578,16 +578,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_five_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_six"
+                    android:id="@+id/tv_result_axes_six"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_five"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_five"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_five" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_five"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_five"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_five" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_six"
@@ -628,16 +628,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_six_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_six_and_half"
+                    android:id="@+id/tv_result_axes_six_and_half"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_six"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_six"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_six" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_six"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_six"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_six" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_six_and_half"
@@ -677,16 +677,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_six_and_half_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_seven"
+                    android:id="@+id/tv_result_axes_seven"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_six_and_half"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_six_and_half"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_six_and_half" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_six_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_six_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_six_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_seven"
@@ -726,16 +726,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_seven_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_seven_and_half"
+                    android:id="@+id/tv_result_axes_seven_and_half"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_six_and_half"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_seven"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_seven" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_six_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_seven"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_seven" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_seven_and_half"
@@ -775,16 +775,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_seven_and_half_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_eight"
+                    android:id="@+id/tv_result_axes_eight"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_seven_and_half"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_seven_and_half"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_seven_and_half" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_seven_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_seven_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_seven_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_eight"
@@ -824,16 +824,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_eight_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_eight_and_half"
+                    android:id="@+id/tv_result_axes_eight_and_half"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_eight"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_eight"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_eight" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_eight"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_eight"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_eight" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_eight_and_half"
@@ -873,16 +873,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_eight_and_half_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_nine"
+                    android:id="@+id/tv_result_axes_nine"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_eight_and_half"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_eight_and_half"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_eight_and_half" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_eight_and_half"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_eight_and_half"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_eight_and_half" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_nine"
@@ -922,16 +922,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_nine_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_ten"
+                    android:id="@+id/tv_result_axes_ten"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_nine"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_nine"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_nine" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_nine"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_nine"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_nine" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_ten"
@@ -971,16 +971,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_ten_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_twelve"
+                    android:id="@+id/tv_result_axes_twelve"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_ten"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_ten"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_ten" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_ten"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_ten"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_ten" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_twelve"
@@ -1020,16 +1020,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_twelve_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_fifteen"
+                    android:id="@+id/tv_result_axes_fifteen"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_twelve"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_twelve"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_twelve" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_twelve"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_twelve"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_twelve" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_fifteen"
@@ -1069,16 +1069,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_result_fifteen_title" />
 
                 <TextView
-                    android:id="@+id/tv_result_axles_total"
+                    android:id="@+id/tv_result_axes_total"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_rectangle"
                     android:gravity="center"
                     android:maxLines="1"
                     android:textColor="@color/colorInputDataText"
-                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axles_fifteen"
-                    app:layout_constraintStart_toStartOf="@+id/tv_result_axles_fifteen"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axles_fifteen" />
+                    app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_fifteen"
+                    app:layout_constraintStart_toStartOf="@+id/tv_result_axes_fifteen"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_fifteen" />
 
                 <TextView
                     android:id="@+id/tv_result_pressing_pads_total"

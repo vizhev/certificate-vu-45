@@ -3,20 +3,35 @@ package org.vizhev.certificate.vu.fortyfive.ui.main
 import android.os.Bundle
 import android.view.Menu
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_main.*
+import org.vizhev.certificate.vu.fortyfive.App
 import org.vizhev.certificate.vu.fortyfive.R
-import org.vizhev.certificate.vu.fortyfive.ui.base.BaseActivity
+import org.vizhev.certificate.vu.fortyfive.di.components.DaggerActivityComponent
+import org.vizhev.certificate.vu.fortyfive.di.modules.ActivityModule
+import org.vizhev.certificate.vu.fortyfive.ui.ViewModelFactory
 import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
+import javax.inject.Inject
 
-class MainActivity : BaseActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var mMenu: Menu
 
+    @Inject
+    lateinit var mViewModelFactory: ViewModelFactory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         setContentView(R.layout.activity_main)
+        DaggerActivityComponent.builder()
+            .applicationComponent((application as App).getApplicationComponent())
+            .activityModule(ActivityModule())
+            .build()
+            .inject(this)
+        this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         vp_main.adapter = PagedAdapter(this, supportFragmentManager)
         vp_main.addOnPageChangeListener(createOnPageListener())
@@ -39,12 +54,6 @@ class MainActivity : BaseActivity() {
         return true
     }
 
-    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
-        val fragmentTag = supportFragmentManager.fragments[0].tag
-        showMenuAction(fragmentTag!!)
-        return true
-    }
-
     fun showMenuAction(fragmentTitle: String) {
         when (fragmentTitle) {
             resources.getString(R.string.calculation_fragment_title) -> {
@@ -59,6 +68,8 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+
+    fun getViewModelFactory(): ViewModelFactory = mViewModelFactory
 
     private fun createOnPageListener(): ViewPager.OnPageChangeListener {
         return object: ViewPager.OnPageChangeListener {

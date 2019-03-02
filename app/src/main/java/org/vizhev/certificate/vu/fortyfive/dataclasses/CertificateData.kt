@@ -6,34 +6,48 @@ import com.ironz.binaryprefs.serialization.serializer.persistable.io.DataOutput
 
 data class CertificateData(
     //general
-    var id: String = "",
-    var date: String = "",
-    var time: String = "",
-    var locomotiveSeries: String = "",
-    var trainNumber: String = "",
-    var lastWagonNumber: String = "",
+        var id: String = "",
+        var date: String = "",
+        var time: String = "",
+        var locomotiveSeries: String = "",
+        var trainNumber: String = "",
+        var lastWagonNumber: String = "",
     //for calculate
-    var isLoaded: Boolean = false,
-    var weight: String = "",
-    var pressingPads: String = "",
-    var slopeRatio: String = "",
-    var brakePressureTwoAndHalf: String = "",
-    var brakePressureThreeAndHalf: String = "",
-    var brakePressureFive: String = "",
-    var brakePressureSix: String = "",
-    var brakePressureSixAndHalf: String = "",
-    var brakePressureSeven: String = "",
-    var brakePressureSevenAndHalf: String = "",
-    var brakePressureEight: String = "",
-    var brakePressureEightAndHalf: String = "",
-    var brakePressureNine: String = "",
-    var brakePressureTen: String = "",
-    var brakePressureTwelve: String = "",
-    var brakePressureFifteen: String = "",
+        var isLoaded: Boolean = false,
+        var weight: String = "",
+        var slopeRatio: String = "",
+        var handsBrakesFact: String = "",
+        var axesTwoAndHalf: String = "",
+        var axesThreeAndHalf: String = "",
+        var axesFive: String = "",
+        var axesSix: String = "",
+        var axesSixAndHalf: String = "",
+        var axesSeven: String = "",
+        var axesSevenAndHalf: String = "",
+        var axesEight: String = "",
+        var axesEightAndHalf: String = "",
+        var axesNine: String = "",
+        var axesTen: String = "",
+        var axesTwelve: String = "",
+        var axesFifteen: String = "",
+        var pressingPadsTwoAndHalf: String = "",
+        var pressingPadsThreeAndHalf: String = "",
+        var pressingPadsFive: String = "",
+        var pressingPadsSix: String = "",
+        var pressingPadsSixAndHalf: String = "",
+        var pressingPadsSeven: String = "",
+        var pressingPadsSevenAndHalf: String = "",
+        var pressingPadsEight: String = "",
+        var pressingPadsEightAndHalf: String = "",
+        var pressingPadsNine: String = "",
+        var pressingPadsTen: String = "",
+        var pressingPadsTwelve: String = "",
+        var pressingPadsFifteen: String = "",
     //for result
-    var totalAxes: String = "",
-    var padsRequired: String = "",
-    var handBrakesRequired: String = ""
+        var totalAxes: String = "",
+        var padsRequired: String = "",
+        var pressingPadsRequired: String = "",
+        var handBrakesRequired: String = ""
 ) : Persistable {
 
     companion object {
@@ -51,21 +65,21 @@ data class CertificateData(
         lastWagonNumber = input.readString()
         weight = input.readString()
         totalAxes = input.readString()
-        pressingPads = input.readString()
+        pressingPadsRequired = input.readString()
         slopeRatio = input.readString()
-        brakePressureTwoAndHalf = input.readString()
-        brakePressureThreeAndHalf = input.readString()
-        brakePressureFive = input.readString()
-        brakePressureSix = input.readString()
-        brakePressureSixAndHalf = input.readString()
-        brakePressureSeven = input.readString()
-        brakePressureSevenAndHalf = input.readString()
-        brakePressureEight = input.readString()
-        brakePressureEightAndHalf = input.readString()
-        brakePressureNine = input.readString()
-        brakePressureTen = input.readString()
-        brakePressureTwelve = input.readString()
-        brakePressureFifteen = input.readString()
+        pressingPadsTwoAndHalf = input.readString()
+        pressingPadsThreeAndHalf = input.readString()
+        pressingPadsFive = input.readString()
+        pressingPadsSix = input.readString()
+        pressingPadsSixAndHalf = input.readString()
+        pressingPadsSeven = input.readString()
+        pressingPadsSevenAndHalf = input.readString()
+        pressingPadsEight = input.readString()
+        pressingPadsEightAndHalf = input.readString()
+        pressingPadsNine = input.readString()
+        pressingPadsTen = input.readString()
+        pressingPadsTwelve = input.readString()
+        pressingPadsFifteen = input.readString()
         padsRequired = input.readString()
         handBrakesRequired = input.readString()
     }
@@ -81,21 +95,21 @@ data class CertificateData(
         output.writeString(lastWagonNumber)
         output.writeString(weight)
         output.writeString(totalAxes)
-        output.writeString(pressingPads)
+        output.writeString(pressingPadsRequired)
         output.writeString(slopeRatio)
-        output.writeString(brakePressureTwoAndHalf)
-        output.writeString(brakePressureThreeAndHalf)
-        output.writeString(brakePressureFive)
-        output.writeString(brakePressureSix)
-        output.writeString(brakePressureSixAndHalf)
-        output.writeString(brakePressureSeven)
-        output.writeString(brakePressureSevenAndHalf)
-        output.writeString(brakePressureEight)
-        output.writeString(brakePressureEightAndHalf)
-        output.writeString(brakePressureNine)
-        output.writeString(brakePressureTen)
-        output.writeString(brakePressureTwelve)
-        output.writeString(brakePressureFifteen)
+        output.writeString(pressingPadsTwoAndHalf)
+        output.writeString(pressingPadsThreeAndHalf)
+        output.writeString(pressingPadsFive)
+        output.writeString(pressingPadsSix)
+        output.writeString(pressingPadsSixAndHalf)
+        output.writeString(pressingPadsSeven)
+        output.writeString(pressingPadsSevenAndHalf)
+        output.writeString(pressingPadsEight)
+        output.writeString(pressingPadsEightAndHalf)
+        output.writeString(pressingPadsNine)
+        output.writeString(pressingPadsTen)
+        output.writeString(pressingPadsTwelve)
+        output.writeString(pressingPadsFifteen)
         output.writeString(padsRequired)
         output.writeString(handBrakesRequired)
     }
@@ -112,21 +126,21 @@ data class CertificateData(
         certificateData.lastWagonNumber = lastWagonNumber
         certificateData.weight = weight
         certificateData.totalAxes = totalAxes
-        certificateData.pressingPads = pressingPads
+        certificateData.pressingPadsRequired = pressingPadsRequired
         certificateData.slopeRatio = slopeRatio
-        certificateData.brakePressureTwoAndHalf = brakePressureTwoAndHalf
-        certificateData.brakePressureThreeAndHalf = brakePressureThreeAndHalf
-        certificateData.brakePressureFive = brakePressureFive
-        certificateData.brakePressureSix = brakePressureSix
-        certificateData.brakePressureSixAndHalf = brakePressureSixAndHalf
-        certificateData.brakePressureSeven = brakePressureSeven
-        certificateData.brakePressureSevenAndHalf = brakePressureSevenAndHalf
-        certificateData.brakePressureEight = brakePressureEight
-        certificateData.brakePressureEightAndHalf = brakePressureEightAndHalf
-        certificateData.brakePressureNine = brakePressureNine
-        certificateData.brakePressureTen = brakePressureTen
-        certificateData.brakePressureTwelve = brakePressureTwelve
-        certificateData.brakePressureFifteen = brakePressureFifteen
+        certificateData.pressingPadsTwoAndHalf = pressingPadsTwoAndHalf
+        certificateData.pressingPadsThreeAndHalf = pressingPadsThreeAndHalf
+        certificateData.pressingPadsFive = pressingPadsFive
+        certificateData.pressingPadsSix = pressingPadsSix
+        certificateData.pressingPadsSixAndHalf = pressingPadsSixAndHalf
+        certificateData.pressingPadsSeven = pressingPadsSeven
+        certificateData.pressingPadsSevenAndHalf = pressingPadsSevenAndHalf
+        certificateData.pressingPadsEight = pressingPadsEight
+        certificateData.pressingPadsEightAndHalf = pressingPadsEightAndHalf
+        certificateData.pressingPadsNine = pressingPadsNine
+        certificateData.pressingPadsTen = pressingPadsTen
+        certificateData.pressingPadsTwelve = pressingPadsTwelve
+        certificateData.pressingPadsFifteen = pressingPadsFifteen
         certificateData.padsRequired = padsRequired
         certificateData.handBrakesRequired = handBrakesRequired
         return certificateData

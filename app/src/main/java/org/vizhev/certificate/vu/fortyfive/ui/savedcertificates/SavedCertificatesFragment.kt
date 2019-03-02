@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
+import androidx.fragment.app.Fragment
 import org.vizhev.certificate.vu.fortyfive.R
-import org.vizhev.certificate.vu.fortyfive.ui.base.BaseFragment
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 
-class SavedCertificatesFragment : BaseFragment() {
+class SavedCertificatesFragment : Fragment() {
 
     private lateinit var mMainViewModel: MainViewModel
 
@@ -19,7 +18,6 @@ class SavedCertificatesFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mMainViewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

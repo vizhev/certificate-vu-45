@@ -1,9 +1,11 @@
 package org.vizhev.certificate.vu.fortyfive.ui.calculation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_calculation.*
@@ -12,41 +14,67 @@ import kotlinx.android.synthetic.main.item_set_data_general.*
 import kotlinx.android.synthetic.main.item_set_data_params.*
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
-import org.vizhev.certificate.vu.fortyfive.ui.base.BaseFragment
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainActivity
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 
-class CalculationFragment : BaseFragment() {
+class CalculationFragment : Fragment() {
 
     private lateinit var mMainViewModel: MainViewModel
 
     companion object {
-        const val TAG: String = "CalculationFragment"
+        //const val TAG: String = "CalculationFragment"
         var isResultViewOpen: Boolean = false
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mMainViewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mMainViewModel = ViewModelProviders
+                .of(this, (context as MainActivity).getViewModelFactory())
+                .get(MainViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_calculation, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         mMainViewModel.getCertificateData().observe(
                 this, Observer {
-            tv_result_date.text =               it.date
-            tv_result_locomotive_series.text =  it.locomotiveSeries
-            tv_result_train_number.text =       it.trainNumber
-            tv_result_last_wagon_number.text =  it.lastWagonNumber
-
-            //from item_params
-            tv_result_locomotive_series.text =  it.locomotiveSeries
-            tv_result_total_axes.text =         it.totalAxes
-            tv_result_weight.text =             it.weight
+            tv_result_date.text = it.date
+            tv_result_locomotive_series.text = it.locomotiveSeries
+            tv_result_train_number.text = it.trainNumber
+            tv_result_last_wagon_number.text = it.lastWagonNumber
+            tv_result_total_axes.text = it.totalAxes
+            tv_result_weight.text = it.weight
+            tv_result_axes_two_and_half.text = it.axesTwoAndHalf
+            tv_result_axes_three_and_half.text = it.axesThreeAndHalf
+            tv_result_axes_five.text = it.axesFive
+            tv_result_axes_six.text = it.axesSix
+            tv_result_axes_six_and_half.text = it.axesSixAndHalf
+            tv_result_axes_seven.text = it.axesSeven
+            tv_result_axes_seven_and_half.text = it.axesSevenAndHalf
+            tv_result_axes_eight.text = it.axesEight
+            tv_result_axes_eight_and_half.text = it.axesEightAndHalf
+            tv_result_axes_nine.text = it.axesNine
+            tv_result_axes_ten.text = it.axesTen
+            tv_result_axes_twelve.text = it.axesTwelve
+            tv_result_axes_fifteen.text = it.axesFifteen
+            tv_result_pressing_pads_two_and_half.text = it.pressingPadsTwoAndHalf
+            tv_result_pressing_pads_three_and_half.text = it.pressingPadsThreeAndHalf
+            tv_result_pressing_pads_five.text = it.pressingPadsFive
+            tv_result_pressing_pads_six.text = it.pressingPadsSix
+            tv_result_pressing_pads_six_and_half.text = it.pressingPadsSixAndHalf
+            tv_result_pressing_pads_seven.text = it.pressingPadsSeven
+            tv_result_pressing_pads_seven_and_half.text = it.pressingPadsSevenAndHalf
+            tv_result_pressing_pads_eight.text = it.pressingPadsEight
+            tv_result_pressing_pads_eight_and_half.text = it.pressingPadsEightAndHalf
+            tv_result_pressing_pads_nine.text = it.pressingPadsNine
+            tv_result_pressing_pads_ten.text = it.pressingPadsTen
+            tv_result_pressing_pads_twelve.text = it.pressingPadsTwelve
+            tv_result_pressing_pads_fifteen.text = it.pressingPadsFifteen
+            tv_result_pressing_pads_required.text = it.pressingPadsRequired
+            tv_result_pressing_pads_required.text = it.handBrakesRequired
         }
         )
     }
@@ -70,8 +98,8 @@ class CalculationFragment : BaseFragment() {
             certificateData.locomotiveSeries = et_general_locomotive_series.text.toString()
             certificateData.trainNumber = et_general_train_number.text.toString()
             certificateData.lastWagonNumber = et_general_tail_wagon_number.text.toString()
+            certificateData.isLoaded = rg_params.checkedRadioButtonId == R.id.rb_params_loaded
             certificateData.weight = et_params_weight.text.toString()
-            certificateData.isLoaded = rg_params.checkedRadioButtonId == R.id.rb_params_empty
             mMainViewModel.setCertificateDate(certificateData)
             isResultViewOpen = true
             setViewsVisibility()

@@ -34,19 +34,19 @@ class AppCalculator : Calculator {
     }
 
     private fun initValues(certificateData: CertificateData) {
-        val brakePressureTwoAndHalf =       getValidInt(certificateData.brakePressureTwoAndHalf)
-        val brakePressureThreeAndHalf =     getValidInt(certificateData.brakePressureThreeAndHalf)
-        val brakePressureFive =             getValidInt(certificateData.brakePressureFive)
-        val brakePressureSix =              getValidInt(certificateData.brakePressureSix)
-        val brakePressureSixAndHalf =       getValidInt(certificateData.brakePressureSixAndHalf)
-        val brakePressureSeven =            getValidInt(certificateData.brakePressureSeven)
-        val brakePressureSevenAndHalf =     getValidInt(certificateData.brakePressureSevenAndHalf)
-        val brakePressureEight =            getValidInt(certificateData.brakePressureEight)
-        val brakePressureEightAndHalf =     getValidInt(certificateData.brakePressureEightAndHalf)
-        val brakePressureNine =             getValidInt(certificateData.brakePressureNine)
-        val brakePressureTen =              getValidInt(certificateData.brakePressureTen)
-        val brakePressureTwelve =           getValidInt(certificateData.brakePressureTwelve)
-        val brakePressureFifteen =          getValidInt(certificateData.brakePressureFifteen)
+        val brakePressureTwoAndHalf =       getValidInt(certificateData.pressingPadsTwoAndHalf)
+        val brakePressureThreeAndHalf =     getValidInt(certificateData.pressingPadsThreeAndHalf)
+        val brakePressureFive =             getValidInt(certificateData.pressingPadsFive)
+        val brakePressureSix =              getValidInt(certificateData.pressingPadsSix)
+        val brakePressureSixAndHalf =       getValidInt(certificateData.pressingPadsSixAndHalf)
+        val brakePressureSeven =            getValidInt(certificateData.pressingPadsSeven)
+        val brakePressureSevenAndHalf =     getValidInt(certificateData.pressingPadsSevenAndHalf)
+        val brakePressureEight =            getValidInt(certificateData.pressingPadsEight)
+        val brakePressureEightAndHalf =     getValidInt(certificateData.pressingPadsEightAndHalf)
+        val brakePressureNine =             getValidInt(certificateData.pressingPadsNine)
+        val brakePressureTen =              getValidInt(certificateData.pressingPadsTen)
+        val brakePressureTwelve =           getValidInt(certificateData.pressingPadsTwelve)
+        val brakePressureFifteen =          getValidInt(certificateData.pressingPadsFifteen)
         val totalAxes = brakePressureTwoAndHalf +
                 brakePressureThreeAndHalf +
                 brakePressureFive +
