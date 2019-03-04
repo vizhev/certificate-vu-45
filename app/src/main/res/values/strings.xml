@@ -11,10 +11,11 @@
 
     <!--CalculationFragment-->
     <string name="calculation_fragment_title">Расчитать</string>
+    <string name="calculation_fragment_btn_calculate">Расчитать</string>
 
     <!--item_set_data_general-->
     <string name="general_title">Общая информация</string>
-    <string name="general_date">Дата:</string>
+    <string name="general_station_stamp">Шемпель станции:</string>
     <string name="general_locomotive_series">Локомотив, серия №:</string>
     <string name="general_train_number">Поезд №:</string>
     <string name="general_tail_wagon_number">Хвостовой вагон №:</string>

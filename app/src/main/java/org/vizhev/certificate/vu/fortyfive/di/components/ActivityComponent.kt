@@ -10,4 +10,5 @@ import org.vizhev.certificate.vu.fortyfive.ui.main.MainActivity
 interface ActivityComponent {
 
     fun inject(mainActivity: MainActivity)
+
 }

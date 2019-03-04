@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_main.*
 import org.vizhev.certificate.vu.fortyfive.App
@@ -23,18 +22,19 @@ class MainActivity : AppCompatActivity() {
     lateinit var mViewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        DaggerActivityComponent.builder()
+                .applicationComponent((application as App).getApplicationComponent())
+                .activityModule(ActivityModule())
+                .build()
+                .inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerActivityComponent.builder()
-            .applicationComponent((application as App).getApplicationComponent())
-            .activityModule(ActivityModule())
-            .build()
-            .inject(this)
         this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        vp_main.adapter = PagedAdapter(this, supportFragmentManager)
-        vp_main.addOnPageChangeListener(createOnPageListener())
+        vp_main.apply {
+            adapter = PagerAdapter(context, supportFragmentManager)
+            addOnPageChangeListener(createOnPageListener())
+        }
     }
 
     override fun onBackPressed() {
@@ -50,7 +50,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         mMenu = menu!!
-        showMenuAction(vp_main.adapter!!.getPageTitle(0).toString())
+        val fragmentTitle = vp_main.adapter!!.getPageTitle(0).toString()
+        showMenuAction(fragmentTitle)
         return true
     }
 
@@ -82,7 +83,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                showMenuAction(vp_main.adapter!!.getPageTitle(position).toString())
+                val fragmentTitle = vp_main.adapter!!.getPageTitle(0).toString()
+                showMenuAction(fragmentTitle)
             }
         }
     }

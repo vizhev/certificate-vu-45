@@ -2,8 +2,10 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
 
     <ScrollView
         android:id="@+id/sv_calculation"
@@ -17,8 +19,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:animateLayoutChanges="true">
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
 
             <include layout="@layout/item_set_data_general" />
 
@@ -39,7 +41,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="24dp"
                 android:background="@color/colorAccent"
-                android:text="Расчитать"
+                android:text="@string/calculation_fragment_btn_calculate"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

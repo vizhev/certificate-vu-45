@@ -9,6 +9,7 @@ data class CertificateData(
         var id: String = "",
         var date: String = "",
         var time: String = "",
+        var stationStamp: String = "",
         var locomotiveSeries: String = "",
         var trainNumber: String = "",
         var lastWagonNumber: String = "",
@@ -45,7 +46,6 @@ data class CertificateData(
         var pressingPadsFifteen: String = "",
     //for result
         var totalAxes: String = "",
-        var padsRequired: String = "",
         var pressingPadsRequired: String = "",
         var handBrakesRequired: String = ""
 ) : Persistable {
@@ -80,7 +80,7 @@ data class CertificateData(
         pressingPadsTen = input.readString()
         pressingPadsTwelve = input.readString()
         pressingPadsFifteen = input.readString()
-        padsRequired = input.readString()
+        pressingPadsRequired = input.readString()
         handBrakesRequired = input.readString()
     }
 
@@ -110,7 +110,7 @@ data class CertificateData(
         output.writeString(pressingPadsTen)
         output.writeString(pressingPadsTwelve)
         output.writeString(pressingPadsFifteen)
-        output.writeString(padsRequired)
+        output.writeString(pressingPadsRequired)
         output.writeString(handBrakesRequired)
     }
 
@@ -141,7 +141,7 @@ data class CertificateData(
         certificateData.pressingPadsTen = pressingPadsTen
         certificateData.pressingPadsTwelve = pressingPadsTwelve
         certificateData.pressingPadsFifteen = pressingPadsFifteen
-        certificateData.padsRequired = padsRequired
+        certificateData.pressingPadsRequired = pressingPadsRequired
         certificateData.handBrakesRequired = handBrakesRequired
         return certificateData
     }

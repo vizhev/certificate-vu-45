@@ -8,7 +8,7 @@ import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
 import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesFragment
 
-class PagedAdapter(private val context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class PagerAdapter(private val context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
