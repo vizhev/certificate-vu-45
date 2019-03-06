@@ -4,65 +4,101 @@ import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
 
 class AppCalculator : Calculator {
 
-    private var weight: Double = 0.0
-    private var coefficient: Double = 0.0
-    private var ts: Double = 0.0
-    private var scotches: Double = 0.0
+    private var mWeight: Double = 0.0
+    private var mCoefficient: Double = 0.0
+    private var mSlopeFactor: Double = 0.0
+    private var mAxesTwoAndHalf: Int =   0
+    private var mAxesThreeAndHalf: Int = 0
+    private var mAxesFive: Int = 0
+    private var mAxesSix: Int = 0
+    private var mAxesSixAndHalf: Int = 0
+    private var mAxesSeven: Int = 0
+    private var mAxesSevenAndHalf = 0
+    private var mAxesEight: Int =0
+    private var mAxesEightAndHalf:Int = 0
+    private var mAxesNine: Int = 0
+    private var mAxesTen: Int = 0
+    private var mAxesTwelve: Int = 0
+    private var mAxesFifteen: Int = 0
+    private var mTotalAxes: Int = 0
 
     override fun calculateResult(certificateData: CertificateData): CertificateData {
         initValues(certificateData)
-        certificateData.pressingPadsRequired = getPadsRequired()
+        certificateData.pressingPadsTwoAndHalf = getPressingPads(mAxesTwoAndHalf, 2.5)
+        certificateData.pressingPadsThreeAndHalf = getPressingPads(mAxesThreeAndHalf, 3.5)
+        certificateData.pressingPadsFive = getPressingPads(mAxesFive, 5.0)
+        certificateData.pressingPadsSix = getPressingPads(mAxesSix, 6.0)
+        certificateData.pressingPadsSixAndHalf = getPressingPads(mAxesSixAndHalf, 6.5)
+        certificateData.pressingPadsSeven = getPressingPads(mAxesSeven, 7.0)
+        certificateData.pressingPadsSevenAndHalf = getPressingPads(mAxesSevenAndHalf, 7.5)
+        certificateData.pressingPadsEight = getPressingPads(mAxesEight, 8.0)
+        certificateData.pressingPadsEightAndHalf = getPressingPads(mAxesEightAndHalf, 8.5)
+        certificateData.pressingPadsNine = getPressingPads(mAxesNine, 9.0)
+        certificateData.pressingPadsTen = getPressingPads(mAxesTen, 10.0)
+        certificateData.pressingPadsTwelve = getPressingPads(mAxesTwelve, 12.0)
+        certificateData.pressingPadsFifteen = getPressingPads(mAxesFifteen, 15.0)
+        certificateData.totalAxes = mTotalAxes.toString()
+        certificateData.pressingPadsRequired = getPressingPadsRequired()
         certificateData.handBrakesRequired = getHandBrakesRequired()
         return certificateData
     }
 
-    private fun getPadsRequired(): String {
-        val padsRequired = weight * coefficient
-        if (padsRequired - padsRequired.toInt() > 0) {
-            padsRequired + 1
+    private fun getPressingPads(axesCount: Int, coefficient: Double): String {
+        val pressingPads = axesCount * coefficient
+        if (pressingPads - pressingPads.toInt() > 0) {
+            pressingPads + 1
         }
-        return "$padsRequired (${(coefficient * 100).toInt()})"
+        return "${pressingPads.toInt()}"
+    }
+
+    private fun getPressingPadsRequired(): String {
+        var pressingPadsRequired = mWeight * mCoefficient
+        if (pressingPadsRequired - pressingPadsRequired.toInt() > 0) {
+            pressingPadsRequired++
+        }
+        return "${pressingPadsRequired.toInt()} (${(mCoefficient * 100).toInt()})"
     }
 
     private fun getHandBrakesRequired(): String {
-        var handbrakes: Double = ((weight * ts / 100) - scotches) / 4
+        var handbrakes = mWeight * mSlopeFactor / 100
         if (handbrakes - handbrakes.toInt() > 0.0) {
             handbrakes++
         }
-        return "BS - ${handbrakes.toInt()}HB"
+        return "${handbrakes.toInt()}"
     }
 
     private fun initValues(certificateData: CertificateData) {
-        val axesTwoAndHalf =       getValidInt(certificateData.axesTwoAndHalf)
-        val axesThreeAndHalf =     getValidInt(certificateData.axesThreeAndHalf)
-        val axesFive =             getValidInt(certificateData.axesFive)
-        val axesSix =              getValidInt(certificateData.axesSix)
-        val axesSixAndHalf =       getValidInt(certificateData.axesSixAndHalf)
-        val axesSeven =            getValidInt(certificateData.axesSeven)
-        val axesSevenAndHalf =     getValidInt(certificateData.axesSevenAndHalf)
-        val axesEight =            getValidInt(certificateData.axesEight)
-        val axesEightAndHalf =     getValidInt(certificateData.axesEightAndHalf)
-        val axesNine =             getValidInt(certificateData.axesNine)
-        val axesTen =              getValidInt(certificateData.axesTen)
-        val axesTwelve =           getValidInt(certificateData.axesTwelve)
-        val axesFifteen =          getValidInt(certificateData.axesFifteen)
-        val totalAxes = axesTwoAndHalf +
-                axesThreeAndHalf +
-                axesFive +
-                axesSix +
-                axesSixAndHalf +
-                axesSeven +
-                axesSevenAndHalf +
-                axesEight +
-                axesEightAndHalf +
-                axesNine +
-                axesTen +
-                axesTwelve +
-                axesFifteen
-        certificateData.totalAxes = totalAxes.toString()
-        weight = getValidDouble(certificateData.weight)
-        coefficient = when (certificateData.isLoaded) {
-            true -> if (totalAxes <= 350) 0.55 else 0.44
+        mAxesTwoAndHalf =       getValidInt(certificateData.axesTwoAndHalf)
+        mAxesThreeAndHalf =     getValidInt(certificateData.axesThreeAndHalf)
+        mAxesFive =             getValidInt(certificateData.axesFive)
+        mAxesSix =              getValidInt(certificateData.axesSix)
+        mAxesSixAndHalf =       getValidInt(certificateData.axesSixAndHalf)
+        mAxesSeven =            getValidInt(certificateData.axesSeven)
+        mAxesSevenAndHalf =     getValidInt(certificateData.axesSevenAndHalf)
+        mAxesEight =            getValidInt(certificateData.axesEight)
+        mAxesEightAndHalf =     getValidInt(certificateData.axesEightAndHalf)
+        mAxesNine =             getValidInt(certificateData.axesNine)
+        mAxesTen =              getValidInt(certificateData.axesTen)
+        mAxesTwelve =           getValidInt(certificateData.axesTwelve)
+        mAxesFifteen =          getValidInt(certificateData.axesFifteen)
+        mTotalAxes =
+                mAxesTwoAndHalf +
+                mAxesThreeAndHalf +
+                mAxesFive +
+                mAxesSix +
+                mAxesSixAndHalf +
+                mAxesSeven +
+                mAxesSevenAndHalf +
+                mAxesEight +
+                mAxesEightAndHalf +
+                mAxesNine +
+                mAxesTen +
+                mAxesTwelve +
+                mAxesFifteen
+        mWeight = getValidDouble(certificateData.weight)
+        mSlopeFactor = getValidDouble(certificateData.slopeFactor)
+        mCoefficient = when (certificateData.isLoaded) {
+            true -> if (mTotalAxes <= 350) 0.55 else 0.44
             else -> 0.33
         }
     }

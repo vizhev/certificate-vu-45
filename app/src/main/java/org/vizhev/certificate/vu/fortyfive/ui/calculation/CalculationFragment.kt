@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -97,12 +98,18 @@ class CalculationFragment : Fragment() {
     private fun createOnClickListener(): View.OnClickListener {
         return View.OnClickListener {
             val certificateData = CertificateData()
+            if (!rb_params_loaded.isChecked && !rb_params_empty.isChecked) {
+                rg_params.requestFocus()
+                Toast.makeText(context, "Please select type", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
+            }
             certificateData.stationStamp = et_general_station_stamp.text.toString()
             certificateData.locomotiveSeries = et_general_locomotive_series.text.toString()
             certificateData.trainNumber = et_general_train_number.text.toString()
             certificateData.lastWagonNumber = et_general_tail_wagon_number.text.toString()
             certificateData.isLoaded = rg_params.checkedRadioButtonId == R.id.rb_params_loaded
             certificateData.weight = et_params_weight.text.toString()
+            certificateData.slopeFactor = et_params_slope_factor.text.toString()
             certificateData.axesTwoAndHalf = et_axes_two_and_half.text.toString()
             certificateData.axesThreeAndHalf = et_axes_three_and_half.text.toString()
             certificateData.axesFive = et_axes_five.text.toString()

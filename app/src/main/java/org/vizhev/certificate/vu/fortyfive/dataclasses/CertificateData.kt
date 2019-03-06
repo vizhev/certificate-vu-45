@@ -16,7 +16,7 @@ data class CertificateData(
     //for calculate
         var isLoaded: Boolean = false,
         var weight: String = "",
-        var slopeRatio: String = "",
+        var slopeFactor: String = "",
         var handsBrakesFact: String = "",
         var axesTwoAndHalf: String = "",
         var axesThreeAndHalf: String = "",
@@ -58,15 +58,27 @@ data class CertificateData(
         id = input!!.readString()
         date = input.readString()
         time = input.readString()
+        stationStamp = input.readString()
         locomotiveSeries = input.readString()
         trainNumber = input.readString()
-        weight = input.readString()
-        totalAxes = input.readString()
         lastWagonNumber = input.readString()
+        isLoaded = input.readBoolean()
         weight = input.readString()
-        totalAxes = input.readString()
-        pressingPadsRequired = input.readString()
-        slopeRatio = input.readString()
+        slopeFactor = input.readString()
+        handsBrakesFact = input.readString()
+        axesTwoAndHalf = input.readString()
+        axesThreeAndHalf = input.readString()
+        axesFive = input.readString()
+        axesSix = input.readString()
+        axesSixAndHalf = input.readString()
+        axesSeven = input.readString()
+        axesSevenAndHalf = input.readString()
+        axesEight = input.readString()
+        axesEightAndHalf = input.readString()
+        axesNine = input.readString()
+        axesTen = input.readString()
+        axesTwelve = input.readString()
+        axesFifteen = input.readString()
         pressingPadsTwoAndHalf = input.readString()
         pressingPadsThreeAndHalf = input.readString()
         pressingPadsFive = input.readString()
@@ -80,38 +92,52 @@ data class CertificateData(
         pressingPadsTen = input.readString()
         pressingPadsTwelve = input.readString()
         pressingPadsFifteen = input.readString()
+        totalAxes = input.readString()
         pressingPadsRequired = input.readString()
-        handBrakesRequired = input.readString()
+        handBrakesRequired =input.readString()
     }
 
     override fun writeExternal(output: DataOutput?) {
         output!!.writeString(id)
-        output.writeString(date)
-        output.writeString(time)
-        output.writeString(locomotiveSeries)
-        output.writeString(trainNumber)
-        output.writeString(weight)
-        output.writeString(totalAxes)
-        output.writeString(lastWagonNumber)
-        output.writeString(weight)
-        output.writeString(totalAxes)
-        output.writeString(pressingPadsRequired)
-        output.writeString(slopeRatio)
-        output.writeString(pressingPadsTwoAndHalf)
-        output.writeString(pressingPadsThreeAndHalf)
-        output.writeString(pressingPadsFive)
-        output.writeString(pressingPadsSix)
-        output.writeString(pressingPadsSixAndHalf)
-        output.writeString(pressingPadsSeven)
-        output.writeString(pressingPadsSevenAndHalf)
-        output.writeString(pressingPadsEight)
-        output.writeString(pressingPadsEightAndHalf)
-        output.writeString(pressingPadsNine)
-        output.writeString(pressingPadsTen)
-        output.writeString(pressingPadsTwelve)
-        output.writeString(pressingPadsFifteen)
-        output.writeString(pressingPadsRequired)
-        output.writeString(handBrakesRequired)
+          output.writeString(date)
+          output.writeString(time)
+          output.writeString(stationStamp)
+          output.writeString(locomotiveSeries)
+          output.writeString(trainNumber)
+          output.writeString(lastWagonNumber)
+          output.writeBoolean(isLoaded)
+          output.writeString(weight)
+          output.writeString(slopeFactor)
+          output.writeString(handsBrakesFact)
+          output.writeString(axesTwoAndHalf)
+          output.writeString(axesThreeAndHalf)
+          output.writeString(axesFive)
+          output.writeString(axesSix)
+          output.writeString(axesSixAndHalf)
+          output.writeString(axesSeven)
+          output.writeString(axesSevenAndHalf)
+          output.writeString(axesEight)
+          output.writeString(axesEightAndHalf)
+          output.writeString(axesNine)
+          output.writeString(axesTen)
+          output.writeString(axesTwelve)
+          output.writeString(axesFifteen)
+          output.writeString(pressingPadsTwoAndHalf)
+          output.writeString(pressingPadsThreeAndHalf)
+          output.writeString(pressingPadsFive)
+          output.writeString(pressingPadsSix)
+          output.writeString(pressingPadsSixAndHalf)
+          output.writeString(pressingPadsSeven)
+          output.writeString(pressingPadsSevenAndHalf)
+          output.writeString(pressingPadsEight)
+          output.writeString(pressingPadsEightAndHalf)
+          output.writeString(pressingPadsNine)
+          output.writeString(pressingPadsTen)
+          output.writeString(pressingPadsTwelve)
+          output.writeString(pressingPadsFifteen)
+          output.writeString(totalAxes)
+          output.writeString(pressingPadsRequired)
+          output.writeString(handBrakesRequired)
     }
 
     override fun deepClone(): CertificateData {
@@ -119,30 +145,29 @@ data class CertificateData(
         certificateData.id = id
         certificateData.date = date
         certificateData.time = time
+        certificateData.stationStamp = stationStamp
         certificateData.locomotiveSeries = locomotiveSeries
         certificateData.trainNumber = trainNumber
-        certificateData.weight = weight
-        certificateData.totalAxes = totalAxes
         certificateData.lastWagonNumber = lastWagonNumber
+        certificateData.isLoaded = isLoaded
         certificateData.weight = weight
-        certificateData.totalAxes = totalAxes
-        certificateData.pressingPadsRequired = pressingPadsRequired
-        certificateData.slopeRatio = slopeRatio
+        certificateData.slopeFactor = slopeFactor
+        certificateData.handsBrakesFact = handsBrakesFact
+        certificateData.axesTwoAndHalf = axesTwoAndHalf
+        certificateData.axesThreeAndHalf = axesThreeAndHalf
+        certificateData.axesFive = axesFive
+        certificateData.axesSix = axesSix
+        certificateData.axesSixAndHalf = axesSixAndHalf
+        certificateData.axesSeven = axesSeven
+        certificateData.axesSevenAndHalf = axesSevenAndHalf
+        certificateData.axesEight = axesEight
+        certificateData.axesEightAndHalf = axesEightAndHalf
+        certificateData.axesNine = axesNine
+        certificateData.axesTen = axesTen
+        certificateData.axesTwelve = axesTwelve
+        certificateData.axesFifteen = axesFifteen
         certificateData.pressingPadsTwoAndHalf = pressingPadsTwoAndHalf
         certificateData.pressingPadsThreeAndHalf = pressingPadsThreeAndHalf
-        certificateData.pressingPadsFive = pressingPadsFive
-        certificateData.pressingPadsSix = pressingPadsSix
-        certificateData.pressingPadsSixAndHalf = pressingPadsSixAndHalf
-        certificateData.pressingPadsSeven = pressingPadsSeven
-        certificateData.pressingPadsSevenAndHalf = pressingPadsSevenAndHalf
-        certificateData.pressingPadsEight = pressingPadsEight
-        certificateData.pressingPadsEightAndHalf = pressingPadsEightAndHalf
-        certificateData.pressingPadsNine = pressingPadsNine
-        certificateData.pressingPadsTen = pressingPadsTen
-        certificateData.pressingPadsTwelve = pressingPadsTwelve
-        certificateData.pressingPadsFifteen = pressingPadsFifteen
-        certificateData.pressingPadsRequired = pressingPadsRequired
-        certificateData.handBrakesRequired = handBrakesRequired
         return certificateData
     }
 }

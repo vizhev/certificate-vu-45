@@ -22,6 +22,10 @@ class MainViewModel(private val dataProvider: DataProvider): ViewModel() {
 
     fun getCertificateData() = mLiveData
 
+    fun saveCertificate() {
+
+    }
+
     fun getSavedCertificatesAdapter(): SavedCertificatesAdapter {
 
         return mSavedCertificatesAdapter

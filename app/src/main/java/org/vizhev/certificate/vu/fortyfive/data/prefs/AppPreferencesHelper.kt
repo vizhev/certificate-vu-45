@@ -8,13 +8,13 @@ import java.util.*
 
 class AppPreferencesHelper(context: Context) : PreferencesHelper {
 
-    private val preferences: Preferences? = BinaryPreferencesBuilder(context)
+    private val mPreferences: Preferences? = BinaryPreferencesBuilder(context)
             .registerPersistable(CertificateData.KEY, CertificateData::class.java)
             .allowBuildOnBackgroundThread()
             .build()
 
     override fun saveHistory(parameters: CertificateData) {
-        preferences!!
+        mPreferences!!
                 .edit()
                 .putPersistable(parameters.id, parameters)
                 .apply()
@@ -22,10 +22,10 @@ class AppPreferencesHelper(context: Context) : PreferencesHelper {
 
     override fun loadHistory(): List<CertificateData> {
         val historyList: MutableList<CertificateData> = mutableListOf()
-        val historyKeys = preferences!!.keys().toTypedArray()
+        val historyKeys = mPreferences!!.keys().toTypedArray()
         Arrays.sort(historyKeys)
         historyKeys.forEach {
-            val parameters = preferences.getPersistable(it, CertificateData())
+            val parameters = mPreferences.getPersistable(it, CertificateData())
             historyList.add(parameters)
         }
         return historyList

@@ -1,7 +1,9 @@
 package org.vizhev.certificate.vu.fortyfive.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
@@ -11,6 +13,7 @@ import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.di.components.DaggerActivityComponent
 import org.vizhev.certificate.vu.fortyfive.di.modules.ActivityModule
 import org.vizhev.certificate.vu.fortyfive.ui.ViewModelFactory
+import org.vizhev.certificate.vu.fortyfive.ui.about.AboutActivity
 import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
 import javax.inject.Inject
 
@@ -55,6 +58,16 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return when(item!!.itemId) {
+            R.id.mi_main_about -> {
+                startActivity(Intent(this, AboutActivity::class.java))
+                true
+            }
+            else -> false
+        }
+    }
+
     fun showMenuAction(fragmentTitle: String) {
         when (fragmentTitle) {
             resources.getString(R.string.calculation_fragment_title) -> {
@@ -83,7 +96,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                val fragmentTitle = vp_main.adapter!!.getPageTitle(0).toString()
+                val fragmentTitle = vp_main.adapter!!.getPageTitle(position).toString()
                 showMenuAction(fragmentTitle)
             }
         }
