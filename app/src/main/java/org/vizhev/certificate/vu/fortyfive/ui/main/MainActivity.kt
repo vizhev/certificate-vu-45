@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_main.*
 import org.vizhev.certificate.vu.fortyfive.App
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var mViewModelFactory: ViewModelFactory
+    lateinit var mMainViewModel: MainViewModel
+
+    companion object {
+        private var pagerPosition: Int = 0
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         DaggerActivityComponent.builder()
@@ -30,36 +36,59 @@ class MainActivity : AppCompatActivity() {
                 .activityModule(ActivityModule())
                 .build()
                 .inject(this)
+        mMainViewModel = ViewModelProviders
+            .of(this, mViewModelFactory)
+            .get(MainViewModel::class.java)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        this.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        this.window.setSoftInputMode(
+            WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        )
         setSupportActionBar(toolbar)
         vp_main.apply {
-            adapter = PagerAdapter(context, supportFragmentManager)
-            addOnPageChangeListener(createOnPageListener())
+            adapter = MainPagerAdapter(context, supportFragmentManager)
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        vp_main.addOnPageChangeListener(createOnPageListener())
+    }
+
     override fun onBackPressed() {
-        val isCalculationFragment = supportFragmentManager.fragments[0] is CalculationFragment
-        if (isCalculationFragment && isResultViewOpen()) {
-            (supportFragmentManager.fragments[0] as CalculationFragment).onBackPressed()
-            showMenuAction(vp_main.adapter!!.getPageTitle(0).toString())
-        } else {
-            super.onBackPressed()
+        if (isSavedCertificatesFragment()) {
+            vp_main.currentItem = 0
+            return
         }
+        if (isResultViewOpen()) {
+            (supportFragmentManager.fragments[0] as CalculationFragment).onBackPressed()
+            showMenuAction(pagerPosition)
+            return
+        }
+        super.onBackPressed()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         mMenu = menu!!
-        val fragmentTitle = vp_main.adapter!!.getPageTitle(0).toString()
-        showMenuAction(fragmentTitle)
+        showMenuAction(pagerPosition)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when(item!!.itemId) {
+        return when (item!!.itemId) {
+            R.id.mi_main_clear_values -> {
+
+                true
+            }
+            R.id.mi_main_save_certificate -> {
+                mMainViewModel.saveCertificate()
+                true
+            }
+            R.id.mi_main_delete_saved_item -> {
+
+                true
+            }
             R.id.mi_main_about -> {
                 startActivity(Intent(this, AboutActivity::class.java))
                 true
@@ -68,14 +97,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showMenuAction(fragmentTitle: String) {
-        when (fragmentTitle) {
-            resources.getString(R.string.calculation_fragment_title) -> {
+    fun showMenuAction(position: Int) {
+        when (position) {
+            0 -> {
                 mMenu.findItem(R.id.mi_main_save_certificate).isVisible = isResultViewOpen()
                 mMenu.findItem(R.id.mi_main_clear_values).isVisible = !isResultViewOpen()
                 mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = false
             }
-            resources.getString(R.string.saved_certificates_fragment_title) -> {
+            1 -> {
                 mMenu.findItem(R.id.mi_main_save_certificate).isVisible = false
                 mMenu.findItem(R.id.mi_main_clear_values).isVisible = false
                 mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = true
@@ -83,10 +112,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getViewModelFactory(): ViewModelFactory = mViewModelFactory
+    fun getMainViewModel(): MainViewModel = mMainViewModel
 
     private fun createOnPageListener(): ViewPager.OnPageChangeListener {
-        return object: ViewPager.OnPageChangeListener {
+        return object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
 
             }
@@ -96,14 +125,20 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                val fragmentTitle = vp_main.adapter!!.getPageTitle(position).toString()
-                showMenuAction(fragmentTitle)
+                pagerPosition = position
+                showMenuAction(position)
+                if (position == 1) {
+                    mMainViewModel.loadSavedCertificates()
+                }
             }
         }
     }
 
     private fun isResultViewOpen(): Boolean {
-        return supportFragmentManager.fragments[0] is CalculationFragment &&
-                CalculationFragment.isResultViewOpen
+        return pagerPosition == 0 && CalculationFragment.isResultViewOpen
+    }
+
+    private fun isSavedCertificatesFragment(): Boolean {
+        return pagerPosition == 1
     }
 }

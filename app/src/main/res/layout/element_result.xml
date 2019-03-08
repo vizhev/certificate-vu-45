@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_result_station_stamp_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/result_stamp"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_result_station_stamp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_station_stamp_title"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_station_stamp_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_station_stamp_title"
+        tools:text="89" />
+
+    <View
+        android:id="@+id/divider_station_stamp"
+        android:layout_width="45dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_station_stamp"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_station_stamp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_station_stamp" />
+
+    <TextView
+        android:id="@+id/tv_result_issue_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="@string/result_issue_time"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_station_stamp_title" />
+
+    <TextView
+        android:id="@+id/tv_result_issue_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_issue_time_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_issue_time_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_issue_time_title"
+        tools:text="14:07" />
+
+    <View
+        android:id="@+id/divider_result_time"
+        android:layout_width="45dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_issue_time"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_issue_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_issue_time" />
+
+    <TextView
+        android:id="@+id/tv_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/title"
+        android:textColor="?android:textColorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_issue_time"
+        app:layout_constraintVertical_bias="0.016" />
+
+    <TextView
+        android:id="@+id/tv_result_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_title"
+        tools:text="14.07.2018" />
+
+    <View
+        android:id="@+id/divider_result_date"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_date" />
+
+    <TextView
+        android:id="@+id/tv_result_locomotive_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/locomotive_series"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_date" />
+
+    <TextView
+        android:id="@+id/tv_result_locomotive_series"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tv_result_train_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_locomotive_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_locomotive_title"
+        tools:text="ТУ2-191" />
+
+    <View
+        android:id="@+id/divider_result_locomotive"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="?android:attr/colorForeground"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toStartOf="@+id/tv_result_train_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_locomotive_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_locomotive_series" />
+
+    <TextView
+        android:id="@+id/tv_result_train_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:text="@string/train_number"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/divider_result_train"
+        app:layout_constraintEnd_toStartOf="@+id/divider_result_train"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_locomotive_series" />
+
+    <TextView
+        android:id="@+id/tv_result_train_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider_result_train"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_train"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_train"
+        tools:text="5402" />
+
+    <View
+        android:id="@+id/divider_result_train"
+        android:layout_width="50dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintBottom_toBottomOf="@+id/divider_result_locomotive"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_result_weight_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/result_weight"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_locomotive_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_locomotive_title" />
+
+    <TextView
+        android:id="@+id/tv_result_weight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_weight_title"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_weight"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_weight"
+        tools:text="2213" />
+
+    <View
+        android:id="@+id/divider_result_weight"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintEnd_toStartOf="@+id/tv_result_axes_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_weight_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_weight" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:text="@string/result_total_axes"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_weight"
+        app:layout_constraintEnd_toStartOf="@+id/divider_result_axes" />
+
+    <TextView
+        android:id="@+id/tv_result_total_axes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_axes_title"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_axes"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_axes"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_axes_title"
+        tools:text="180" />
+
+    <View
+        android:id="@+id/divider_result_axes"
+        android:layout_width="50dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintBottom_toBottomOf="@+id/divider_result_weight"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_train" />
+
+    <TextView
+        android:id="@+id/tv_result_required_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/result_required"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_weight_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_weight_title" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_required_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/result_pressing_brake"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_required_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_required_title" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_required"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_pressing_pads_required_title"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_pressing_pads_required"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_pressing_pads_required"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_pressing_pads_required_title"
+        tools:text="1314" />
+
+    <View
+        android:id="@+id/divider_result_pressing_pads_required"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_pressing_pads_required_title"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_axes"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_pressing_pads_required_title" />
+
+    <TextView
+        android:id="@+id/tv_result_hand_brakes_required_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/result_hand_brake"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_required_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_required_title" />
+
+    <TextView
+        android:id="@+id/tv_result_hand_brakes_required"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider_result_hand_brakes_required"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_hand_brakes_required"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_hand_brakes_required"
+        tools:text="28" />
+
+    <View
+        android:id="@+id/divider_result_hand_brakes_required"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_hand_brakes_required_title"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_pressing_pads_required"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_hand_brakes_required_title" />
+
+    <TextView
+        android:id="@+id/tv_result_brake_pressure"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/result_brake_pressure"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_weight_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_hand_brakes_required_title" />
+
+    <TextView
+        android:id="@+id/tv_result_number_of_axes_title"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/result_number_of_axes"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_brake_pressure"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_brake_pressure"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_brake_pressure" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_title"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/result_pressing_pads"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_brake_pressure"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_number_of_axes_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_number_of_axes_title" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:padding="2dp"
+        android:text="@string/result_other_data"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_brake_pressure"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_hand_brakes_required"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_pressing_pads_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_result_pressing_pads_title"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tv_result_two_and_half_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_two_and_half"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_brake_pressure"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_brake_pressure"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_brake_pressure" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_two_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_number_of_axes_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_number_of_axes_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_number_of_axes_title" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_two_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_title" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_two_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_title" />
+
+    <TextView
+        android:id="@+id/tv_result_three_and_half_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_three_and_half"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_two_and_half_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_two_and_half_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_two_and_half_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_three_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_two_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_two_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_two_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_three_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_two_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_two_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_two_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_three_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_two_and_half"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_two_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_two_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_five_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_five"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_three_and_half_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_three_and_half_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_three_and_half_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_five"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_three_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_three_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_three_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_five"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_three_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_three_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_three_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_five"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_three_and_half"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_three_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_three_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_six_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_six"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_five_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_five_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_five_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_six"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_five"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_five"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_five" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_six"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_five"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_five"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_five" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_six"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_five"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_five"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_five" />
+
+
+    <TextView
+        android:id="@+id/tv_result_six_and_half_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_six_and_half"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_six_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_six_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_six_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_six_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_six"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_six"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_six" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_six_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_six"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_six"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_six" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_six_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_six"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_six"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_six" />
+
+    <TextView
+        android:id="@+id/tv_result_seven_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_seven"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_six_and_half_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_six_and_half_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_six_and_half_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_seven"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_six_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_six_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_six_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_seven"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_six_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_six_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_six_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_seven"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_six_and_half"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_six_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_six_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_seven_and_half_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_seven_and_half"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_seven_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_seven_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_seven_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_seven_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_six_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_seven"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_seven" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_seven_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_seven"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_seven"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_seven" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_seven_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_seven"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_seven"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_seven" />
+
+    <TextView
+        android:id="@+id/tv_result_eight_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_eight"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_seven_and_half_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_seven_and_half_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_seven_and_half_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_eight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_seven_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_seven_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_seven_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_eight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_seven_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_seven_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_seven_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_eight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_seven_and_half"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_seven_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_seven_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_eight_and_half_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_eight_and_half"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_eight_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_eight_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_eight_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_eight_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_eight"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_eight"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_eight" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_eight_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_eight"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_eight"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_eight" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_eight_and_half"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_eight"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_eight"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_eight" />
+
+    <TextView
+        android:id="@+id/tv_result_nine_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_nine"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_eight_and_half_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_eight_and_half_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_eight_and_half_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_nine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_eight_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_eight_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_eight_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_nine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_eight_and_half"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_eight_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_eight_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_nine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_eight_and_half"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_eight_and_half"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_eight_and_half" />
+
+    <TextView
+        android:id="@+id/tv_result_ten_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_ten"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_nine_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_nine_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_nine_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_ten"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_nine"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_nine"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_nine" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_ten"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_nine"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_nine"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_nine" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_ten"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_nine"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_nine"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_nine" />
+
+    <TextView
+        android:id="@+id/tv_result_twelve_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_twelve"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_ten_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_ten_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_ten_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_twelve"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_ten"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_ten"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_ten" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_twelve"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_ten"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_ten"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_ten" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_twelve"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_ten"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_ten"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_ten" />
+
+    <TextView
+        android:id="@+id/tv_result_fifteen_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_fifteen"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_twelve_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_twelve_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_twelve_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_fifteen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_twelve"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_twelve"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_twelve" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_fifteen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_twelve"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_twelve"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_twelve" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_fifteen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_twelve"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_twelve"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_twelve" />
+
+    <TextView
+        android:id="@+id/tv_result_total_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:text="@string/result_total"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_fifteen_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_fifteen_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_fifteen_title" />
+
+    <TextView
+        android:id="@+id/tv_result_axes_total"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_axes_fifteen"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_axes_fifteen"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_axes_fifteen" />
+
+    <TextView
+        android:id="@+id/tv_result_pressing_pads_total"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_pressing_pads_fifteen"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_pressing_pads_fifteen"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_pressing_pads_fifteen" />
+
+    <TextView
+        android:id="@+id/tv_result_other_data_total"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_rectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_fifteen"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_other_data_fifteen"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_other_data_fifteen" />
+
+    <TextView
+        android:id="@+id/tv_result_presence_brake_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/result_presence_brake"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_total_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_total_title" />
+
+    <View
+        android:id="@+id/divider_result_presence_brake"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_presence_brake_title"
+        app:layout_constraintEnd_toEndOf="@+id/tv_result_other_data_total"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_presence_brake_title" />
+
+    <TextView
+        android:id="@+id/tv_result_presence_brake"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider_result_presence_brake"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_presence_brake"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_presence_brake"
+        tools:text="138" />
+
+    <TextView
+        android:id="@+id/tv_result_density_brake_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/result_density_brake"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_presence_brake_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_presence_brake_title" />
+
+    <View
+        android:id="@+id/divider_result_density_brake"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_density_brake_title"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_presence_brake"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_density_brake_title" />
+
+    <TextView
+        android:id="@+id/tv_result_density_brake"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider_result_density_brake"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_density_brake"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_density_brake"
+        tools:text="38" />
+
+    <TextView
+        android:id="@+id/tv_result_tail_number_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/tail_wagon_number"
+        android:textColor="?android:textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_result_density_brake_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_density_brake_title" />
+
+    <View
+        android:id="@+id/divider_result_tail_number"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/colorForeground"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_result_tail_number_title"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_density_brake"
+        app:layout_constraintStart_toEndOf="@+id/tv_result_tail_number_title" />
+
+    <TextView
+        android:id="@+id/tv_result_last_wagon_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/colorInputDataText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider_result_tail_number"
+        app:layout_constraintEnd_toEndOf="@+id/divider_result_tail_number"
+        app:layout_constraintStart_toStartOf="@+id/divider_result_tail_number"
+        tools:text="1520" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

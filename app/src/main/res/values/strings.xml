@@ -10,7 +10,7 @@
     <string name="menu_main_about">О приложении</string>
 
     <!--CalculationFragment-->
-    <string name="calculation_fragment_title">Расчитать</string>
+    <string name="calculation_fragment_title">Ввод данных</string>
     <string name="calculation_fragment_btn_calculate">Расчитать</string>
 
     <!--item_set_data_general-->
@@ -98,7 +98,7 @@
     <string name="train_number">Train No.</string>
     <string name="tail_wagon_number">Last wagon No.</string>
     <string name="result_stamp">Station stamp</string>
-    <string name="result_issue_time">Issue time</string>
+    <string name="result_issue_time">Issue issueTime</string>
     <string name="result_weight">weight</string>
     <string name="result_total_axes">Total axes</string>
     <string name="result_required">Required:</string>

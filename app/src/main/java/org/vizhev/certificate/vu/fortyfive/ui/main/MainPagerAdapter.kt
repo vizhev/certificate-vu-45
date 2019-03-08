@@ -8,7 +8,7 @@ import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
 import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesFragment
 
-class PagerAdapter(private val context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class MainPagerAdapter(private val context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
@@ -25,6 +25,14 @@ class PagerAdapter(private val context: Context, fragmentManager: FragmentManage
         return when (position) {
             1 -> context.resources.getString(R.string.saved_certificates_fragment_title)
             else -> context.resources.getString(R.string.calculation_fragment_title)
+
+        }
+    }
+
+    fun getCurrentFragmentTag(position: Int): String {
+        return when (position) {
+            1 -> SavedCertificatesFragment.TAG
+            else -> CalculationFragment.TAG
         }
     }
 }

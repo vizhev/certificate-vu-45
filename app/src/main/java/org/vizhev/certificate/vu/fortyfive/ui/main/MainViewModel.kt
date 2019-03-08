@@ -3,19 +3,19 @@ package org.vizhev.certificate.vu.fortyfive.ui.main
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.vizhev.certificate.vu.fortyfive.data.DataProvider
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
+import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainViewModel(private val dataProvider: DataProvider): ViewModel() {
+class MainViewModel(private val mDataProvider: DataProvider) : ViewModel() {
 
-    private val mLiveData = MutableLiveData<CertificateData>()
+    private val mLiveData = MutableLiveData<CertificateContent>()
     private val mSavedCertificatesAdapter = SavedCertificatesAdapter()
 
-    fun calculateResult(certificateData: CertificateData) {
-        val certificateResult = dataProvider.getCalculator().calculateResult(certificateData)
-        certificateResult.time = getTime()
+    fun calculateResult(certificate: CertificateContent) {
+        val certificateResult = mDataProvider.getCalculator().calculateResult(certificate)
+        certificateResult.issueTime = getTime()
         certificateResult.date = getDate()
         mLiveData.value = certificateResult
     }
@@ -23,25 +23,26 @@ class MainViewModel(private val dataProvider: DataProvider): ViewModel() {
     fun getCertificateData() = mLiveData
 
     fun saveCertificate() {
-
+        val certificate = mLiveData.value
+        if (certificate != null) {
+            certificate.id = System.currentTimeMillis()
+            mDataProvider.setSavedCertificate(certificate)
+        }
     }
 
     fun getSavedCertificatesAdapter(): SavedCertificatesAdapter {
-
         return mSavedCertificatesAdapter
     }
 
-    private fun getTime(): String {
-        return  SimpleDateFormat(
-                "HH : mm",
-                Locale.getDefault()
-        ).format(Date())
+    fun loadSavedCertificates() {
+        val savedCertificates = mDataProvider.getSavedCertificates()
+        mSavedCertificatesAdapter.setContent(savedCertificates)
+        mSavedCertificatesAdapter.notifyDataSetChanged()
     }
 
-    private fun getDate(): String {
-        return SimpleDateFormat(
-                "dd.MM.yyyy",
-                Locale.getDefault()
-        ).format(Date())
-    }
+    private fun getTime(): String = SimpleDateFormat("HH : mm", Locale.getDefault())
+            .format(Date())
+
+    private fun getDate(): String = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+            .format(Date())
 }

@@ -2,32 +2,63 @@ package org.vizhev.certificate.vu.fortyfive.data.prefs
 
 import android.content.Context
 import com.ironz.binaryprefs.BinaryPreferencesBuilder
-import com.ironz.binaryprefs.Preferences
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
-import java.util.*
+import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 
-class AppPreferencesHelper(context: Context) : PreferencesHelper {
+class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
 
-    private val mPreferences: Preferences? = BinaryPreferencesBuilder(context)
-            .registerPersistable(CertificateData.KEY, CertificateData::class.java)
-            .allowBuildOnBackgroundThread()
-            .build()
-
-    override fun saveHistory(parameters: CertificateData) {
-        mPreferences!!
-                .edit()
-                .putPersistable(parameters.id, parameters)
-                .apply()
+    companion object {
+        private const val PREFS_SAVED_CERTIFICATES_KEYS: String = "saved_certificates_keys"
+        private const val PREFS_SAVED_CERTIFICATES: String = "saved_certificates"
     }
 
-    override fun loadHistory(): List<CertificateData> {
-        val historyList: MutableList<CertificateData> = mutableListOf()
-        val historyKeys = mPreferences!!.keys().toTypedArray()
-        Arrays.sort(historyKeys)
+    override fun saveCertificate(certificateContent: CertificateContent) {
+        BinaryPreferencesBuilder(mContext)
+            .name(PREFS_SAVED_CERTIFICATES_KEYS)
+            .build()
+            .edit()
+            .putLong(certificateContent.id.toString(), certificateContent.id)
+            .apply()
+        BinaryPreferencesBuilder(mContext)
+            .name(PREFS_SAVED_CERTIFICATES)
+            .registerPersistable(certificateContent.id.toString(), CertificateContent::class.java)
+            .build()
+            .edit()
+            .putPersistable(certificateContent.id.toString(), certificateContent)
+            .apply()
+    }
+
+    override fun loadCertificates(): List<CertificateContent> {
+        val certificatesContentList: MutableList<CertificateContent> = mutableListOf()
+        val prefHistoryKeys = BinaryPreferencesBuilder(mContext)
+            .name(PREFS_SAVED_CERTIFICATES_KEYS)
+            .build()
+        val historyKeys = prefHistoryKeys.all.keys.sorted()
         historyKeys.forEach {
-            val parameters = mPreferences.getPersistable(it, CertificateData())
-            historyList.add(parameters)
+            val certificateContent = BinaryPreferencesBuilder(mContext)
+                .name(PREFS_SAVED_CERTIFICATES)
+                .registerPersistable(it, CertificateContent::class.java)
+                .build()
+                .getPersistable(it, CertificateContent())
+            certificatesContentList.add(certificateContent)
         }
-        return historyList
+        return certificatesContentList
+    }
+
+    override fun deleteCertificates(idList: List<Long>) {
+        idList.forEach {
+            BinaryPreferencesBuilder(mContext)
+                .name(PREFS_SAVED_CERTIFICATES_KEYS)
+                .build()
+                .edit()
+                .remove(it.toString())
+                .apply()
+            BinaryPreferencesBuilder(mContext)
+                .name(PREFS_SAVED_CERTIFICATES)
+                .registerPersistable(it.toString(), CertificateContent::class.java)
+                .build()
+                .edit()
+                .clear()
+                .apply()
+        }
     }
 }

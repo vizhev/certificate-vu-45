@@ -17,15 +17,13 @@ class SavedCertificatesFragment : Fragment() {
 
     private lateinit var mMainViewModel: MainViewModel
 
-    /*companion object {
+    companion object {
         const val TAG: String = "SavedCertificatesFragment"
-    }*/
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mMainViewModel = ViewModelProviders
-                .of(this, (context as MainActivity).getViewModelFactory())
-                .get(MainViewModel::class.java)
+        mMainViewModel = (context as MainActivity).mMainViewModel
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

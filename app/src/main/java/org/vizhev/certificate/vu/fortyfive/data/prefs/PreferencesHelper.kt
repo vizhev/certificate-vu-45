@@ -1,10 +1,12 @@
 package org.vizhev.certificate.vu.fortyfive.data.prefs
 
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
+import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 
 interface PreferencesHelper {
 
-    fun saveHistory(parameters: CertificateData)
+    fun saveCertificate(certificateContent: CertificateContent)
 
-    fun loadHistory(): List<CertificateData>
+    fun loadCertificates(): List<CertificateContent>
+
+    fun deleteCertificates(idList: List<Long>)
 }

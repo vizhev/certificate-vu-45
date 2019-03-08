@@ -1,8 +1,8 @@
 package org.vizhev.certificate.vu.fortyfive.data.api
 
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateData
+import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 
 interface Calculator {
 
-    fun calculateResult(certificateData: CertificateData): CertificateData
+    fun calculateResult(certificateContent: CertificateContent): CertificateContent
 }
