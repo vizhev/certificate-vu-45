@@ -12,6 +12,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:text="О приложении"
-        android:textColor="?android:colorForeground" />
+        android:textColor="?android:textColorPrimary" />
 
 </LinearLayout>

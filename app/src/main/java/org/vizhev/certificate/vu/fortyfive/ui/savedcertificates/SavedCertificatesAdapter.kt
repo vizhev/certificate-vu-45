@@ -1,9 +1,13 @@
 package org.vizhev.certificate.vu.fortyfive.ui.savedcertificates
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
@@ -11,22 +15,43 @@ import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.ViewHolder>() {
 
     private val mContentList = mutableListOf<CertificateContent>()
+    private val mSelectedSet = mutableSetOf<Long>()
+    private lateinit var mLinearLayoutManager: LinearLayoutManager
+    private var mBackgroundColor: Int = Color.WHITE
+    private var mSelectedColor: Int = Color.RED
+    private var mPreviousExpandedPosition = -1
+    private var mExpandedPosition = -1
 
     fun setContent(contentList: List<CertificateContent>) {
         mContentList.clear()
         mContentList.addAll(contentList)
     }
 
+    fun setLayoutManager(linearLayoutManager: LinearLayoutManager) {
+        mLinearLayoutManager = linearLayoutManager
+    }
+
+    fun setColors(backgroundColor: Int, selectColor: Int) {
+        mBackgroundColor = backgroundColor
+        mSelectedColor = selectColor
+    }
+
+    fun getSelectedItems() = mSelectedSet
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater
-                .from(parent.context)
-                .inflate(R.layout.item_saved_certificate, parent, false)
+                LayoutInflater
+                        .from(parent.context)
+                        .inflate(R.layout.item_saved_certificate, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val certificateContent = mContentList[position]
+        val isExpanded = mExpandedPosition == position
+        if (isExpanded) {
+            mPreviousExpandedPosition = position
+        }
         holder.tvStationStamp.text = certificateContent.stationStamp
         holder.tvIssueTime.text = certificateContent.issueTime
         holder.tvDate.text = certificateContent.date
@@ -63,11 +88,39 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
         holder.tvTotalAxes.text = certificateContent.totalAxes
         holder.tvPressingPadsRequired.text = certificateContent.pressingPadsRequired
         holder.tvHandBrakesRequired.text = certificateContent.handBrakesRequired
+        holder.clItemBody.visibility = if (isExpanded) View.VISIBLE else View.GONE
+        holder.llItemTitle.text = StringBuilder()
+                .append(certificateContent.date)
+                .append(" ")
+                .append(certificateContent.issueTime)
+                .toString()
+        holder.cvItem.setOnClickListener {
+            mExpandedPosition = when (isExpanded) {
+                true -> -1
+                else -> position
+            }
+            notifyItemChanged(mPreviousExpandedPosition)
+            notifyItemChanged(position)
+            mLinearLayoutManager.scrollToPositionWithOffset(position, 0)
+        }
+        val backgroundColor = if (mSelectedSet.contains(certificateContent.id)) mSelectedColor else mBackgroundColor
+        holder.cvItem.setCardBackgroundColor(backgroundColor)
+        holder.cvItem.setOnLongClickListener {
+            val selectedItemId = certificateContent.id
+            when (mSelectedSet.contains(selectedItemId)) {
+                true -> {
+                    mSelectedSet.remove(selectedItemId)
+                }
+                false -> {
+                    mSelectedSet.add(selectedItemId)
+                }
+            }
+            notifyItemChanged(position)
+            true
+        }
     }
 
-    override fun getItemCount(): Int {
-        return mContentList.size
-    }
+    override fun getItemCount() = mContentList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -107,5 +160,8 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
         val tvTotalAxes: TextView = itemView.findViewById(R.id.tv_result_total_axes)
         val tvPressingPadsRequired: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_required)
         val tvHandBrakesRequired: TextView = itemView.findViewById(R.id.tv_result_hand_brakes_required)
+        val llItemTitle: TextView = itemView.findViewById(R.id.tv_saved_certificate_item_title)
+        val clItemBody: ConstraintLayout = itemView.findViewById(R.id.cl_saved_certificate_body)
+        val cvItem: CardView = itemView.findViewById(R.id.cv_item_saved_certificate)
     }
 }

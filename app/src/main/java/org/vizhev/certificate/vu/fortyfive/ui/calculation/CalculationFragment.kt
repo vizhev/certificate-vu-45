@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.item_set_data_params.*
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainActivity
+import org.vizhev.certificate.vu.fortyfive.ui.main.MainPagerAdapter
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 
 class CalculationFragment : Fragment() {
@@ -23,8 +24,7 @@ class CalculationFragment : Fragment() {
     private lateinit var mMainViewModel: MainViewModel
 
     companion object {
-        const val TAG: String = "CalculationFragment"
-        var isResultViewOpen: Boolean = false
+        var isResultViewOpen = false
     }
 
     override fun onAttach(context: Context) {
@@ -39,7 +39,7 @@ class CalculationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mMainViewModel.getCertificateData().observe(
-            this, Observer {
+            viewLifecycleOwner, Observer {
                 tv_result_station_stamp.text = it.stationStamp
                 tv_result_issue_time.text = it.issueTime
                 tv_result_date.text = it.date
@@ -95,7 +95,7 @@ class CalculationFragment : Fragment() {
 
     private fun createOnClickListener(): View.OnClickListener {
         return View.OnClickListener {
-            val certificate = CertificateContent()
+            val certificateContent = CertificateContent()
             if (!rb_params_loaded.isChecked && !rb_params_empty.isChecked) {
                 rg_params.requestFocus()
                 Toast.makeText(context, "Please select type", Toast.LENGTH_SHORT).show()
@@ -111,29 +111,29 @@ class CalculationFragment : Fragment() {
                 Toast.makeText(context, "Please enter slope factor", Toast.LENGTH_SHORT).show()
                 return@OnClickListener
             }
-            certificate.stationStamp = et_general_station_stamp.text.toString()
-            certificate.locomotiveSeries = et_general_locomotive_series.text.toString()
-            certificate.trainNumber = et_general_train_number.text.toString()
-            certificate.lastWagonNumber = et_general_tail_wagon_number.text.toString()
-            certificate.isLoaded = rg_params.checkedRadioButtonId == R.id.rb_params_loaded
-            certificate.weight = et_params_weight.text.toString()
-            certificate.slopeFactor = et_params_slope_factor.text.toString()
-            certificate.axesTwoAndHalf = et_axes_two_and_half.text.toString()
-            certificate.axesThreeAndHalf = et_axes_three_and_half.text.toString()
-            certificate.axesFive = et_axes_five.text.toString()
-            certificate.axesSix = et_axes_six.text.toString()
-            certificate.axesSixAndHalf = et_axes_six_and_half.text.toString()
-            certificate.axesSeven = et_axes_seven.text.toString()
-            certificate.axesSevenAndHalf = et_axes_seven_and_half.text.toString()
-            certificate.axesEight = et_axes_eight.text.toString()
-            certificate.axesEightAndHalf = et_axes_eight_and_half.text.toString()
-            certificate.axesNine = et_axes_nine.text.toString()
-            certificate.axesTen = et_axes_ten.text.toString()
-            certificate.axesTwelve = et_axes_twelve.text.toString()
-            mMainViewModel.calculateResult(certificate)
+            certificateContent.stationStamp = et_general_station_stamp.text.toString()
+            certificateContent.locomotiveSeries = et_general_locomotive_series.text.toString()
+            certificateContent.trainNumber = et_general_train_number.text.toString()
+            certificateContent.lastWagonNumber = et_general_tail_wagon_number.text.toString()
+            certificateContent.isLoaded = rg_params.checkedRadioButtonId == R.id.rb_params_loaded
+            certificateContent.weight = et_params_weight.text.toString()
+            certificateContent.slopeFactor = et_params_slope_factor.text.toString()
+            certificateContent.axesTwoAndHalf = et_axes_two_and_half.text.toString()
+            certificateContent.axesThreeAndHalf = et_axes_three_and_half.text.toString()
+            certificateContent.axesFive = et_axes_five.text.toString()
+            certificateContent.axesSix = et_axes_six.text.toString()
+            certificateContent.axesSixAndHalf = et_axes_six_and_half.text.toString()
+            certificateContent.axesSeven = et_axes_seven.text.toString()
+            certificateContent.axesSevenAndHalf = et_axes_seven_and_half.text.toString()
+            certificateContent.axesEight = et_axes_eight.text.toString()
+            certificateContent.axesEightAndHalf = et_axes_eight_and_half.text.toString()
+            certificateContent.axesNine = et_axes_nine.text.toString()
+            certificateContent.axesTen = et_axes_ten.text.toString()
+            certificateContent.axesTwelve = et_axes_twelve.text.toString()
+            mMainViewModel.calculateResult(certificateContent)
             isResultViewOpen = true
             setViewsVisibility()
-            (activity as MainActivity).showMenuAction(0)
+            (activity as MainActivity).showMenuAction(MainPagerAdapter.CALCULATION_FRAGMENT)
         }
     }
 

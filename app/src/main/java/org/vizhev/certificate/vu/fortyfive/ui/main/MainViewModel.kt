@@ -13,25 +13,19 @@ class MainViewModel(private val mDataProvider: DataProvider) : ViewModel() {
     private val mLiveData = MutableLiveData<CertificateContent>()
     private val mSavedCertificatesAdapter = SavedCertificatesAdapter()
 
-    fun calculateResult(certificate: CertificateContent) {
-        val certificateResult = mDataProvider.getCalculator().calculateResult(certificate)
+    fun calculateResult(certificateContent: CertificateContent) {
+        val certificateResult = mDataProvider.getCalculator().calculateResult(certificateContent)
         certificateResult.issueTime = getTime()
         certificateResult.date = getDate()
         mLiveData.value = certificateResult
     }
 
-    fun getCertificateData() = mLiveData
-
     fun saveCertificate() {
-        val certificate = mLiveData.value
-        if (certificate != null) {
-            certificate.id = System.currentTimeMillis()
-            mDataProvider.setSavedCertificate(certificate)
+        val certificateContent = mLiveData.value
+        if (certificateContent != null) {
+            certificateContent.id = System.currentTimeMillis()
+            mDataProvider.setSavedCertificate(certificateContent)
         }
-    }
-
-    fun getSavedCertificatesAdapter(): SavedCertificatesAdapter {
-        return mSavedCertificatesAdapter
     }
 
     fun loadSavedCertificates() {
@@ -40,9 +34,11 @@ class MainViewModel(private val mDataProvider: DataProvider) : ViewModel() {
         mSavedCertificatesAdapter.notifyDataSetChanged()
     }
 
-    private fun getTime(): String = SimpleDateFormat("HH : mm", Locale.getDefault())
-            .format(Date())
+    fun getCertificateData() = mLiveData
 
-    private fun getDate(): String = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-            .format(Date())
+    fun getSavedCertificatesAdapter() = mSavedCertificatesAdapter
+
+    private fun getTime() = SimpleDateFormat("HH : mm", Locale.getDefault()).format(Date())
+
+    private fun getDate() = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Date())
 }

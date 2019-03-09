@@ -5,51 +5,47 @@ import com.ironz.binaryprefs.serialization.serializer.persistable.io.DataInput
 import com.ironz.binaryprefs.serialization.serializer.persistable.io.DataOutput
 
 data class CertificateContent(
-    var id: Long = 0,
-    var date: String = "",
-    var issueTime: String = "",
-    var stationStamp: String = "",
-    var locomotiveSeries: String = "",
-    var trainNumber: String = "",
-    var lastWagonNumber: String = "",
-    var isLoaded: Boolean = false,
-    var weight: String = "",
-    var slopeFactor: String = "",
-    var handsBrakesFact: String = "",
-    var axesTwoAndHalf: String = "",
-    var axesThreeAndHalf: String = "",
-    var axesFive: String = "",
-    var axesSix: String = "",
-    var axesSixAndHalf: String = "",
-    var axesSeven: String = "",
-    var axesSevenAndHalf: String = "",
-    var axesEight: String = "",
-    var axesEightAndHalf: String = "",
-    var axesNine: String = "",
-    var axesTen: String = "",
-    var axesTwelve: String = "",
-    var axesFifteen: String = "",
-    var pressingPadsTwoAndHalf: String = "",
-    var pressingPadsThreeAndHalf: String = "",
-    var pressingPadsFive: String = "",
-    var pressingPadsSix: String = "",
-    var pressingPadsSixAndHalf: String = "",
-    var pressingPadsSeven: String = "",
-    var pressingPadsSevenAndHalf: String = "",
-    var pressingPadsEight: String = "",
-    var pressingPadsEightAndHalf: String = "",
-    var pressingPadsNine: String = "",
-    var pressingPadsTen: String = "",
-    var pressingPadsTwelve: String = "",
-    var pressingPadsFifteen: String = "",
-    var totalAxes: String = "",
-    var pressingPadsRequired: String = "",
-    var handBrakesRequired: String = ""
+        var id: Long = 0,
+        var date: String = "",
+        var issueTime: String = "",
+        var stationStamp: String = "",
+        var locomotiveSeries: String = "",
+        var trainNumber: String = "",
+        var lastWagonNumber: String = "",
+        var isLoaded: Boolean = false,
+        var weight: String = "",
+        var slopeFactor: String = "",
+        var handsBrakesFact: String = "",
+        var axesTwoAndHalf: String = "",
+        var axesThreeAndHalf: String = "",
+        var axesFive: String = "",
+        var axesSix: String = "",
+        var axesSixAndHalf: String = "",
+        var axesSeven: String = "",
+        var axesSevenAndHalf: String = "",
+        var axesEight: String = "",
+        var axesEightAndHalf: String = "",
+        var axesNine: String = "",
+        var axesTen: String = "",
+        var axesTwelve: String = "",
+        var axesFifteen: String = "",
+        var pressingPadsTwoAndHalf: String = "",
+        var pressingPadsThreeAndHalf: String = "",
+        var pressingPadsFive: String = "",
+        var pressingPadsSix: String = "",
+        var pressingPadsSixAndHalf: String = "",
+        var pressingPadsSeven: String = "",
+        var pressingPadsSevenAndHalf: String = "",
+        var pressingPadsEight: String = "",
+        var pressingPadsEightAndHalf: String = "",
+        var pressingPadsNine: String = "",
+        var pressingPadsTen: String = "",
+        var pressingPadsTwelve: String = "",
+        var pressingPadsFifteen: String = "",
+        var totalAxes: String = "",
+        var pressingPadsRequired: String = "",
+        var handBrakesRequired: String = ""
 ) : Persistable {
-
-    companion object {
-        const val KEY: String = "certificate"
-    }
 
     override fun readExternal(p0: DataInput?) {
         id = p0!!.readLong()
@@ -138,47 +134,47 @@ data class CertificateContent(
     }
 
     override fun deepClone(): CertificateContent {
-        val certificate = CertificateContent()
-        certificate.id = id
-        certificate.date = date
-        certificate.issueTime = issueTime
-        certificate.stationStamp = stationStamp
-        certificate.locomotiveSeries = locomotiveSeries
-        certificate.trainNumber = trainNumber
-        certificate.lastWagonNumber = lastWagonNumber
-        certificate.isLoaded = isLoaded
-        certificate.weight = weight
-        certificate.slopeFactor = slopeFactor
-        certificate.handsBrakesFact = handsBrakesFact
-        certificate.axesTwoAndHalf = axesTwoAndHalf
-        certificate.axesThreeAndHalf = axesThreeAndHalf
-        certificate.axesFive = axesFive
-        certificate.axesSix = axesSix
-        certificate.axesSixAndHalf = axesSixAndHalf
-        certificate.axesSeven = axesSeven
-        certificate.axesSevenAndHalf = axesSevenAndHalf
-        certificate.axesEight = axesEight
-        certificate.axesEightAndHalf = axesEightAndHalf
-        certificate.axesNine = axesNine
-        certificate.axesTen = axesTen
-        certificate.axesTwelve = axesTwelve
-        certificate.axesFifteen = axesFifteen
-        certificate.pressingPadsTwoAndHalf = pressingPadsTwoAndHalf
-        certificate.pressingPadsThreeAndHalf = pressingPadsThreeAndHalf
-        certificate.pressingPadsFive = pressingPadsFive
-        certificate.pressingPadsSix = pressingPadsSix
-        certificate.pressingPadsSixAndHalf = pressingPadsSixAndHalf
-        certificate.pressingPadsSeven = pressingPadsSeven
-        certificate.pressingPadsSevenAndHalf = pressingPadsSevenAndHalf
-        certificate.pressingPadsEight = pressingPadsEight
-        certificate.pressingPadsEightAndHalf = pressingPadsEightAndHalf
-        certificate.pressingPadsNine = pressingPadsNine
-        certificate.pressingPadsTen = pressingPadsTen
-        certificate.pressingPadsTwelve = pressingPadsTwelve
-        certificate.pressingPadsFifteen = pressingPadsFifteen
-        certificate.totalAxes = totalAxes
-        certificate.pressingPadsTwoAndHalf = pressingPadsTwoAndHalf
-        certificate.pressingPadsThreeAndHalf = pressingPadsThreeAndHalf
-        return certificate
+        val certificateContent = CertificateContent()
+        certificateContent.id = id
+        certificateContent.date = date
+        certificateContent.issueTime = issueTime
+        certificateContent.stationStamp = stationStamp
+        certificateContent.locomotiveSeries = locomotiveSeries
+        certificateContent.trainNumber = trainNumber
+        certificateContent.lastWagonNumber = lastWagonNumber
+        certificateContent.isLoaded = isLoaded
+        certificateContent.weight = weight
+        certificateContent.slopeFactor = slopeFactor
+        certificateContent.handsBrakesFact = handsBrakesFact
+        certificateContent.axesTwoAndHalf = axesTwoAndHalf
+        certificateContent.axesThreeAndHalf = axesThreeAndHalf
+        certificateContent.axesFive = axesFive
+        certificateContent.axesSix = axesSix
+        certificateContent.axesSixAndHalf = axesSixAndHalf
+        certificateContent.axesSeven = axesSeven
+        certificateContent.axesSevenAndHalf = axesSevenAndHalf
+        certificateContent.axesEight = axesEight
+        certificateContent.axesEightAndHalf = axesEightAndHalf
+        certificateContent.axesNine = axesNine
+        certificateContent.axesTen = axesTen
+        certificateContent.axesTwelve = axesTwelve
+        certificateContent.axesFifteen = axesFifteen
+        certificateContent.pressingPadsTwoAndHalf = pressingPadsTwoAndHalf
+        certificateContent.pressingPadsThreeAndHalf = pressingPadsThreeAndHalf
+        certificateContent.pressingPadsFive = pressingPadsFive
+        certificateContent.pressingPadsSix = pressingPadsSix
+        certificateContent.pressingPadsSixAndHalf = pressingPadsSixAndHalf
+        certificateContent.pressingPadsSeven = pressingPadsSeven
+        certificateContent.pressingPadsSevenAndHalf = pressingPadsSevenAndHalf
+        certificateContent.pressingPadsEight = pressingPadsEight
+        certificateContent.pressingPadsEightAndHalf = pressingPadsEightAndHalf
+        certificateContent.pressingPadsNine = pressingPadsNine
+        certificateContent.pressingPadsTen = pressingPadsTen
+        certificateContent.pressingPadsTwelve = pressingPadsTwelve
+        certificateContent.pressingPadsFifteen = pressingPadsFifteen
+        certificateContent.totalAxes = totalAxes
+        certificateContent.pressingPadsRequired = pressingPadsRequired
+        certificateContent.handBrakesRequired = handBrakesRequired
+        return certificateContent
     }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_item_saved_certificate"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -10,14 +12,18 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_saved_certificate_item_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="8dp"
-            android:text="Title"
-            android:textColor="?android:textColorPrimary" />
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:textColor="?android:textColorPrimary"
+            tools:text="09.03.2019" />
 
-        <include layout="@layout/element_result" />
+        <include
+            android:id="@+id/cl_saved_certificate_body"
+            layout="@layout/element_result" />
 
     </LinearLayout>
 

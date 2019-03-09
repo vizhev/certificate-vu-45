@@ -26,10 +26,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var mViewModelFactory: ViewModelFactory
     lateinit var mMainViewModel: MainViewModel
 
-    companion object {
-        private var pagerPosition: Int = 0
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         DaggerActivityComponent.builder()
                 .applicationComponent((application as App).getApplicationComponent())
@@ -57,12 +53,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         if (isSavedCertificatesFragment()) {
-            vp_main.currentItem = 0
+            vp_main.currentItem = MainPagerAdapter.CALCULATION_FRAGMENT
             return
         }
         if (isResultViewOpen()) {
             (supportFragmentManager.fragments[0] as CalculationFragment).onBackPressed()
-            showMenuAction(pagerPosition)
+            showMenuAction(vp_main.currentItem)
             return
         }
         super.onBackPressed()
@@ -71,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         mMenu = menu!!
-        showMenuAction(pagerPosition)
+        showMenuAction(vp_main.currentItem)
         return true
     }
 
@@ -99,20 +95,18 @@ class MainActivity : AppCompatActivity() {
 
     fun showMenuAction(position: Int) {
         when (position) {
-            0 -> {
+            MainPagerAdapter.CALCULATION_FRAGMENT -> {
                 mMenu.findItem(R.id.mi_main_save_certificate).isVisible = isResultViewOpen()
                 mMenu.findItem(R.id.mi_main_clear_values).isVisible = !isResultViewOpen()
                 mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = false
             }
-            1 -> {
+            MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT -> {
                 mMenu.findItem(R.id.mi_main_save_certificate).isVisible = false
                 mMenu.findItem(R.id.mi_main_clear_values).isVisible = false
                 mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = true
             }
         }
     }
-
-    fun getMainViewModel(): MainViewModel = mMainViewModel
 
     private fun createOnPageListener(): ViewPager.OnPageChangeListener {
         return object : ViewPager.OnPageChangeListener {
@@ -125,20 +119,17 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                pagerPosition = position
-                showMenuAction(position)
-                if (position == 1) {
+                showMenuAction(vp_main.currentItem)
+                if (vp_main.currentItem == MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT) {
                     mMainViewModel.loadSavedCertificates()
                 }
             }
         }
     }
 
-    private fun isResultViewOpen(): Boolean {
-        return pagerPosition == 0 && CalculationFragment.isResultViewOpen
-    }
+    fun getMainViewModel() = mMainViewModel
 
-    private fun isSavedCertificatesFragment(): Boolean {
-        return pagerPosition == 1
-    }
+    private fun isResultViewOpen() = vp_main.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT && CalculationFragment.isResultViewOpen
+
+    private fun isSavedCertificatesFragment() = vp_main.currentItem == MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT
 }
