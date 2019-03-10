@@ -26,10 +26,9 @@ class MainViewModel(private val mDataProvider: DataProvider) : ViewModel() {
             if (mSavedCertificatesAdapter.getContent().contains(certificateContent)) {
                 return false
             }
-            certificateContent.id = System.currentTimeMillis()
+            certificateContent.id = SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault()).format(Date()).toLong()
             mDataProvider.setSavedCertificate(certificateContent)
             mSavedCertificatesAdapter.setItem(certificateContent)
-            mSavedCertificatesAdapter.notifyDataSetChanged()
             return true
         }
         return false
@@ -38,7 +37,6 @@ class MainViewModel(private val mDataProvider: DataProvider) : ViewModel() {
     fun loadSavedCertificates() {
         val savedCertificates = mDataProvider.getSavedCertificates()
         mSavedCertificatesAdapter.setContent(savedCertificates)
-        mSavedCertificatesAdapter.notifyDataSetChanged()
     }
 
     fun deleteCertificates() {

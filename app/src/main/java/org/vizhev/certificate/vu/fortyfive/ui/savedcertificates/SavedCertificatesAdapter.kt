@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.collection.ArrayMap
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,7 @@ import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.ViewHolder>() {
 
     private val mContentList = mutableListOf<CertificateContent>()
-    private val mSelectedItemsList = mutableListOf<Long>()
+    private val mSelectedItemsMap = ArrayMap<Int, Long>()
     private lateinit var mLinearLayoutManager: LinearLayoutManager
     private var mBackgroundColor: Int = Color.WHITE
     private var mSelectedColor: Int = Color.RED
@@ -26,6 +27,7 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
     fun setContent(contentList: List<CertificateContent>) {
         mContentList.clear()
         mContentList.addAll(contentList)
+        notifyDataSetChanged()
     }
 
     fun getContent() = mContentList
@@ -44,20 +46,22 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
         mSelectedColor = selectColor
     }
 
-    fun getSelectedItems() = mSelectedItemsList
+    fun getSelectedItems() = mSelectedItemsMap.values.toSet()
 
     fun removeSelectedItems() {
-        val contentIterator = mContentList.iterator()
-        while (contentIterator.hasNext() && !mSelectedItemsList.isEmpty()) {
-            val certificateContent = contentIterator.next()
-            val itemPosition = mContentList.indexOf(certificateContent)
-            val selectedItemId = mSelectedItemsList.first()
-            if (certificateContent.id == selectedItemId) {
-                mSelectedItemsList.remove(selectedItemId)
-                contentIterator.remove()
-                notifyItemRemoved(itemPosition)
+        mExpandedPosition = -1
+        val contentList = mutableListOf<CertificateContent>()
+        mContentList.forEach {
+            if (!mSelectedItemsMap.containsValue(it.id)) {
+                contentList.add(it)
+            } else {
+                notifyItemRemoved(mContentList.indexOf(it))
             }
+            notifyItemChanged(mContentList.indexOf(it))
         }
+        mContentList.clear()
+        mContentList.addAll(contentList)
+        mSelectedItemsMap.clear()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -125,18 +129,17 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
             notifyItemChanged(position)
             mLinearLayoutManager.scrollToPositionWithOffset(position, 0)
         }
-        val backgroundColor = if (mSelectedItemsList.contains(certificateContent.id)) {
-            mSelectedColor
-        } else {
-            mBackgroundColor
+        val backgroundColor = when (mSelectedItemsMap.containsValue(certificateContent.id)) {
+            true -> mSelectedColor
+            false -> mBackgroundColor
         }
         holder.cvItem.setCardBackgroundColor(backgroundColor)
         holder.cvItem.setOnLongClickListener {
-            when (mSelectedItemsList.contains(certificateContent.id)) {
-                true -> mSelectedItemsList.remove(certificateContent.id)
-                false -> mSelectedItemsList.add(certificateContent.id)
+            when (mSelectedItemsMap.containsValue(certificateContent.id)) {
+                true -> mSelectedItemsMap.remove(position)
+                false -> mSelectedItemsMap[position] = certificateContent.id
             }
-            Log.d("Adapter", "selected items size = ${mSelectedItemsList.size}")
+            Log.d("Adapter", "selected items size = ${mSelectedItemsMap.size}")
             notifyItemChanged(position)
             true
         }
