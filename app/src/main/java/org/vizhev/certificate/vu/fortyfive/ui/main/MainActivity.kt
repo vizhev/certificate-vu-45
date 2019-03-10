@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
@@ -78,11 +79,14 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.mi_main_save_certificate -> {
-                mMainViewModel.saveCertificate()
+                when (mMainViewModel.saveCertificate()) {
+                    true -> Toast.makeText(baseContext, R.string.activity_main_toast_certificate_saved, Toast.LENGTH_SHORT).show()
+                    false -> Toast.makeText(baseContext, R.string.activity_main_toast_certificate_not_saved, Toast.LENGTH_SHORT).show()
+                }
                 true
             }
             R.id.mi_main_delete_saved_item -> {
-
+                mMainViewModel.deleteCertificates()
                 true
             }
             R.id.mi_main_about -> {
@@ -120,9 +124,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 showMenuAction(vp_main.currentItem)
-                if (vp_main.currentItem == MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT) {
-                    mMainViewModel.loadSavedCertificates()
-                }
             }
         }
     }

@@ -8,7 +8,6 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
 
     companion object {
         private const val PREFS_SAVED_CERTIFICATES_KEYS = "saved_certificates_keys"
-        private const val PREFS_SAVED_CERTIFICATES = "saved_certificates"
     }
 
     override fun saveCertificate(certificateContent: CertificateContent) {
@@ -19,7 +18,7 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
                 .putLong(certificateContent.id.toString(), certificateContent.id)
                 .apply()
         BinaryPreferencesBuilder(mContext)
-                .name(PREFS_SAVED_CERTIFICATES)
+                .name(certificateContent.id.toString())
                 .registerPersistable(certificateContent.id.toString(), CertificateContent::class.java)
                 .build()
                 .edit()
@@ -36,9 +35,8 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
         val certificatesKeys = prefCertificatesKeys.all.keys.sorted().reversed()
         certificatesKeys.forEach {
             val certificateContent = BinaryPreferencesBuilder(mContext)
-                    .name(PREFS_SAVED_CERTIFICATES)
+                    .name(it.toString())
                     .registerPersistable(it, CertificateContent::class.java)
-                    .allowBuildOnBackgroundThread()
                     .build()
                     .getPersistable(it, CertificateContent())
             certificatesContentList.add(certificateContent)
@@ -46,16 +44,16 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
         return certificatesContentList
     }
 
-    override fun deleteCertificates(idList: List<Long>) {
-        idList.forEach {
-            BinaryPreferencesBuilder(mContext)
-                    .name(PREFS_SAVED_CERTIFICATES_KEYS)
-                    .build()
-                    .edit()
+    override fun deleteCertificates(deletedCertificatesId: Set<Long>) {
+        val prefCertificatesKeys = BinaryPreferencesBuilder(mContext)
+                .name(PREFS_SAVED_CERTIFICATES_KEYS)
+                .build()
+        deletedCertificatesId.forEach {
+            prefCertificatesKeys.edit()
                     .remove(it.toString())
                     .apply()
             BinaryPreferencesBuilder(mContext)
-                    .name(PREFS_SAVED_CERTIFICATES)
+                    .name(it.toString())
                     .registerPersistable(it.toString(), CertificateContent::class.java)
                     .build()
                     .edit()

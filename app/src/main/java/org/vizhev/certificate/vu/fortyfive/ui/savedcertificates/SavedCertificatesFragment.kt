@@ -30,11 +30,14 @@ class SavedCertificatesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(context)
         val adapter = mMainViewModel.getSavedCertificatesAdapter()
-        adapter.setLayoutManager(layoutManager)
-        adapter.setColors(
-                resources.getColor(R.color.colorBackgroundLight),
-                resources.getColor(R.color.colorSelectedItem)
-        )
+        if (adapter.itemCount == 0) {
+            adapter.setLayoutManager(layoutManager)
+            adapter.setColors(
+                    resources.getColor(R.color.colorBackgroundLight),
+                    resources.getColor(R.color.colorSelectedItem)
+            )
+            mMainViewModel.loadSavedCertificates()
+        }
         rv_saved_certificates.apply{
             this.layoutManager = layoutManager
             this.adapter = adapter

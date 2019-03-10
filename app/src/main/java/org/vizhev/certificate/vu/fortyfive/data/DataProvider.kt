@@ -10,4 +10,6 @@ interface DataProvider {
     fun setSavedCertificate(certificate: CertificateContent)
 
     fun getSavedCertificates(): List<CertificateContent>
+
+    fun deleteCertificates(deletedCertificates: Set<Long>)
 }

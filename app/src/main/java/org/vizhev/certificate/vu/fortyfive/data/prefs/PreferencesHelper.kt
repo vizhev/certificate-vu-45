@@ -8,5 +8,5 @@ interface PreferencesHelper {
 
     fun loadCertificates(): List<CertificateContent>
 
-    fun deleteCertificates(idList: List<Long>)
+    fun deleteCertificates(deletedCertificatesId: Set<Long>)
 }

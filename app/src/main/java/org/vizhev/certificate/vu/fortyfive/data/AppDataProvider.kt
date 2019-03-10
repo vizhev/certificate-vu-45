@@ -18,4 +18,8 @@ class AppDataProvider(private val mCalculator: Calculator, private val mPreferen
     override fun getSavedCertificates(): List<CertificateContent> {
         return mPreferencesHelper.loadCertificates()
     }
+
+    override fun deleteCertificates(deletedCertificates: Set<Long>) {
+        mPreferencesHelper.deleteCertificates(deletedCertificates)
+    }
 }

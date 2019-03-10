@@ -20,18 +20,32 @@ class MainViewModel(private val mDataProvider: DataProvider) : ViewModel() {
         mLiveData.value = certificateResult
     }
 
-    fun saveCertificate() {
+    fun saveCertificate(): Boolean {
         val certificateContent = mLiveData.value
         if (certificateContent != null) {
+            if (mSavedCertificatesAdapter.getContent().contains(certificateContent)) {
+                return false
+            }
             certificateContent.id = System.currentTimeMillis()
             mDataProvider.setSavedCertificate(certificateContent)
+            mSavedCertificatesAdapter.setItem(certificateContent)
+            mSavedCertificatesAdapter.notifyDataSetChanged()
+            return true
         }
+        return false
     }
 
     fun loadSavedCertificates() {
         val savedCertificates = mDataProvider.getSavedCertificates()
         mSavedCertificatesAdapter.setContent(savedCertificates)
         mSavedCertificatesAdapter.notifyDataSetChanged()
+    }
+
+    fun deleteCertificates() {
+        val selectedItemsSet = mutableSetOf<Long>()
+        selectedItemsSet.addAll(mSavedCertificatesAdapter.getSelectedItems())
+        mDataProvider.deleteCertificates(selectedItemsSet)
+        mSavedCertificatesAdapter.removeSelectedItems()
     }
 
     fun getCertificateData() = mLiveData

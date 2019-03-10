@@ -2,6 +2,10 @@
 
     <string name="app_name">Справка ВУ-45</string>
 
+    <!--MainActivity-->
+    <string name="activity_main_toast_certificate_saved">Сохранено</string>
+    <string name="activity_main_toast_certificate_not_saved">Эта справка уже сохранена</string>
+
     <!--MainMenu-->
     <string name="menu_main_clear">Очистить значения</string>
     <string name="menu_main_save">Сохранить справку</string>
