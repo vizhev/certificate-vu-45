@@ -17,6 +17,7 @@ import org.vizhev.certificate.vu.fortyfive.di.modules.ActivityModule
 import org.vizhev.certificate.vu.fortyfive.ui.ViewModelFactory
 import org.vizhev.certificate.vu.fortyfive.ui.about.AboutActivity
 import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
+import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesAdapter
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -107,10 +108,12 @@ class MainActivity : AppCompatActivity() {
             MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT -> {
                 mMenu.findItem(R.id.mi_main_save_certificate).isVisible = false
                 mMenu.findItem(R.id.mi_main_clear_values).isVisible = false
-                mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = true
+                mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = SavedCertificatesAdapter.isItemSelected
             }
         }
     }
+
+    fun getMainViewModel() = mMainViewModel
 
     private fun createOnPageListener(): ViewPager.OnPageChangeListener {
         return object : ViewPager.OnPageChangeListener {
@@ -127,8 +130,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    fun getMainViewModel() = mMainViewModel
 
     private fun isResultViewOpen() = vp_main.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT && CalculationFragment.isResultViewOpen
 

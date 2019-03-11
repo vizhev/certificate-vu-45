@@ -13,16 +13,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.ui.main.MainActivity
+import org.vizhev.certificate.vu.fortyfive.ui.main.MainPagerAdapter
 
 class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.ViewHolder>() {
 
     private val mContentList = mutableListOf<CertificateContent>()
     private val mSelectedItemsMap = ArrayMap<Int, Long>()
-    private lateinit var mLinearLayoutManager: LinearLayoutManager
-    private var mBackgroundColor: Int = Color.WHITE
     private var mSelectedColor: Int = Color.RED
-    private var mPreviousExpandedPosition = -1
-    private var mExpandedPosition = -1
+    private var mBackgroundColor: Int = Color.WHITE
+    private var mExpandedPosition: Int = -1
+    private var mPreviousExpandedPosition: Int = -1
+    private lateinit var mLinearLayoutManager: LinearLayoutManager
+    private lateinit var mMainActivity: MainActivity
+
+    companion object {
+        var isItemSelected: Boolean = false
+    }
 
     fun setContent(contentList: List<CertificateContent>) {
         mContentList.clear()
@@ -35,6 +42,10 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
     fun setItem(certificateContent: CertificateContent) {
         mContentList.add(0, certificateContent)
         notifyDataSetChanged()
+    }
+
+    fun setActivity(activity: MainActivity) {
+        mMainActivity = activity
     }
 
     fun setLayoutManager(linearLayoutManager: LinearLayoutManager) {
@@ -117,7 +128,7 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
         holder.clItemBody.visibility = if (isExpanded) View.VISIBLE else View.GONE
         holder.llItemTitle.text = StringBuilder()
                 .append(certificateContent.date)
-                .append(" ")
+                .append("  ")
                 .append(certificateContent.issueTime)
                 .toString()
         holder.cvItem.setOnClickListener {
@@ -139,6 +150,8 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
                 true -> mSelectedItemsMap.remove(position)
                 false -> mSelectedItemsMap[position] = certificateContent.id
             }
+            isItemSelected = mSelectedItemsMap.isNotEmpty()
+            mMainActivity.showMenuAction(MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT)
             Log.d("Adapter", "selected items size = ${mSelectedItemsMap.size}")
             notifyItemChanged(position)
             true

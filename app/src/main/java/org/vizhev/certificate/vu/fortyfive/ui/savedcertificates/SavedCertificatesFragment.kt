@@ -31,6 +31,7 @@ class SavedCertificatesFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         val adapter = mMainViewModel.getSavedCertificatesAdapter()
         if (adapter.itemCount == 0) {
+            adapter.setActivity(activity as MainActivity)
             adapter.setLayoutManager(layoutManager)
             adapter.setColors(
                     resources.getColor(R.color.colorBackgroundLight),
