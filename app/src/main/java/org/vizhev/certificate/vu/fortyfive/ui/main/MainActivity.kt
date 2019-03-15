@@ -69,9 +69,9 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         mSaveCertificateAction = menu!!.findItem(R.id.mi_main_save_certificate)
-        mSaveCertificateAction.isVisible = MainViewModel.UiState.isSaveActionVisible
+        mSaveCertificateAction.isVisible = MainUiState.isSaveActionVisible
         mDeleteCertificatesAction = menu.findItem(R.id.mi_main_delete_saved_item)
-        mDeleteCertificatesAction.isVisible = MainViewModel.UiState.isDeleteActionVisible
+        mDeleteCertificatesAction.isVisible = MainUiState.isDeleteActionVisible
         return true
     }
 
@@ -100,22 +100,22 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
 
     override fun showDeleteAction() {
         mDeleteCertificatesAction.isVisible = true
-        MainViewModel.UiState.isDeleteActionVisible = true
+        MainUiState.isDeleteActionVisible = true
     }
 
     override fun hideDeleteAction() {
         mDeleteCertificatesAction.isVisible = false
-        MainViewModel.UiState.isDeleteActionVisible = false
+        MainUiState.isDeleteActionVisible = false
     }
 
     private fun showSavedAction() {
         mSaveCertificateAction.isVisible = true
-        MainViewModel.UiState.isSaveActionVisible = true
+        MainUiState.isSaveActionVisible = true
     }
 
     private fun hideSavedAction() {
         mSaveCertificateAction.isVisible = false
-        MainViewModel.UiState.isSaveActionVisible = false
+        MainUiState.isSaveActionVisible = false
     }
 
     private fun showFab() {
@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
         mFab.visibility = View.VISIBLE
         mFab.isActivated = true
         mFab.startAnimation(showAnimation)
-        MainViewModel.UiState.isFabVisible = true
+        MainUiState.isFabVisible = true
     }
 
     private fun hideFab() {
@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
         mFab.startAnimation(hideAnimation)
         mFab.isActivated = false
         mFab.visibility = View.GONE
-        MainViewModel.UiState.isFabVisible = false
+        MainUiState.isFabVisible = false
     }
 
     private fun hideKeyboard() {
@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
 
     private fun isCalculationFragmentWithResult(): Boolean {
         return mViewPager.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT &&
-                MainViewModel.UiState.isResultViewOpen
+                MainUiState.isResultViewOpen
     }
 
     private fun isSavedCertificatesFragment(): Boolean {
@@ -154,7 +154,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
                 val fragment = supportFragmentManager.fragments.first()
                 val isResultCalculate = (fragment as CalculationFragment).calculateResult()
                 if (isResultCalculate) {
-                    MainViewModel.UiState.isResultViewOpen = true
+                    MainUiState.isResultViewOpen = true
                     hideKeyboard()
                     hideFab()
                     showSavedAction()
@@ -176,23 +176,23 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
             override fun onPageSelected(position: Int) {
                 when (position) {
                     MainPagerAdapter.CALCULATION_FRAGMENT -> {
-                        if (MainViewModel.UiState.isSavedItemSelected) {
+                        if (MainUiState.isSavedItemSelected) {
                             hideDeleteAction()
                         }
-                        if (MainViewModel.UiState.isResultViewOpen) {
+                        if (MainUiState.isResultViewOpen) {
                             showSavedAction()
                         } else {
                             showFab()
                         }
                     }
                     MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT -> {
-                        if (MainViewModel.UiState.isFabVisible) {
+                        if (MainUiState.isFabVisible) {
                             hideFab()
                         }
-                        if (MainViewModel.UiState.isSaveActionVisible) {
+                        if (MainUiState.isSaveActionVisible) {
                             hideSavedAction()
                         }
-                        if (MainViewModel.UiState.isSavedItemSelected && !MainViewModel.UiState.isDeleteActionVisible) {
+                        if (MainUiState.isSavedItemSelected && !MainUiState.isDeleteActionVisible) {
                             showDeleteAction()
                         }
                     }
@@ -219,7 +219,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
             bringToFront()
             setOnClickListener(createOnClickListener())
         }
-        when (MainViewModel.UiState.isFabVisible) {
+        when (MainUiState.isFabVisible) {
             true -> mFab.visibility = View.VISIBLE
             false -> mFab.visibility = View.GONE
         }

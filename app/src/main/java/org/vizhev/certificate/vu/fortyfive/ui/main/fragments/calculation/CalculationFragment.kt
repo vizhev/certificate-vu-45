@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.item_set_data_params.*
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainActivity
+import org.vizhev.certificate.vu.fortyfive.ui.main.MainUiState
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 
 class CalculationFragment : Fragment() {
@@ -42,7 +43,7 @@ class CalculationFragment : Fragment() {
     }
 
     fun onBackPressed() {
-        MainViewModel.UiState.isResultViewOpen = false
+        MainUiState.isResultViewOpen = false
         setViewsVisibility()
     }
 
@@ -134,7 +135,7 @@ class CalculationFragment : Fragment() {
     }
 
     private fun setViewsVisibility() {
-        when (MainViewModel.UiState.isResultViewOpen) {
+        when (MainUiState.isResultViewOpen) {
             true -> {
                 cv_set_data_general.visibility = View.GONE
                 cv_set_data_params.visibility = View.GONE
@@ -147,8 +148,6 @@ class CalculationFragment : Fragment() {
                 cv_result.visibility = View.GONE
             }
         }
-        // two same line it is not bug, it is feature
-        //sv_calculation.smoothScrollTo(0, 0)
-        sv_calculation.smoothScrollTo(0, 0)
+        sv_calculation.postDelayed({sv_calculation.smoothScrollTo(0, 0)}, 10)
     }
 }

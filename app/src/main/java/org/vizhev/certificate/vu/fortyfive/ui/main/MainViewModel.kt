@@ -62,15 +62,4 @@ class MainViewModel(private val mDataProvider: DataProvider) : ViewModel() {
     private fun getDate(): String {
         return SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Date())
     }
-
-    abstract class UiState {
-
-        companion object {
-            var isSaveActionVisible: Boolean = false
-            var isDeleteActionVisible: Boolean = false
-            var isSavedItemSelected: Boolean = false
-            var isFabVisible: Boolean = true
-            var isResultViewOpen: Boolean = false
-        }
-    }
 }

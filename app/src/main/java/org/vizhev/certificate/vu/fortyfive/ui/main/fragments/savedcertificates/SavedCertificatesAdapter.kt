@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.ui.main.MainUiState
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 
 class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.ViewHolder>() {
@@ -164,7 +165,7 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
                 false -> mSelectedItemsMap[position] = certificateContent.id
             }
             val isItemSelected = !mSelectedItemsMap.isEmpty
-            MainViewModel.UiState.isSavedItemSelected = isItemSelected
+            MainUiState.isSavedItemSelected = isItemSelected
             if (mOnSelectItemsListener != null) {
                 when (isItemSelected) {
                     true -> mOnSelectItemsListener!!.showDeleteAction()
