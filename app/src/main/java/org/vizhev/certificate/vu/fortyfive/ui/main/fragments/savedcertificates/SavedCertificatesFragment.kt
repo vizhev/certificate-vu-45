@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_saved_certificates.*
+import androidx.recyclerview.widget.RecyclerView
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainActivity
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 
 class SavedCertificatesFragment : Fragment() {
+
+    private lateinit var mRvSavedCertificates: RecyclerView
 
     private lateinit var mMainViewModel: MainViewModel
 
@@ -22,7 +24,9 @@ class SavedCertificatesFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_saved_certificates, container, false)
+        val view = inflater.inflate(R.layout.fragment_saved_certificates, container, false)
+        mRvSavedCertificates = view.findViewById(R.id.rv_saved_certificates)
+        return view
     }
 
     @Suppress("DEPRECATION")
@@ -37,7 +41,7 @@ class SavedCertificatesFragment : Fragment() {
                 resources.getColor(R.color.colorSelectedItem)
         )
         mMainViewModel.loadSavedCertificates()
-        rv_saved_certificates.apply{
+        mRvSavedCertificates.apply{
             this.layoutManager = layoutManager
             this.adapter = adapter
         }
