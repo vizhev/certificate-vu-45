@@ -15,7 +15,6 @@ import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 class SavedCertificatesFragment : Fragment() {
 
     private lateinit var mRvSavedCertificates: RecyclerView
-
     private lateinit var mMainViewModel: MainViewModel
 
     override fun onAttach(context: Context) {
@@ -35,7 +34,6 @@ class SavedCertificatesFragment : Fragment() {
         val adapter = mMainViewModel.getSavedCertificatesAdapter()
         val layoutManager = LinearLayoutManager(context)
         adapter.setLayoutManager(layoutManager)
-        adapter.setOnSelectItemsListener(activity as MainActivity)
         adapter.setColors(
                 resources.getColor(R.color.colorBackgroundLight),
                 resources.getColor(R.color.colorSelectedItem)

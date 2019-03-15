@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_set_data_params"
     android:layout_width="match_parent"
@@ -69,7 +70,8 @@
                         android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/params_type_loaded" />
+                        android:text="@string/params_type_loaded"
+                        app:buttonTint="@color/colorInputDataText" />
 
                     <RadioButton
                         android:id="@+id/rb_params_empty"
@@ -79,7 +81,8 @@
                         android:layout_marginLeft="@dimen/item_set_data_axes_margin_start"
                         android:ellipsize="end"
                         android:maxLines="1"
-                        android:text="@string/params_type_empty" />
+                        android:text="@string/params_type_empty"
+                        app:buttonTint="@color/colorInputDataText" />
 
                 </RadioGroup>
 
@@ -160,7 +163,7 @@
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp"
                 android:paddingRight="16dp"
-                android:text="Колличество осей:"
+                android:text="@string/params_number_of_axles"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="17sp" />
 
@@ -219,7 +222,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:padding="4dp"
                     android:textColor="@color/colorInputDataText"
@@ -282,7 +285,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:padding="4dp"
                     android:textColor="@color/colorInputDataText"
@@ -345,7 +348,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:padding="4dp"
                     android:textColor="@color/colorInputDataText"
@@ -408,7 +411,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:padding="4dp"
                     android:textColor="@color/colorInputDataText"
@@ -471,7 +474,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:padding="4dp"
                     android:textColor="@color/colorInputDataText"
@@ -534,7 +537,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:imeOptions="flagNoExtractUi"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:maxLength="4"
                     android:padding="4dp"
                     android:textColor="@color/colorInputDataText"

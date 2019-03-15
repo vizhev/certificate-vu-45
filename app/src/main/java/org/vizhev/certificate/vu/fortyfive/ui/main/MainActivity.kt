@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
                 .of(this, mViewModelFactory)
                 .get(MainViewModel::class.java)
         super.onCreate(savedInstanceState)
+        mMainViewModel.getSavedCertificatesAdapter().setOnSelectItemsListener(this)
         setContentView(R.layout.activity_main)
         initViews()
     }
@@ -176,7 +177,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
             override fun onPageSelected(position: Int) {
                 when (position) {
                     MainPagerAdapter.CALCULATION_FRAGMENT -> {
-                        if (MainUiState.isSavedItemSelected) {
+                        if (MainUiState.isDeleteActionVisible) {
                             hideDeleteAction()
                         }
                         if (MainUiState.isResultViewOpen) {
@@ -203,7 +204,6 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
 
     private fun initViews() {
         mToolbar = findViewById(R.id.tb_main)
-        mToolbar.inflateMenu(R.menu.main_menu)
         setSupportActionBar(mToolbar)
         mViewPager = findViewById(R.id.vp_main)
         mViewPager.apply {

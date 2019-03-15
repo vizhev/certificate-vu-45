@@ -35,8 +35,12 @@
 
     <View
         android:id="@+id/divider_station_stamp"
-        android:layout_width="45dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="?android:attr/colorForeground"
         app:layout_constraintEnd_toEndOf="@+id/tv_result_station_stamp"
         app:layout_constraintStart_toStartOf="@+id/tv_result_station_stamp"
@@ -69,8 +73,12 @@
 
     <View
         android:id="@+id/divider_result_time"
-        android:layout_width="45dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="?android:attr/colorForeground"
         app:layout_constraintEnd_toEndOf="@+id/tv_result_issue_time"
         app:layout_constraintStart_toStartOf="@+id/tv_result_issue_time"
@@ -370,7 +378,7 @@
         android:background="@drawable/ic_background_rectangle"
         android:gravity="center"
         android:padding="2dp"
-        android:text="@string/result_number_of_axes"
+        android:text="@string/result_number_of_axles"
         android:textColor="?android:textColorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/tv_result_brake_pressure"
         app:layout_constraintStart_toEndOf="@+id/tv_result_brake_pressure"

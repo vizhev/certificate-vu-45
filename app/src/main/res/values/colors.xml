@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#00796B</color>
     <color name="colorPrimaryDark">#00695C</color>
-    <color name="colorAccent">#1976D2</color>
+    <color name="colorAccent">#F57C00</color>
+    <color name="colorElements">#F57C00</color>
     <color name="colorBackgroundEditText">#DAE1E7</color>
     <color name="colorInputDataText">#304FFE</color>
     <color name="colorBackgroundLight">#FFFAFAFA</color>
