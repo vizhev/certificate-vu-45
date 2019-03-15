@@ -17,5 +17,7 @@ class App : Application() {
             .build()
     }
 
-    fun getApplicationComponent(): ApplicationComponent = applicationComponent
+    fun getApplicationComponent(): ApplicationComponent {
+        return  applicationComponent
+    }
 }

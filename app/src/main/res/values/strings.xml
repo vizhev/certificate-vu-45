@@ -5,6 +5,9 @@
     <!--MainActivity-->
     <string name="activity_main_toast_certificate_saved">Сохранено</string>
     <string name="activity_main_toast_certificate_not_saved">Эта справка уже сохранена</string>
+    <string name="activity_main_toast_select_type">Выбирете тип поезда</string>
+    <string name="activity_main_toast_enter_weight">Введите вес поезда</string>
+    <string name="activity_main_toast_enter_slope_factor">Введите коэффициент уклона</string>
 
     <!--MainMenu-->
     <string name="menu_main_clear">Очистить значения</string>
@@ -14,7 +17,7 @@
     <string name="menu_main_about">О приложении</string>
 
     <!--CalculationFragment-->
-    <string name="calculation_fragment_title">Ввод данных</string>
+    <string name="calculation_fragment_title">Новая</string>
     <string name="calculation_fragment_btn_calculate">Расчитать</string>
 
     <!--item_set_data_general-->
@@ -56,7 +59,7 @@
     <string name="tail_wagon_number">Хвостовой вагон №</string>
 
     <!--SavedCertificatesFragment-->
-    <string name="saved_certificates_fragment_title">Сохранённые справки</string>
+    <string name="saved_certificates_fragment_title">Сохранённые</string>
 
 
     <!--DO NOT TRANSLATE-->

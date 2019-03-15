@@ -10,11 +10,11 @@
             android:title="@string/menu_main_save"
             app:showAsAction="ifRoom" />
 
-        <item
+        <!--<item
             android:id="@+id/mi_main_clear_values"
             android:icon="@drawable/ic_item_clear"
             android:title="@string/menu_main_clear"
-            app:showAsAction="ifRoom" />
+            app:showAsAction="ifRoom" />-->
 
         <item
             android:id="@+id/mi_main_delete_saved_item"

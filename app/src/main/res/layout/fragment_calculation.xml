@@ -5,9 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context=".ui.main.MainActivity">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/sv_calculation"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -28,7 +29,7 @@
 
             <include layout="@layout/item_result" />
 
-            <Button
+            <!--<Button
                 android:id="@+id/btn_main_calculate"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
@@ -42,10 +43,10 @@
                 android:layout_marginBottom="24dp"
                 android:background="@color/colorAccent"
                 android:text="@string/calculation_fragment_btn_calculate"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white" />-->
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

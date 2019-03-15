@@ -6,9 +6,9 @@
         android:width="1dp"
         android:color="#030303"/>
     <!--<corners android:radius="5dp" />-->
-    <!--<gradient
-        android:startColor="#C8C8C8"
-        android:endColor="#FFFFFF"
-        android:type="linear"
-        android:angle="270"/>-->
+    <gradient
+        android:startColor="@android:color/transparent"
+        android:endColor="@android:color/transparent"
+        android:type="sweep"
+        android:angle="270"/>
 </shape>

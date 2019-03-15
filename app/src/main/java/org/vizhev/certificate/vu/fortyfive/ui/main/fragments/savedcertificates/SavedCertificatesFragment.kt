@@ -1,4 +1,4 @@
-package org.vizhev.certificate.vu.fortyfive.ui.savedcertificates
+package org.vizhev.certificate.vu.fortyfive.ui.main.fragments.savedcertificates
 
 import android.content.Context
 import android.os.Bundle
@@ -28,17 +28,15 @@ class SavedCertificatesFragment : Fragment() {
     @Suppress("DEPRECATION")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val layoutManager = LinearLayoutManager(context)
         val adapter = mMainViewModel.getSavedCertificatesAdapter()
-        if (adapter.itemCount == 0) {
-            adapter.setActivity(activity as MainActivity)
-            adapter.setLayoutManager(layoutManager)
-            adapter.setColors(
-                    resources.getColor(R.color.colorBackgroundLight),
-                    resources.getColor(R.color.colorSelectedItem)
-            )
-            mMainViewModel.loadSavedCertificates()
-        }
+        val layoutManager = LinearLayoutManager(context)
+        adapter.setLayoutManager(layoutManager)
+        adapter.setOnSelectItemsListener(activity as MainActivity)
+        adapter.setColors(
+                resources.getColor(R.color.colorBackgroundLight),
+                resources.getColor(R.color.colorSelectedItem)
+        )
+        mMainViewModel.loadSavedCertificates()
         rv_saved_certificates.apply{
             this.layoutManager = layoutManager
             this.adapter = adapter

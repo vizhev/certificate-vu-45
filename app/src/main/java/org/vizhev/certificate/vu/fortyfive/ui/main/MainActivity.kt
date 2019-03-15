@@ -1,28 +1,38 @@
 package org.vizhev.certificate.vu.fortyfive.ui.main
 
+import android.app.Service
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.WindowManager
-import android.widget.Toast
+import android.view.View
+import android.view.animation.AnimationUtils
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager.widget.ViewPager
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
 import org.vizhev.certificate.vu.fortyfive.App
 import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.di.components.DaggerActivityComponent
 import org.vizhev.certificate.vu.fortyfive.di.modules.ActivityModule
 import org.vizhev.certificate.vu.fortyfive.ui.ViewModelFactory
 import org.vizhev.certificate.vu.fortyfive.ui.about.AboutActivity
-import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
-import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesAdapter
+import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.calculation.CalculationFragment
+import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.savedcertificates.SavedCertificatesAdapter
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItemsListener {
 
-    private lateinit var mMenu: Menu
+    private lateinit var mSaveCertificateAction: MenuItem
+    private lateinit var mDeleteCertificatesAction: MenuItem
+    private lateinit var mToolbar: Toolbar
+    private lateinit var mViewPager: ViewPager
+    private lateinit var mTabLayout: TabLayout
+    private lateinit var mFab: FloatingActionButton
 
     @Inject
     lateinit var mViewModelFactory: ViewModelFactory
@@ -35,32 +45,25 @@ class MainActivity : AppCompatActivity() {
                 .build()
                 .inject(this)
         mMainViewModel = ViewModelProviders
-            .of(this, mViewModelFactory)
-            .get(MainViewModel::class.java)
+                .of(this, mViewModelFactory)
+                .get(MainViewModel::class.java)
+        if (savedInstanceState == null) {
+            MainViewModel.UiState.isFabVisible = true
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        this.window.setSoftInputMode(
-            WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
-        )
-        setSupportActionBar(toolbar)
-        vp_main.apply {
-            adapter = MainPagerAdapter(context, supportFragmentManager)
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        vp_main.addOnPageChangeListener(createOnPageListener())
+        initViews()
     }
 
     override fun onBackPressed() {
         if (isSavedCertificatesFragment()) {
-            vp_main.currentItem = MainPagerAdapter.CALCULATION_FRAGMENT
+            mViewPager.currentItem = MainPagerAdapter.CALCULATION_FRAGMENT
             return
         }
-        if (isResultViewOpen()) {
-            (supportFragmentManager.fragments[0] as CalculationFragment).onBackPressed()
-            showMenuAction(vp_main.currentItem)
+        if (isCalculationFragmentWithResult()) {
+            (supportFragmentManager.fragments.first() as CalculationFragment).onBackPressed()
+            hideSavedAction()
+            showFab()
             return
         }
         super.onBackPressed()
@@ -68,21 +71,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-        mMenu = menu!!
-        showMenuAction(vp_main.currentItem)
+        mSaveCertificateAction = menu!!.findItem(R.id.mi_main_save_certificate)
+        mSaveCertificateAction.isVisible = MainViewModel.UiState.isSaveActionVisible
+        mDeleteCertificatesAction = menu.findItem(R.id.mi_main_delete_saved_item)
+        mDeleteCertificatesAction.isVisible = MainViewModel.UiState.isDeleteActionVisible
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return when (item!!.itemId) {
-            R.id.mi_main_clear_values -> {
-
-                true
-            }
+        val itemId = item!!.itemId
+        return when (itemId) {
             R.id.mi_main_save_certificate -> {
-                when (mMainViewModel.saveCertificate()) {
-                    true -> Toast.makeText(baseContext, R.string.activity_main_toast_certificate_saved, Toast.LENGTH_SHORT).show()
-                    false -> Toast.makeText(baseContext, R.string.activity_main_toast_certificate_not_saved, Toast.LENGTH_SHORT).show()
+                val isCertificateSaved = mMainViewModel.saveCertificate()
+                when (isCertificateSaved) {
+                    true -> Snackbar.make(mViewPager, R.string.activity_main_toast_certificate_saved, Snackbar.LENGTH_SHORT).show()
+                    false -> Snackbar.make(mViewPager, R.string.activity_main_toast_certificate_not_saved, Snackbar.LENGTH_SHORT).show()
                 }
                 true
             }
@@ -94,26 +97,105 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, AboutActivity::class.java))
                 true
             }
-            else -> false
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    fun showMenuAction(position: Int) {
+    /*fun setViewsVisibility(position: Int) {
         when (position) {
             MainPagerAdapter.CALCULATION_FRAGMENT -> {
-                mMenu.findItem(R.id.mi_main_save_certificate).isVisible = isResultViewOpen()
-                mMenu.findItem(R.id.mi_main_clear_values).isVisible = !isResultViewOpen()
-                mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = false
+                mSaveCertificateAction.isVisible = isCalculationFragmentWithResult()
+                mDeleteCertificatesAction.isVisible = false
+                when (isCalculationFragmentWithResult()) {
+                    true -> {
+                        if (MainViewModel.UiState.isFabVisible) {
+                            hideFab()
+                            MainViewModel.UiState.isFabVisible = false
+                        }
+                        hideKeyboard()
+                    }
+                    false -> {
+                        if (MainViewModel.UiState.isFabVisible) {
+                            showFab()
+                        }
+                    }
+                }
             }
             MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT -> {
-                mMenu.findItem(R.id.mi_main_save_certificate).isVisible = false
-                mMenu.findItem(R.id.mi_main_clear_values).isVisible = false
-                mMenu.findItem(R.id.mi_main_delete_saved_item).isVisible = SavedCertificatesAdapter.isItemSelected
+                mSaveCertificateAction.isVisible = false
+                mDeleteCertificatesAction.isVisible = MainViewModel.UiState.isItemSelected
+                hideKeyboard()
+                if (MainViewModel.UiState.isFabVisible) {
+                    hideFab()
+                }
+            }
+        }
+    }*/
+
+    override fun showDeleteAction() {
+        mDeleteCertificatesAction.isVisible = true
+        MainViewModel.UiState.isDeleteActionVisible = true
+    }
+
+    override fun hideDeleteAction() {
+        mDeleteCertificatesAction.isVisible = false
+        MainViewModel.UiState.isDeleteActionVisible = false
+    }
+
+    fun showSavedAction() {
+        mSaveCertificateAction.isVisible = true
+        MainViewModel.UiState.isSaveActionVisible = true
+    }
+
+    fun hideSavedAction() {
+        mSaveCertificateAction.isVisible = false
+        MainViewModel.UiState.isSaveActionVisible = false
+    }
+
+    private fun showFab() {
+        val showAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_fab_show)
+        mFab.visibility = View.VISIBLE
+        mFab.isActivated = true
+        mFab.startAnimation(showAnimation)
+        MainViewModel.UiState.isFabVisible = true
+    }
+
+    private fun hideFab() {
+        val hideAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_fab_hide)
+        mFab.startAnimation(hideAnimation)
+        mFab.isActivated = false
+        mFab.visibility = View.GONE
+        MainViewModel.UiState.isFabVisible = false
+    }
+
+    private fun hideKeyboard() {
+        val inputMethod = getSystemService(Service.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethod.hideSoftInputFromWindow(mViewPager.windowToken, 0)
+    }
+
+    private fun isCalculationFragmentWithResult(): Boolean {
+        return mViewPager.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT &&
+                MainViewModel.UiState.isResultViewOpen
+    }
+
+    private fun isSavedCertificatesFragment(): Boolean {
+        return mViewPager.currentItem == MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT
+    }
+
+    private fun createOnClickListener(): View.OnClickListener {
+        return View.OnClickListener {
+            if (mViewPager.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT) {
+                val fragment = supportFragmentManager.fragments.first()
+                val isResultCalculate = (fragment as CalculationFragment).calculateResult()
+                if (isResultCalculate) {
+                    MainViewModel.UiState.isResultViewOpen = true
+                    hideKeyboard()
+                    hideFab()
+                    showSavedAction()
+                }
             }
         }
     }
-
-    fun getMainViewModel() = mMainViewModel
 
     private fun createOnPageListener(): ViewPager.OnPageChangeListener {
         return object : ViewPager.OnPageChangeListener {
@@ -126,12 +208,54 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                showMenuAction(vp_main.currentItem)
+                when (position) {
+                    MainPagerAdapter.CALCULATION_FRAGMENT -> {
+                        if (MainViewModel.UiState.isSavedItemSelected) {
+                            hideDeleteAction()
+                        }
+                        if (MainViewModel.UiState.isResultViewOpen) {
+                            showSavedAction()
+                        } else {
+                            showFab()
+                        }
+                    }
+                    MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT -> {
+                        if (MainViewModel.UiState.isFabVisible) {
+                            hideFab()
+                        }
+                        if (MainViewModel.UiState.isSaveActionVisible) {
+                            hideSavedAction()
+                        }
+                        if (MainViewModel.UiState.isSavedItemSelected && !MainViewModel.UiState.isDeleteActionVisible) {
+                            showDeleteAction()
+                        }
+                    }
+                }
             }
         }
     }
 
-    private fun isResultViewOpen() = vp_main.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT && CalculationFragment.isResultViewOpen
-
-    private fun isSavedCertificatesFragment() = vp_main.currentItem == MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT
+    private fun initViews() {
+        mToolbar = findViewById(R.id.tb_main)
+        mToolbar.inflateMenu(R.menu.main_menu)
+        setSupportActionBar(mToolbar)
+        mViewPager = findViewById(R.id.vp_main)
+        mViewPager.apply {
+            adapter = MainPagerAdapter(context, supportFragmentManager)
+            addOnPageChangeListener(createOnPageListener())
+        }
+        mTabLayout = findViewById(R.id.tl_main)
+        mTabLayout.apply {
+            setupWithViewPager(mViewPager)
+        }
+        mFab = findViewById(R.id.fab_main)
+        mFab.apply {
+            bringToFront()
+            setOnClickListener(createOnClickListener())
+        }
+        when (MainViewModel.UiState.isFabVisible) {
+            true -> mFab.visibility = View.VISIBLE
+            false -> mFab.visibility = View.GONE
+        }
+    }
 }

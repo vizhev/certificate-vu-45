@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import org.vizhev.certificate.vu.fortyfive.R
-import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
-import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesFragment
+import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.calculation.CalculationFragment
+import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.savedcertificates.SavedCertificatesFragment
 
 class MainPagerAdapter(private val context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
 
