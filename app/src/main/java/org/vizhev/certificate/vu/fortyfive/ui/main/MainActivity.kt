@@ -47,9 +47,6 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
         mMainViewModel = ViewModelProviders
                 .of(this, mViewModelFactory)
                 .get(MainViewModel::class.java)
-        if (savedInstanceState == null) {
-            MainViewModel.UiState.isFabVisible = true
-        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initViews()
@@ -101,37 +98,6 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
         }
     }
 
-    /*fun setViewsVisibility(position: Int) {
-        when (position) {
-            MainPagerAdapter.CALCULATION_FRAGMENT -> {
-                mSaveCertificateAction.isVisible = isCalculationFragmentWithResult()
-                mDeleteCertificatesAction.isVisible = false
-                when (isCalculationFragmentWithResult()) {
-                    true -> {
-                        if (MainViewModel.UiState.isFabVisible) {
-                            hideFab()
-                            MainViewModel.UiState.isFabVisible = false
-                        }
-                        hideKeyboard()
-                    }
-                    false -> {
-                        if (MainViewModel.UiState.isFabVisible) {
-                            showFab()
-                        }
-                    }
-                }
-            }
-            MainPagerAdapter.SAVED_CERTIFICATES_FRAGMENT -> {
-                mSaveCertificateAction.isVisible = false
-                mDeleteCertificatesAction.isVisible = MainViewModel.UiState.isItemSelected
-                hideKeyboard()
-                if (MainViewModel.UiState.isFabVisible) {
-                    hideFab()
-                }
-            }
-        }
-    }*/
-
     override fun showDeleteAction() {
         mDeleteCertificatesAction.isVisible = true
         MainViewModel.UiState.isDeleteActionVisible = true
@@ -142,12 +108,12 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
         MainViewModel.UiState.isDeleteActionVisible = false
     }
 
-    fun showSavedAction() {
+    private fun showSavedAction() {
         mSaveCertificateAction.isVisible = true
         MainViewModel.UiState.isSaveActionVisible = true
     }
 
-    fun hideSavedAction() {
+    private fun hideSavedAction() {
         mSaveCertificateAction.isVisible = false
         MainViewModel.UiState.isSaveActionVisible = false
     }
