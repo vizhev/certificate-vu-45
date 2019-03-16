@@ -1,8 +1,12 @@
 package org.vizhev.certificate.vu.fortyfive.data.prefs
 
 import android.content.Context
+import android.os.Environment
+import android.util.Log
 import com.ironz.binaryprefs.BinaryPreferencesBuilder
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import java.io.File
+import java.io.IOException
 
 class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
 
@@ -52,13 +56,14 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
             prefCertificatesKeys.edit()
                     .remove(it.toString())
                     .apply()
-            BinaryPreferencesBuilder(mContext)
-                    .name(it.toString())
-                    .registerPersistable(it.toString(), CertificateContent::class.java)
-                    .build()
-                    .edit()
-                    .clear()
-                    .apply()
+            val prefsPath = "${Environment.getDataDirectory().path}/data/${mContext.packageName}/files/preferences/$it"
+            val prefFile = File(prefsPath)
+            try {
+                val isDeleted = prefFile.deleteRecursively()
+                Log.d("PrefsDeleted", isDeleted.toString())
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
     }
 }
