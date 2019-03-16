@@ -45,15 +45,11 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
     }
 
     fun setLayoutManager(linearLayoutManager: LinearLayoutManager) {
-        if (mLinearLayoutManager == null) {
-            mLinearLayoutManager = linearLayoutManager
-        }
+        mLinearLayoutManager = linearLayoutManager
     }
 
     fun setOnSelectItemsListener(onSelectItemsListener: OnSelectItemsListener) {
-        if (mOnSelectItemsListener == null) {
-            mOnSelectItemsListener = onSelectItemsListener
-        }
+        mOnSelectItemsListener = onSelectItemsListener
     }
 
     fun setColors(backgroundColor: Int, selectColor: Int) {
@@ -164,6 +160,7 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
                 false -> mSelectedItemsMap[position] = certificateContent.id
             }
             val isItemSelected = !mSelectedItemsMap.isEmpty
+            Log.d("Adapter", isItemSelected.toString())
             MainUiState.isSavedItemSelected = isItemSelected
             if (mOnSelectItemsListener != null) {
                 when (isItemSelected) {

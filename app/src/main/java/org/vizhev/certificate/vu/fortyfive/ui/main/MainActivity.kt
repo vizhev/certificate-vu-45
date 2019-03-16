@@ -89,6 +89,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
             }
             R.id.mi_main_delete_saved_item -> {
                 mMainViewModel.deleteCertificates()
+                hideDeleteAction()
                 true
             }
             R.id.mi_main_about -> {
