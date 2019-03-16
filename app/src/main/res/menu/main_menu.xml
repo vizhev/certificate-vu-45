@@ -6,7 +6,7 @@
 
         <item
             android:id="@+id/mi_main_save_certificate"
-            android:icon="@drawable/ic_item_saved_cartificate"
+            android:icon="@drawable/ic_item_saved_certificate"
             android:title="@string/menu_main_save"
             app:showAsAction="ifRoom" />
 

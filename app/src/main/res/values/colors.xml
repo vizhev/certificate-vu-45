@@ -6,6 +6,7 @@
     <color name="colorElements">#F57C00</color>
     <color name="colorBackgroundEditText">#DAE1E7</color>
     <color name="colorInputDataText">#304FFE</color>
+    <color name="colorTabLayoutText">#80FFFFFF</color>
     <color name="colorBackgroundLight">#FFFAFAFA</color>
     <color name="colorSelectedItem">#CCD32F2F</color>
 </resources>
