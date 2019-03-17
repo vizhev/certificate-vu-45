@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
             if (mViewPager.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT) {
                 val fragment = supportFragmentManager.fragments.first()
                 val isResultCalculate = (fragment as CalculationFragment).calculateResult()
-                if (isResultCalculate) {
+                if (isResultCalculate && !MainUiState.isResultViewOpen) {
                     MainUiState.isResultViewOpen = true
                     hideKeyboard()
                     hideFab()

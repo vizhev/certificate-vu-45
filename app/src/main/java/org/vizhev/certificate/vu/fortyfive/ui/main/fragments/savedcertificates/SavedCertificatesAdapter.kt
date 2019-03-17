@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.collection.ArrayMap
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +17,7 @@ import org.vizhev.certificate.vu.fortyfive.ui.main.MainUiState
 class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.ViewHolder>() {
 
     private val mContentList = mutableListOf<CertificateContent>()
-    private val mSelectedItemsMap = ArrayMap<Int, Long>()
+    private val mSelectedItemsMap = mutableSetOf<Long>()
     private var mSelectedColor: Int = Color.RED
     private var mBackgroundColor: Int = Color.WHITE
     private var mExpandedPosition: Int = -1
@@ -62,14 +61,14 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
     }
 
     fun getSelectedItems(): Set<Long> {
-        return mSelectedItemsMap.values.toSet()
+        return mSelectedItemsMap
     }
 
     fun removeSelectedItems() {
         mExpandedPosition = -1
         val contentList = mutableListOf<CertificateContent>()
         mContentList.forEach {
-            if (!mSelectedItemsMap.containsValue(it.id)) {
+            if (!mSelectedItemsMap.contains(it.id)) {
                 contentList.add(it)
             } else {
                 notifyItemRemoved(mContentList.indexOf(it))
@@ -148,18 +147,18 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
                 mLinearLayoutManager!!.scrollToPositionWithOffset(position, 0)
             }
         }
-        val backgroundColor = when (mSelectedItemsMap.containsValue(certificateContent.id)) {
+        val backgroundColor = when (mSelectedItemsMap.contains(certificateContent.id)) {
             true -> mSelectedColor
             false -> mBackgroundColor
         }
         holder.cvItem.setCardBackgroundColor(backgroundColor)
         holder.cvItem.setOnLongClickListener {
-            val isPositionSelected = mSelectedItemsMap.containsValue(certificateContent.id)
+            val isPositionSelected = mSelectedItemsMap.contains(certificateContent.id)
             when (isPositionSelected) {
-                true -> mSelectedItemsMap.remove(position)
-                false -> mSelectedItemsMap[position] = certificateContent.id
+                true -> mSelectedItemsMap.remove(certificateContent.id)
+                false -> mSelectedItemsMap.add(certificateContent.id)
             }
-            val isItemSelected = !mSelectedItemsMap.isEmpty
+            val isItemSelected = !mSelectedItemsMap.isEmpty()
             Log.d("Adapter", isItemSelected.toString())
             MainUiState.isSavedItemSelected = isItemSelected
             if (mOnSelectItemsListener != null) {
