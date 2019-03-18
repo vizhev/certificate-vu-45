@@ -1122,7 +1122,7 @@
         app:layout_constraintStart_toEndOf="@+id/tv_result_presence_brake_title" />
 
     <TextView
-        android:id="@+id/tv_result_presence_brake"
+        android:id="@+id/tv_result_hand_brake_axles"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -1154,7 +1154,7 @@
         app:layout_constraintStart_toEndOf="@+id/tv_result_density_brake_title" />
 
     <TextView
-        android:id="@+id/tv_result_density_brake"
+        android:id="@+id/tv_result_brake_network_density"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"

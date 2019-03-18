@@ -15,7 +15,6 @@ data class CertificateContent(
         var isLoaded: Boolean = false,
         var weight: String = "",
         var slopeFactor: String = "",
-        var handsBrakesFact: String = "",
         var axesTwoAndHalf: String = "",
         var axesThreeAndHalf: String = "",
         var axesFive: String = "",
@@ -44,7 +43,9 @@ data class CertificateContent(
         var pressingPadsFifteen: String = "",
         var totalAxes: String = "",
         var pressingPadsRequired: String = "",
-        var handBrakesRequired: String = ""
+        var handBrakesRequired: String = "",
+        var handBrakeAxes: String = "",
+        var brakeNetworkDensity: String = ""
 ) : Persistable {
 
     override fun readExternal(p0: DataInput?) {
@@ -58,7 +59,6 @@ data class CertificateContent(
         isLoaded = p0.readBoolean()
         weight = p0.readString()
         slopeFactor = p0.readString()
-        handsBrakesFact = p0.readString()
         axesTwoAndHalf = p0.readString()
         axesThreeAndHalf = p0.readString()
         axesFive = p0.readString()
@@ -88,6 +88,8 @@ data class CertificateContent(
         totalAxes = p0.readString()
         pressingPadsRequired = p0.readString()
         handBrakesRequired = p0.readString()
+        handBrakeAxes = p0.readString()
+        brakeNetworkDensity =p0.readString()
     }
 
     override fun writeExternal(p0: DataOutput?) {
@@ -101,7 +103,6 @@ data class CertificateContent(
         p0.writeBoolean(isLoaded)
         p0.writeString(weight)
         p0.writeString(slopeFactor)
-        p0.writeString(handsBrakesFact)
         p0.writeString(axesTwoAndHalf)
         p0.writeString(axesThreeAndHalf)
         p0.writeString(axesFive)
@@ -131,6 +132,8 @@ data class CertificateContent(
         p0.writeString(totalAxes)
         p0.writeString(pressingPadsRequired)
         p0.writeString(handBrakesRequired)
+        p0.writeString(handBrakeAxes)
+        p0.writeString(brakeNetworkDensity)
     }
 
     override fun deepClone(): CertificateContent {
@@ -145,7 +148,6 @@ data class CertificateContent(
         certificateContent.isLoaded = isLoaded
         certificateContent.weight = weight
         certificateContent.slopeFactor = slopeFactor
-        certificateContent.handsBrakesFact = handsBrakesFact
         certificateContent.axesTwoAndHalf = axesTwoAndHalf
         certificateContent.axesThreeAndHalf = axesThreeAndHalf
         certificateContent.axesFive = axesFive
@@ -175,6 +177,8 @@ data class CertificateContent(
         certificateContent.totalAxes = totalAxes
         certificateContent.pressingPadsRequired = pressingPadsRequired
         certificateContent.handBrakesRequired = handBrakesRequired
+        certificateContent.handBrakeAxes = handBrakeAxes
+        certificateContent.brakeNetworkDensity = brakeNetworkDensity
         return certificateContent
     }
 }

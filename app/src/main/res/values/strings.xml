@@ -37,6 +37,8 @@
     <string name="params_number_of_axles">Количество осей:</string>
     <string name="params_pressing_pads">Нажатие:</string>
     <string name="params_slop_ratio">Коэфициент уклона:</string>
+    <string name="params_hand_brake_axles">Ручных тормозных осей:</string>
+    <string name="params_brake_network_density">Плотность тормозной сети поезда:</string>
 
     <!--item_result-->
     <string name="title">СПРАВКА О ТОРМОЗАХ</string>

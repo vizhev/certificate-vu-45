@@ -8,6 +8,8 @@ import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 import java.io.File
 import java.io.IOException
 
+private const val LOG_TAG = "PrefsDeletedLog"
+
 class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
 
     companion object {
@@ -60,7 +62,7 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
             val prefFile = File(prefsPath)
             try {
                 val isDeleted = prefFile.deleteRecursively()
-                Log.d("PrefsDeleted", isDeleted.toString())
+                Log.d(LOG_TAG, isDeleted.toString())
             } catch (e: IOException) {
                 e.printStackTrace()
             }

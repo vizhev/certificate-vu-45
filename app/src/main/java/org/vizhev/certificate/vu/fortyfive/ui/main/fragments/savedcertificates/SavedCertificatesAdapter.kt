@@ -14,6 +14,8 @@ import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainUiState
 
+private const val LOG_TAG = "SavedItemsAdapterLog"
+
 class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.ViewHolder>() {
 
     private val mContentList = mutableListOf<CertificateContent>()
@@ -159,7 +161,6 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
                 false -> mSelectedItemsMap.add(certificateContent.id)
             }
             val isItemSelected = !mSelectedItemsMap.isEmpty()
-            Log.d("Adapter", isItemSelected.toString())
             MainUiState.isSavedItemSelected = isItemSelected
             if (mOnSelectItemsListener != null) {
                 when (isItemSelected) {
@@ -168,7 +169,8 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
                 }
             }
             notifyItemChanged(position)
-            Log.d("Adapter", "selected items size = ${mSelectedItemsMap.size}")
+            Log.d(LOG_TAG, "is item selected = $isItemSelected")
+            Log.d(LOG_TAG, "selected items size = ${mSelectedItemsMap.size}")
             true
         }
     }

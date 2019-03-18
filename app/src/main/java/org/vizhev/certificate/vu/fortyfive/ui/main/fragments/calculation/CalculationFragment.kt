@@ -47,6 +47,8 @@ class CalculationFragment : Fragment() {
     private lateinit var mEtParamsAxesNine: EditText
     private lateinit var mEtParamsAxesTen: EditText
     private lateinit var mEtParamsAxesTwelve: EditText
+    private lateinit var mEtParamsHandBrakeAxes: EditText
+    private lateinit var mEtParamsBrakeNetworkDensity: EditText
 
     private lateinit var mTvResultStationStamp: TextView
     private lateinit var mTvResultIssueTime: TextView
@@ -84,6 +86,8 @@ class CalculationFragment : Fragment() {
     private lateinit var mTvResultTotalAxes: TextView
     private lateinit var mTvResultPressingPadsRequired: TextView
     private lateinit var mTvResultHandBrakesRequired: TextView
+    private lateinit var mTvResultHandBrakeAxes: TextView
+    private lateinit var mTvResultBrakeNetworkDensity: TextView
 
     private lateinit var mMainViewModel: MainViewModel
 
@@ -162,6 +166,8 @@ class CalculationFragment : Fragment() {
         certificateContent.axesNine = mEtParamsAxesNine.text.toString()
         certificateContent.axesTen = mEtParamsAxesTen.text.toString()
         certificateContent.axesTwelve = mEtParamsAxesTwelve.text.toString()
+        certificateContent.handBrakeAxes = mEtParamsHandBrakeAxes.text.toString()
+        certificateContent.brakeNetworkDensity = mEtParamsBrakeNetworkDensity.text.toString()
         return certificateContent
     }
 
@@ -203,6 +209,8 @@ class CalculationFragment : Fragment() {
             mTvResultTotalAxes.text = it.totalAxes
             mTvResultPressingPadsRequired.text = it.pressingPadsRequired
             mTvResultHandBrakesRequired.text = it.handBrakesRequired
+            mTvResultHandBrakeAxes.text = it.handBrakeAxes
+            mTvResultBrakeNetworkDensity.text = it.brakeNetworkDensity
         }
     }
 
@@ -255,6 +263,8 @@ class CalculationFragment : Fragment() {
         mEtParamsAxesNine = view.findViewById(R.id.et_axes_nine)
         mEtParamsAxesTen = view.findViewById(R.id.et_axes_ten)
         mEtParamsAxesTwelve = view.findViewById(R.id.et_axes_twelve)
+        mEtParamsHandBrakeAxes = view.findViewById(R.id.et_hand_brake_axles)
+        mEtParamsBrakeNetworkDensity = view.findViewById(R.id.et_brake_network_density)
 
         // item_result
         mCvResult = view.findViewById(R.id.cv_result)
@@ -294,5 +304,7 @@ class CalculationFragment : Fragment() {
         mTvResultTotalAxes = view.findViewById(R.id.tv_result_total_axes)
         mTvResultPressingPadsRequired = view.findViewById(R.id.tv_result_pressing_pads_required)
         mTvResultHandBrakesRequired = view.findViewById(R.id.tv_result_hand_brakes_required)
+        mTvResultHandBrakeAxes = view.findViewById(R.id.tv_result_hand_brake_axles)
+        mTvResultBrakeNetworkDensity = view.findViewById(R.id.tv_result_brake_network_density)
     }
 }
