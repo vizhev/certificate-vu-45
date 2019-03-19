@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
                 .of(this, mViewModelFactory)
                 .get(MainViewModel::class.java)
         super.onCreate(savedInstanceState)
-        mMainViewModel.getSavedCertificatesAdapter().setOnSelectItemsListener(this)
         setContentView(R.layout.activity_main)
+        mMainViewModel.getSavedCertificatesAdapter().setOnSelectItemsListener(this)
         initViews()
     }
 
@@ -154,7 +154,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
         return View.OnClickListener {
             if (mViewPager.currentItem == MainPagerAdapter.CALCULATION_FRAGMENT) {
                 val fragment = supportFragmentManager.fragments.first()
-                val isResultCalculate = (fragment as CalculationFragment).calculateResult()
+                val isResultCalculate: Boolean = (fragment as CalculationFragment).calculateResult()
                 if (isResultCalculate && !MainUiState.isResultViewOpen) {
                     MainUiState.isResultViewOpen = true
                     hideKeyboard()

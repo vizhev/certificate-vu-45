@@ -63,6 +63,16 @@
     <!--SavedCertificatesFragment-->
     <string name="saved_certificates_fragment_title">Сохранённые</string>
 
+    <!--AboutActivity-->
+    <string name="activity_about_message">
+        Справка ВУ-45\
+        \
+        Простое приложение для предварительного расчёта формы ВУ-45 грузовых поездов.\
+        \
+    </string>
+    <string name="activity_about_author_title">Разработчик приложения</string>
+    <string name="activity_about_author_contact">Евгений Вижев | vizhev@gmail.com</string>
+
 
     <!--DO NOT TRANSLATE-->
     <string name="result_two_and_half" translatable="false">2.5</string>
