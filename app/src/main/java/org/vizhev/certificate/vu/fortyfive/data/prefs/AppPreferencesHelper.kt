@@ -2,13 +2,10 @@ package org.vizhev.certificate.vu.fortyfive.data.prefs
 
 import android.content.Context
 import android.os.Environment
-import android.util.Log
 import com.ironz.binaryprefs.BinaryPreferencesBuilder
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 import java.io.File
 import java.io.IOException
-
-private const val LOG_TAG = "PrefsDeletedLog"
 
 class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
 
@@ -61,8 +58,7 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
             val prefsPath = "${Environment.getDataDirectory().path}/data/${mContext.packageName}/files/preferences/$it"
             val prefFile = File(prefsPath)
             try {
-                val isDeleted = prefFile.deleteRecursively()
-                Log.d(LOG_TAG, isDeleted.toString())
+                prefFile.deleteRecursively()
             } catch (e: IOException) {
                 e.printStackTrace()
             }

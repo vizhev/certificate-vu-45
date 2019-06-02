@@ -1,15 +1,10 @@
 package org.vizhev.certificate.vu.fortyfive.data
 
-import org.vizhev.certificate.vu.fortyfive.data.api.Calculator
 import org.vizhev.certificate.vu.fortyfive.data.prefs.PreferencesHelper
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 
-class AppDataProvider(private val mCalculator: Calculator, private val mPreferencesHelper: PreferencesHelper)
-    : DataProvider {
-
-    override fun getCalculator(): Calculator {
-        return mCalculator
-    }
+class GeneralRepository(private val mPreferencesHelper: PreferencesHelper)
+    : Repository {
 
     override fun setSavedCertificate(certificate: CertificateContent) {
         mPreferencesHelper.saveCertificate(certificate)

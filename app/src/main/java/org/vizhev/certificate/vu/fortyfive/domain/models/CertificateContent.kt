@@ -1,4 +1,4 @@
-package org.vizhev.certificate.vu.fortyfive.dataclasses
+package org.vizhev.certificate.vu.fortyfive.domain.models
 
 import com.ironz.binaryprefs.serialization.serializer.persistable.Persistable
 import com.ironz.binaryprefs.serialization.serializer.persistable.io.DataInput

@@ -1,10 +1,7 @@
 package org.vizhev.certificate.vu.fortyfive.data.prefs
 
-import android.content.Context
 import androidx.test.core.app.ApplicationProvider
-import org.junit.Assert.*
 import org.junit.Test
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
 
 class TestPreferencesHelper {
 

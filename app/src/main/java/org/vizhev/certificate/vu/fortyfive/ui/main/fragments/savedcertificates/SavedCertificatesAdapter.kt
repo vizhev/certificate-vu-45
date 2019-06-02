@@ -11,7 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.vizhev.certificate.vu.fortyfive.R
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainUiState
 
 private const val LOG_TAG = "SavedItemsAdapterLog"
@@ -91,134 +91,137 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val certificateContent = mContentList[position]
-        val isExpanded = mExpandedPosition == position
-        if (isExpanded) {
-            mPreviousExpandedPosition = position
-        }
-        holder.tvStationStamp.text = certificateContent.stationStamp
-        holder.tvIssueTime.text = certificateContent.issueTime
-        holder.tvDate.text = certificateContent.date
-        holder.tvLocomotiveSeries.text = certificateContent.locomotiveSeries
-        holder.tvTrainNumber.text = certificateContent.trainNumber
-        holder.tvLastWagonNumber.text = certificateContent.lastWagonNumber
-        holder.tvWeight.text = certificateContent.weight
-        holder.tvAxesTwoAndHalf.text = certificateContent.axesTwoAndHalf
-        holder.tvAxesThreeAndHalf.text = certificateContent.axesThreeAndHalf
-        holder.tvAxesFive.text = certificateContent.axesFive
-        holder.tvAxesSix.text = certificateContent.axesSix
-        holder.tvAxesSixAndHalf.text = certificateContent.axesSixAndHalf
-        holder.tvAxesSeven.text = certificateContent.axesSeven
-        holder.tvAxesSevenAndHalf.text = certificateContent.axesSevenAndHalf
-        holder.tvAxesEight.text = certificateContent.axesEight
-        holder.tvAxesEightAndHalf.text = certificateContent.axesEightAndHalf
-        holder.tvAxesNine.text = certificateContent.axesNine
-        holder.tvAxesTen.text = certificateContent.axesTen
-        holder.tvAxesTwelve.text = certificateContent.axesTwelve
-        holder.tvAxesFifteen.text = certificateContent.axesFifteen
-        holder.tvPressingPadsTwoAndHalf.text = certificateContent.pressingPadsTwoAndHalf
-        holder.tvPressingPadsThreeAndHalf.text = certificateContent.pressingPadsThreeAndHalf
-        holder.tvPressingPadsFive.text = certificateContent.pressingPadsFive
-        holder.tvPressingPadsSix.text = certificateContent.pressingPadsSix
-        holder.tvPressingPadsSixAndHalf.text = certificateContent.pressingPadsSixAndHalf
-        holder.tvPressingPadsSeven.text = certificateContent.pressingPadsSeven
-        holder.tvPressingPadsSevenAndHalf.text = certificateContent.pressingPadsSevenAndHalf
-        holder.tvPressingPadsEight.text = certificateContent.pressingPadsEight
-        holder.tvPressingPadsEightAndHalf.text = certificateContent.pressingPadsEightAndHalf
-        holder.tvPressingPadsNine.text = certificateContent.pressingPadsNine
-        holder.tvPressingPadsTen.text = certificateContent.pressingPadsTen
-        holder.tvPressingPadsTwelve.text = certificateContent.pressingPadsTwelve
-        holder.tvPressingPadsFifteen.text = certificateContent.pressingPadsFifteen
-        holder.tvTotalAxes.text = certificateContent.totalAxes
-        holder.tvPressingPadsRequired.text = certificateContent.pressingPadsRequired
-        holder.tvHandBrakesRequired.text = certificateContent.handBrakesRequired
-        holder.clItemBody.visibility = if (isExpanded) View.VISIBLE else View.GONE
-        holder.llItemTitle.text = StringBuilder()
-                .append(certificateContent.date)
-                .append("  ")
-                .append(certificateContent.issueTime)
-                .toString()
-        holder.cvItem.setOnClickListener {
-            mExpandedPosition = when (isExpanded) {
-                true -> -1
-                false -> position
-            }
-            notifyItemChanged(mPreviousExpandedPosition)
-            notifyItemChanged(position)
-            if (mLinearLayoutManager != null) {
-                mLinearLayoutManager!!.scrollToPositionWithOffset(position, 0)
-            }
-        }
-        val backgroundColor = when (mSelectedItemsMap.contains(certificateContent.id)) {
-            true -> mSelectedColor
-            false -> mBackgroundColor
-        }
-        holder.cvItem.setCardBackgroundColor(backgroundColor)
-        holder.cvItem.setOnLongClickListener {
-            val isPositionSelected = mSelectedItemsMap.contains(certificateContent.id)
-            when (isPositionSelected) {
-                true -> mSelectedItemsMap.remove(certificateContent.id)
-                false -> mSelectedItemsMap.add(certificateContent.id)
-            }
-            val isItemSelected = !mSelectedItemsMap.isEmpty()
-            MainUiState.isSavedItemSelected = isItemSelected
-            if (mOnSelectItemsListener != null) {
-                when (isItemSelected) {
-                    true -> mOnSelectItemsListener!!.showDeleteAction()
-                    false -> mOnSelectItemsListener!!.hideDeleteAction()
-                }
-            }
-            notifyItemChanged(position)
-            Log.d(LOG_TAG, "is item selected = $isItemSelected")
-            Log.d(LOG_TAG, "selected items size = ${mSelectedItemsMap.size}")
-            true
-        }
+        holder.bind(position)
     }
 
     override fun getItemCount(): Int {
         return mContentList.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val tvStationStamp: TextView = itemView.findViewById(R.id.tv_result_station_stamp)
-        val tvIssueTime: TextView = itemView.findViewById(R.id.tv_result_issue_time)
-        val tvDate: TextView = itemView.findViewById(R.id.tv_result_date)
-        val tvLocomotiveSeries: TextView = itemView.findViewById(R.id.tv_result_locomotive_series)
-        val tvTrainNumber: TextView = itemView.findViewById(R.id.tv_result_train_number)
-        val tvLastWagonNumber: TextView = itemView.findViewById(R.id.tv_result_last_wagon_number)
-        val tvWeight: TextView = itemView.findViewById(R.id.tv_result_weight)
-        val tvAxesTwoAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_two_and_half)
-        val tvAxesThreeAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_three_and_half)
-        val tvAxesFive: TextView = itemView.findViewById(R.id.tv_result_axes_five)
-        val tvAxesSix: TextView = itemView.findViewById(R.id.tv_result_axes_six)
-        val tvAxesSixAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_six_and_half)
-        val tvAxesSeven: TextView = itemView.findViewById(R.id.tv_result_axes_seven)
-        val tvAxesSevenAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_seven_and_half)
-        val tvAxesEight: TextView = itemView.findViewById(R.id.tv_result_axes_eight)
-        val tvAxesEightAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_eight_and_half)
-        val tvAxesNine: TextView = itemView.findViewById(R.id.tv_result_axes_nine)
-        val tvAxesTen: TextView = itemView.findViewById(R.id.tv_result_axes_ten)
-        val tvAxesTwelve: TextView = itemView.findViewById(R.id.tv_result_axes_twelve)
-        val tvAxesFifteen: TextView = itemView.findViewById(R.id.tv_result_axes_fifteen)
-        val tvPressingPadsTwoAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_two_and_half)
-        val tvPressingPadsThreeAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_three_and_half)
-        val tvPressingPadsFive: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_five)
-        val tvPressingPadsSix: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_six)
-        val tvPressingPadsSixAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_six_and_half)
-        val tvPressingPadsSeven: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_seven)
-        val tvPressingPadsSevenAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_seven_and_half)
-        val tvPressingPadsEight: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_eight)
-        val tvPressingPadsEightAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_eight_and_half)
-        val tvPressingPadsNine: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_nine)
-        val tvPressingPadsTen: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_ten)
-        val tvPressingPadsTwelve: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_twelve)
-        val tvPressingPadsFifteen: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_fifteen)
-        val tvTotalAxes: TextView = itemView.findViewById(R.id.tv_result_total_axes)
-        val tvPressingPadsRequired: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_required)
-        val tvHandBrakesRequired: TextView = itemView.findViewById(R.id.tv_result_hand_brakes_required)
-        val llItemTitle: TextView = itemView.findViewById(R.id.tv_saved_certificate_item_title)
-        val clItemBody: ConstraintLayout = itemView.findViewById(R.id.cl_saved_certificate_body)
-        val cvItem: CardView = itemView.findViewById(R.id.cv_item_saved_certificate)
+        private val tvStationStamp: TextView = itemView.findViewById(R.id.tv_result_station_stamp)
+        private val tvIssueTime: TextView = itemView.findViewById(R.id.tv_result_issue_time)
+        private val tvDate: TextView = itemView.findViewById(R.id.tv_result_date)
+        private val tvLocomotiveSeries: TextView = itemView.findViewById(R.id.tv_result_locomotive_series)
+        private val tvTrainNumber: TextView = itemView.findViewById(R.id.tv_result_train_number)
+        private val tvLastWagonNumber: TextView = itemView.findViewById(R.id.tv_result_last_wagon_number)
+        private val tvWeight: TextView = itemView.findViewById(R.id.tv_result_weight)
+        private val tvAxesTwoAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_two_and_half)
+        private val tvAxesThreeAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_three_and_half)
+        private val tvAxesFive: TextView = itemView.findViewById(R.id.tv_result_axes_five)
+        private val tvAxesSix: TextView = itemView.findViewById(R.id.tv_result_axes_six)
+        private val tvAxesSixAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_six_and_half)
+        private val tvAxesSeven: TextView = itemView.findViewById(R.id.tv_result_axes_seven)
+        private val tvAxesSevenAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_seven_and_half)
+        private val tvAxesEight: TextView = itemView.findViewById(R.id.tv_result_axes_eight)
+        private val tvAxesEightAndHalf: TextView = itemView.findViewById(R.id.tv_result_axes_eight_and_half)
+        private val tvAxesNine: TextView = itemView.findViewById(R.id.tv_result_axes_nine)
+        private val tvAxesTen: TextView = itemView.findViewById(R.id.tv_result_axes_ten)
+        private val tvAxesTwelve: TextView = itemView.findViewById(R.id.tv_result_axes_twelve)
+        private val tvAxesFifteen: TextView = itemView.findViewById(R.id.tv_result_axes_fifteen)
+        private val tvPressingPadsTwoAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_two_and_half)
+        private val tvPressingPadsThreeAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_three_and_half)
+        private val tvPressingPadsFive: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_five)
+        private val tvPressingPadsSix: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_six)
+        private val tvPressingPadsSixAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_six_and_half)
+        private val tvPressingPadsSeven: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_seven)
+        private val tvPressingPadsSevenAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_seven_and_half)
+        private val tvPressingPadsEight: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_eight)
+        private val tvPressingPadsEightAndHalf: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_eight_and_half)
+        private val tvPressingPadsNine: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_nine)
+        private val tvPressingPadsTen: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_ten)
+        private val tvPressingPadsTwelve: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_twelve)
+        private val tvPressingPadsFifteen: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_fifteen)
+        private val tvTotalAxes: TextView = itemView.findViewById(R.id.tv_result_total_axes)
+        private val tvPressingPadsRequired: TextView = itemView.findViewById(R.id.tv_result_pressing_pads_required)
+        private val tvHandBrakesRequired: TextView = itemView.findViewById(R.id.tv_result_hand_brakes_required)
+        private val llItemTitle: TextView = itemView.findViewById(R.id.tv_saved_certificate_item_title)
+        private val clItemBody: ConstraintLayout = itemView.findViewById(R.id.cl_saved_certificate_body)
+        private val cvItem: CardView = itemView.findViewById(R.id.cv_item_saved_certificate)
+
+        fun bind(position: Int) {
+            val certificateContent = mContentList[position]
+            val isExpanded = mExpandedPosition == position
+            if (isExpanded) {
+                mPreviousExpandedPosition = position
+            }
+            tvStationStamp.text = certificateContent.stationStamp
+            tvIssueTime.text = certificateContent.issueTime
+            tvDate.text = certificateContent.date
+            tvLocomotiveSeries.text = certificateContent.locomotiveSeries
+            tvTrainNumber.text = certificateContent.trainNumber
+            tvLastWagonNumber.text = certificateContent.lastWagonNumber
+            tvWeight.text = certificateContent.weight
+            tvAxesTwoAndHalf.text = certificateContent.axesTwoAndHalf
+            tvAxesThreeAndHalf.text = certificateContent.axesThreeAndHalf
+            tvAxesFive.text = certificateContent.axesFive
+            tvAxesSix.text = certificateContent.axesSix
+            tvAxesSixAndHalf.text = certificateContent.axesSixAndHalf
+            tvAxesSeven.text = certificateContent.axesSeven
+            tvAxesSevenAndHalf.text = certificateContent.axesSevenAndHalf
+            tvAxesEight.text = certificateContent.axesEight
+            tvAxesEightAndHalf.text = certificateContent.axesEightAndHalf
+            tvAxesNine.text = certificateContent.axesNine
+            tvAxesTen.text = certificateContent.axesTen
+            tvAxesTwelve.text = certificateContent.axesTwelve
+            tvAxesFifteen.text = certificateContent.axesFifteen
+            tvPressingPadsTwoAndHalf.text = certificateContent.pressingPadsTwoAndHalf
+            tvPressingPadsThreeAndHalf.text = certificateContent.pressingPadsThreeAndHalf
+            tvPressingPadsFive.text = certificateContent.pressingPadsFive
+            tvPressingPadsSix.text = certificateContent.pressingPadsSix
+            tvPressingPadsSixAndHalf.text = certificateContent.pressingPadsSixAndHalf
+            tvPressingPadsSeven.text = certificateContent.pressingPadsSeven
+            tvPressingPadsSevenAndHalf.text = certificateContent.pressingPadsSevenAndHalf
+            tvPressingPadsEight.text = certificateContent.pressingPadsEight
+            tvPressingPadsEightAndHalf.text = certificateContent.pressingPadsEightAndHalf
+            tvPressingPadsNine.text = certificateContent.pressingPadsNine
+            tvPressingPadsTen.text = certificateContent.pressingPadsTen
+            tvPressingPadsTwelve.text = certificateContent.pressingPadsTwelve
+            tvPressingPadsFifteen.text = certificateContent.pressingPadsFifteen
+            tvTotalAxes.text = certificateContent.totalAxes
+            tvPressingPadsRequired.text = certificateContent.pressingPadsRequired
+            tvHandBrakesRequired.text = certificateContent.handBrakesRequired
+            clItemBody.visibility = if (isExpanded) View.VISIBLE else View.GONE
+            llItemTitle.text = StringBuilder()
+                .append(certificateContent.date)
+                .append("  ")
+                .append(certificateContent.issueTime)
+                .toString()
+            cvItem.setOnClickListener {
+                mExpandedPosition = when (isExpanded) {
+                    true -> -1
+                    false -> position
+                }
+                notifyItemChanged(mPreviousExpandedPosition)
+                notifyItemChanged(position)
+                if (mLinearLayoutManager != null) {
+                    mLinearLayoutManager!!.scrollToPositionWithOffset(position, 0)
+                }
+            }
+            val backgroundColor = when (mSelectedItemsMap.contains(certificateContent.id)) {
+                true -> mSelectedColor
+                false -> mBackgroundColor
+            }
+            cvItem.setCardBackgroundColor(backgroundColor)
+            cvItem.setOnLongClickListener {
+                when (mSelectedItemsMap.contains(certificateContent.id)) {
+                    true -> mSelectedItemsMap.remove(certificateContent.id)
+                    false -> mSelectedItemsMap.add(certificateContent.id)
+                }
+                val isItemSelected = !mSelectedItemsMap.isEmpty()
+                MainUiState.isSavedItemSelected = isItemSelected
+                if (mOnSelectItemsListener != null) {
+                    when (isItemSelected) {
+                        true -> mOnSelectItemsListener!!.showDeleteAction()
+                        false -> mOnSelectItemsListener!!.hideDeleteAction()
+                    }
+                }
+                notifyItemChanged(position)
+                Log.d(LOG_TAG, "is item selected = $isItemSelected")
+                Log.d(LOG_TAG, "selected items size = ${mSelectedItemsMap.size}")
+                true
+            }
+        }
     }
 }

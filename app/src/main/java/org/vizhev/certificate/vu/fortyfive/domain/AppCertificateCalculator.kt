@@ -1,8 +1,8 @@
-package org.vizhev.certificate.vu.fortyfive.data.api
+package org.vizhev.certificate.vu.fortyfive.domain
 
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 
-class AppCalculator : Calculator {
+class AppCertificateCalculator : CertificateCalculator {
 
     private var mWeight: Double = 0.0
     private var mCoefficient: Double = 0.0
@@ -22,7 +22,7 @@ class AppCalculator : Calculator {
     private var mAxesFifteen: Int = 0
     private var mTotalAxes: Int = 0
 
-    override fun calculateResult(certificateContent: CertificateContent): CertificateContent {
+    override fun calculateResult(certificateContent: CertificateContent) {
         initValues(certificateContent)
         certificateContent.pressingPadsTwoAndHalf = getPressingPads(mAxesTwoAndHalf, 2.5)
         certificateContent.pressingPadsThreeAndHalf = getPressingPads(mAxesThreeAndHalf, 3.5)
@@ -40,13 +40,12 @@ class AppCalculator : Calculator {
         certificateContent.totalAxes = mTotalAxes.toString()
         certificateContent.pressingPadsRequired = getPressingPadsRequired()
         certificateContent.handBrakesRequired = getHandBrakesRequired()
-        return certificateContent
     }
 
     private fun getPressingPads(axesCount: Int, coefficient: Double): String {
-        val pressingPads = axesCount * coefficient
+        var pressingPads = axesCount * coefficient
         if (pressingPads - pressingPads.toInt() > 0) {
-            pressingPads + 1
+            pressingPads++
         }
         return when (pressingPads != 0.0) {
             true -> "${pressingPads.toInt()}"
@@ -106,37 +105,35 @@ class AppCalculator : Calculator {
     }
 
     private fun getValidDouble(stringNumber: String): Double {
-        var validDouble = 0.0
-        try {
-            var number = stringNumber
-            if (number.contains(',')) {
-                val validCharArray = CharArray(number.length)
-                for (i in number.indices) {
-                    val c = number[i]
+        return try {
+            if (stringNumber.contains(',')) {
+                val validCharArray = CharArray(stringNumber.length)
+                for (i in stringNumber.indices) {
+                    val c = stringNumber[i]
                     if (c == ',') {
                         validCharArray[i] = '.'
                     } else {
                         validCharArray[i] = c
                     }
                 }
-                number = validCharArray.toString()
+                validCharArray.toString().toDouble()
             }
-            validDouble = number.toDouble()
+            stringNumber.toDouble()
         } catch (e: NumberFormatException) {
             e.printStackTrace()
+            0.0
         } catch (e: NullPointerException) {
             e.printStackTrace()
+            0.0
         }
-        return validDouble
     }
 
     private fun getValidInt(stringNumber: String): Int {
-        var validInt = 0
-        try {
-            validInt = stringNumber.toInt()
+        return try {
+            stringNumber.toInt()
         } catch (e: NumberFormatException) {
             e.printStackTrace()
+            0
         }
-        return validInt
     }
 }

@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import org.vizhev.certificate.vu.fortyfive.R
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainActivity
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainUiState
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel

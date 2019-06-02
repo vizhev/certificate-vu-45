@@ -1,11 +1,8 @@
 package org.vizhev.certificate.vu.fortyfive.data
 
-import org.vizhev.certificate.vu.fortyfive.data.api.Calculator
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 
-interface DataProvider {
-
-    fun getCalculator(): Calculator
+interface Repository {
 
     fun setSavedCertificate(certificate: CertificateContent)
 

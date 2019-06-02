@@ -1,6 +1,6 @@
 package org.vizhev.certificate.vu.fortyfive.data.prefs
 
-import org.vizhev.certificate.vu.fortyfive.dataclasses.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 
 interface PreferencesHelper {
 
