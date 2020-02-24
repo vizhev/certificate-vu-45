@@ -1,4 +1,4 @@
-package org.vizhev.certificate.vu.fortyfive.ui.main.fragments.savedcertificates
+package org.vizhev.certificate.vu.fortyfive.ui.savedcertificates
 
 import android.graphics.Color
 import android.util.Log
@@ -14,8 +14,6 @@ import org.vizhev.certificate.vu.fortyfive.R
 import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainUiState
 
-private const val LOG_TAG = "SavedItemsAdapterLog"
-
 class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.ViewHolder>() {
 
     private val mContentList = mutableListOf<CertificateContent>()
@@ -26,6 +24,10 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
     private var mPreviousExpandedPosition: Int = -1
     private var mLinearLayoutManager: LinearLayoutManager? = null
     private var mOnSelectItemsListener: OnSelectItemsListener? = null
+
+    companion object {
+        private const val LOG_TAG = "SavedItemsAdapterLog"
+    }
 
     interface OnSelectItemsListener {
 
@@ -209,7 +211,7 @@ class SavedCertificatesAdapter : RecyclerView.Adapter<SavedCertificatesAdapter.V
                     true -> mSelectedItemsMap.remove(certificateContent.id)
                     false -> mSelectedItemsMap.add(certificateContent.id)
                 }
-                val isItemSelected = !mSelectedItemsMap.isEmpty()
+                val isItemSelected = mSelectedItemsMap.isNotEmpty()
                 MainUiState.isSavedItemSelected = isItemSelected
                 if (mOnSelectItemsListener != null) {
                     when (isItemSelected) {

@@ -1,4 +1,4 @@
-package org.vizhev.certificate.vu.fortyfive.ui.main.fragments.calculation
+package org.vizhev.certificate.vu.fortyfive.ui.calculation
 
 import android.content.Context
 import android.os.Bundle
@@ -91,19 +91,15 @@ class CalculationFragment : Fragment() {
 
     private lateinit var mMainViewModel: MainViewModel
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        mMainViewModel = (context as MainActivity).mMainViewModel
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_calculation, container, false)
         initViews(view)
         return view
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        mMainViewModel = (context as MainActivity).mMainViewModel
         mMainViewModel.getCertificateData().observe(viewLifecycleOwner, createObserver())
     }
 
@@ -145,31 +141,29 @@ class CalculationFragment : Fragment() {
         return true
     }
 
-    private fun getInputData(): CertificateContent {
-        val certificateContent = CertificateContent()
-        certificateContent.stationStamp = mEtGeneralStationStamp.text.toString()
-        certificateContent.locomotiveSeries = mEtGeneralLocomotiveSeries.text.toString()
-        certificateContent.trainNumber = mEtGeneralTrainNumber.text.toString()
-        certificateContent.lastWagonNumber = mEtGeneralLastWagonNumber.text.toString()
-        certificateContent.isLoaded = mRbLoaded.isChecked
-        certificateContent.weight = mEtParamsWeight.text.toString()
-        certificateContent.slopeFactor = mEtParamsSlopeFactor.text.toString()
-        certificateContent.axesTwoAndHalf = mEtParamsAxesTwoAndHalf.text.toString()
-        certificateContent.axesThreeAndHalf = mEtParamsAxesThreeAndHalf.text.toString()
-        certificateContent.axesFive = mEtParamsAxesFive.text.toString()
-        certificateContent.axesSix = mEtParamsAxesSix.text.toString()
-        certificateContent.axesSixAndHalf = mEtParamsAxesSixAndHalf.text.toString()
-        certificateContent.axesSeven = mEtParamsAxesSeven.text.toString()
-        certificateContent.axesSevenAndHalf = mEtParamsAxesSevenAndHalf.text.toString()
-        certificateContent.axesEight = mEtParamsAxesEight.text.toString()
-        certificateContent.axesEightAndHalf = mEtParamsAxesEightAndHalf.text.toString()
-        certificateContent.axesNine = mEtParamsAxesNine.text.toString()
-        certificateContent.axesTen = mEtParamsAxesTen.text.toString()
-        certificateContent.axesTwelve = mEtParamsAxesTwelve.text.toString()
-        certificateContent.handBrakeAxes = mEtParamsHandBrakeAxes.text.toString()
-        certificateContent.brakeNetworkDensity = mEtParamsBrakeNetworkDensity.text.toString()
-        return certificateContent
-    }
+    private fun getInputData() = CertificateContent(
+        stationStamp = mEtGeneralStationStamp.text.toString(),
+        locomotiveSeries = mEtGeneralLocomotiveSeries.text.toString(),
+        trainNumber = mEtGeneralTrainNumber.text.toString(),
+        lastWagonNumber = mEtGeneralLastWagonNumber.text.toString(),
+        isLoaded = mRbLoaded.isChecked,
+        weight = mEtParamsWeight.text.toString(),
+        slopeFactor = mEtParamsSlopeFactor.text.toString(),
+        axesTwoAndHalf = mEtParamsAxesTwoAndHalf.text.toString(),
+        axesThreeAndHalf = mEtParamsAxesThreeAndHalf.text.toString(),
+        axesFive = mEtParamsAxesFive.text.toString(),
+        axesSix = mEtParamsAxesSix.text.toString(),
+        axesSixAndHalf = mEtParamsAxesSixAndHalf.text.toString(),
+        axesSeven = mEtParamsAxesSeven.text.toString(),
+        axesSevenAndHalf = mEtParamsAxesSevenAndHalf.text.toString(),
+        axesEight = mEtParamsAxesEight.text.toString(),
+        axesEightAndHalf = mEtParamsAxesEightAndHalf.text.toString(),
+        axesNine = mEtParamsAxesNine.text.toString(),
+        axesTen = mEtParamsAxesTen.text.toString(),
+        axesTwelve = mEtParamsAxesTwelve.text.toString(),
+        handBrakeAxes = mEtParamsHandBrakeAxes.text.toString(),
+        brakeNetworkDensity = mEtParamsBrakeNetworkDensity.text.toString()
+    )
 
     private fun createObserver(): Observer<CertificateContent> {
         return Observer {

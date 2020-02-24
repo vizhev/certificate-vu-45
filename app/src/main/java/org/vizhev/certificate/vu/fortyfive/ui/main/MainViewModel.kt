@@ -3,11 +3,9 @@ package org.vizhev.certificate.vu.fortyfive.ui.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.vizhev.certificate.vu.fortyfive.data.Repository
-import org.vizhev.certificate.vu.fortyfive.domain.CertificateCalculator
-import org.vizhev.certificate.vu.fortyfive.domain.Interactor
 import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
-import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.savedcertificates.SavedCertificatesAdapter
+import org.vizhev.certificate.vu.fortyfive.ui.Interactor
+import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,8 +18,8 @@ class MainViewModel(
 
     fun calculateResult(certificateContent: CertificateContent) {
         interactor.calculateCertificateResult(certificateContent)
-        certificateContent.issueTime = getTime()
-        certificateContent.date = getDate()
+        certificateContent.issueTime = SimpleDateFormat("HH : mm", Locale.getDefault()).format(Date())
+        certificateContent.date = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Date())
         mLiveData.value = certificateContent
     }
 
@@ -57,13 +55,5 @@ class MainViewModel(
 
     fun getSavedCertificatesAdapter(): SavedCertificatesAdapter {
         return mSavedCertificatesAdapter
-    }
-
-    private fun getTime(): String {
-        return SimpleDateFormat("HH : mm", Locale.getDefault()).format(Date())
-    }
-
-    private fun getDate(): String {
-        return SimpleDateFormat("dd.MM.yyyy", Locale.getDefault()).format(Date())
     }
 }

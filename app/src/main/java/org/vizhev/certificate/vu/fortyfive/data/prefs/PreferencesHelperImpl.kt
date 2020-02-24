@@ -3,11 +3,14 @@ package org.vizhev.certificate.vu.fortyfive.data.prefs
 import android.content.Context
 import android.os.Environment
 import com.ironz.binaryprefs.BinaryPreferencesBuilder
+import org.vizhev.certificate.vu.fortyfive.data.prefs.models.CertificateContentPrefModel
 import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
+import org.vizhev.certificate.vu.fortyfive.toToDomainModel
+import org.vizhev.certificate.vu.fortyfive.toToPrefsModel
 import java.io.File
 import java.io.IOException
 
-class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
+class PreferencesHelperImpl(private val mContext: Context) : PreferencesHelper {
 
     companion object {
         private const val PREFS_SAVED_CERTIFICATES_KEYS = "saved_certificates_keys"
@@ -22,15 +25,15 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
                 .apply()
         BinaryPreferencesBuilder(mContext)
                 .name(certificateContent.id.toString())
-                .registerPersistable(certificateContent.id.toString(), CertificateContent::class.java)
+                .registerPersistable(certificateContent.id.toString(), CertificateContentPrefModel::class.java)
                 .build()
                 .edit()
-                .putPersistable(certificateContent.id.toString(), certificateContent)
+                .putPersistable(certificateContent.id.toString(), certificateContent.toToPrefsModel())
                 .apply()
     }
 
     override fun loadCertificates(): List<CertificateContent> {
-        val certificatesContentList: MutableList<CertificateContent> = mutableListOf()
+        val certificatesContentList = mutableListOf<CertificateContent>()
         val prefCertificatesKeys = BinaryPreferencesBuilder(mContext)
                 .name(PREFS_SAVED_CERTIFICATES_KEYS)
                 .allowBuildOnBackgroundThread()
@@ -39,10 +42,10 @@ class AppPreferencesHelper(private val mContext: Context) : PreferencesHelper {
         certificatesKeys.forEach {
             val certificateContent = BinaryPreferencesBuilder(mContext)
                     .name(it.toString())
-                    .registerPersistable(it, CertificateContent::class.java)
+                    .registerPersistable(it, CertificateContentPrefModel::class.java)
                     .build()
-                    .getPersistable(it, CertificateContent())
-            certificatesContentList.add(certificateContent)
+                    .getPersistable(it, CertificateContentPrefModel())
+            certificatesContentList.add(certificateContent.toToDomainModel())
         }
         return certificatesContentList
     }

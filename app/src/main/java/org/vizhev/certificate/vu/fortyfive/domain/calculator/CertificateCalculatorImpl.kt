@@ -1,8 +1,8 @@
-package org.vizhev.certificate.vu.fortyfive.domain
+package org.vizhev.certificate.vu.fortyfive.domain.calculator
 
 import org.vizhev.certificate.vu.fortyfive.domain.models.CertificateContent
 
-class AppCertificateCalculator : CertificateCalculator {
+class CertificateCalculatorImpl : CertificateCalculator {
 
     private var mWeight: Double = 0.0
     private var mCoefficient: Double = 0.0

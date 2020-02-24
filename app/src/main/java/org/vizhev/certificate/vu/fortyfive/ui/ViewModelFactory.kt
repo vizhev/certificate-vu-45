@@ -2,7 +2,6 @@ package org.vizhev.certificate.vu.fortyfive.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import org.vizhev.certificate.vu.fortyfive.domain.Interactor
 import org.vizhev.certificate.vu.fortyfive.ui.main.MainViewModel
 
 class ViewModelFactory(

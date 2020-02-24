@@ -10,7 +10,7 @@ import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -21,8 +21,8 @@ import org.vizhev.certificate.vu.fortyfive.di.components.DaggerActivityComponent
 import org.vizhev.certificate.vu.fortyfive.di.modules.ActivityModule
 import org.vizhev.certificate.vu.fortyfive.ui.ViewModelFactory
 import org.vizhev.certificate.vu.fortyfive.ui.about.AboutActivity
-import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.calculation.CalculationFragment
-import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.savedcertificates.SavedCertificatesAdapter
+import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
+import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesAdapter
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItemsListener {
@@ -44,9 +44,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
                 .activityModule(ActivityModule())
                 .build()
                 .inject(this)
-        mMainViewModel = ViewModelProviders
-                .of(this, mViewModelFactory)
-                .get(MainViewModel::class.java)
+        mMainViewModel = ViewModelProvider(this, mViewModelFactory).get(MainViewModel::class.java)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mMainViewModel.getSavedCertificatesAdapter().setOnSelectItemsListener(this)
@@ -77,27 +75,28 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val itemId = item!!.itemId
-        return when (itemId) {
-            R.id.mi_main_save_certificate -> {
-                val isCertificateSaved = mMainViewModel.saveCertificate()
-                when (isCertificateSaved) {
-                    true -> Snackbar.make(mViewPager, R.string.activity_main_toast_certificate_saved, Snackbar.LENGTH_SHORT).show()
-                    false -> Snackbar.make(mViewPager, R.string.activity_main_toast_certificate_not_saved, Snackbar.LENGTH_SHORT).show()
+        item?.let {
+            return when (it.itemId) {
+                R.id.mi_main_save_certificate -> {
+                    when (mMainViewModel.saveCertificate()) {
+                        true -> Snackbar.make(mViewPager, R.string.activity_main_toast_certificate_saved, Snackbar.LENGTH_SHORT).show()
+                        false -> Snackbar.make(mViewPager, R.string.activity_main_toast_certificate_not_saved, Snackbar.LENGTH_SHORT).show()
+                    }
+                    true
                 }
-                true
+                R.id.mi_main_delete_saved_item -> {
+                    mMainViewModel.deleteCertificates()
+                    hideDeleteAction()
+                    true
+                }
+                R.id.mi_main_about -> {
+                    startActivity(Intent(this, AboutActivity::class.java))
+                    true
+                }
+                else -> false
             }
-            R.id.mi_main_delete_saved_item -> {
-                mMainViewModel.deleteCertificates()
-                hideDeleteAction()
-                true
-            }
-            R.id.mi_main_about -> {
-                startActivity(Intent(this, AboutActivity::class.java))
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun showDeleteAction() {
@@ -212,9 +211,7 @@ class MainActivity : AppCompatActivity(), SavedCertificatesAdapter.OnSelectItems
             addOnPageChangeListener(createOnPageListener())
         }
         mTabLayout = findViewById(R.id.tl_main)
-        mTabLayout.apply {
-            setupWithViewPager(mViewPager)
-        }
+        mTabLayout.setupWithViewPager(mViewPager)
         mFab = findViewById(R.id.fab_main)
         mFab.apply {
             bringToFront()

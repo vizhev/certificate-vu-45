@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import org.vizhev.certificate.vu.fortyfive.R
-import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.calculation.CalculationFragment
-import org.vizhev.certificate.vu.fortyfive.ui.main.fragments.savedcertificates.SavedCertificatesFragment
+import org.vizhev.certificate.vu.fortyfive.ui.calculation.CalculationFragment
+import org.vizhev.certificate.vu.fortyfive.ui.savedcertificates.SavedCertificatesFragment
 
-class MainPagerAdapter(private val context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class MainPagerAdapter(
+    private val context: Context, fragmentManager: FragmentManager
+) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     companion object {
         const val CALCULATION_FRAGMENT = 0
@@ -28,9 +30,8 @@ class MainPagerAdapter(private val context: Context, fragmentManager: FragmentMa
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
-            1 -> context.resources.getString(R.string.saved_certificates_fragment_title)
-            else -> context.resources.getString(R.string.calculation_fragment_title)
-
+            1 -> context.getString(R.string.saved_certificates_fragment_title)
+            else -> context.getString(R.string.calculation_fragment_title)
         }
     }
 }
